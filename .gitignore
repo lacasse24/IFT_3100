@@ -1,0 +1,8 @@
+/obj/Win32/Debug
+Debug
+/bin/*.exe
+/bin/*.exp
+/bin/*.ilk
+/bin/*.lib
+/bin/*.pdb
+.vs
