@@ -3,6 +3,8 @@
 void menugauche::setup()
 {
 	color = ofColor(255, 255, 255, 1);
+	currentImgPath = "";
+
 	// Initialisation des controles du menu
 	gui.setup("Menu de dessin");
 	color_picker_background.set("Couleur du fond", ofColor(31), ofColor(0, 0), ofColor(255, 255));
@@ -17,15 +19,57 @@ void menugauche::setup()
 	group_draw.add(slider_hsb_saturation);
 	group_draw.add(slider_hsb_brightness);
 
+	//Pour la personalisation du personnage
+	menuEquipments.setup("Equipments");
 
+	menuHelm.setup("Helmets");
+	menuHelm.add(btnGladiatorHelm.setup(""));
+	setButton(btnGladiatorHelm, "Gladiator");
+	
+
+	menuSword.setup("Swords");
+	menuSword.add(btnDHSword.setup(""));
+	setButton(btnDHSword, "Sneaky");
+
+
+	menuShield.setup("Shields");
+	menuPlatebody.setup("Platebodies");
+	menuPlatelegs.setup("Platelegs");
+	menuBoots.setup("Boots");
+
+	menuEquipments.add(&menuHelm);
+	menuEquipments.add(&menuSword);
+	menuEquipments.add(&menuShield);
+	menuEquipments.add(&menuPlatebody);
+	menuEquipments.add(&menuPlatelegs);
+	menuEquipments.add(&menuBoots);
+
+	group_draw.minimize();
+	menuEquipments.minimize();
 
 	gui.add(color_picker_background);
 	gui.add(&group_draw);
+	gui.add(&menuEquipments);
 }
 
 void menugauche::draw()
 {
 	gui.draw();
+}
+//, bool & pressed
+void menugauche::btn_Pressed(const void * sender)
+{
+	ofParameter<bool> * v = (ofParameter<bool> *)sender;
+	const string & name = v->getName();
+
+	if (name == "Gladiator")
+		currentImgPath = "helm.jpg";
+	else if (name == "Sneaky")
+		currentImgPath = "Sneaky.png";
+	else
+		currentImgPath = "";
+
+	//currentImgPath = name;
 }
 
 void menugauche::update() 
@@ -39,4 +83,10 @@ void menugauche::update()
 	b = color.b;
 
 	color_picker_background.set(color);
+}
+
+void menugauche::setButton(ofxButton &btn, string name)
+{
+	btn.setName(name);
+	btn.addListener(this, &menugauche::btn_Pressed);
 }

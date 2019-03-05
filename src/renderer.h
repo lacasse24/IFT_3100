@@ -9,20 +9,21 @@ class Renderer
 public:
 
   ofShader shader;
-  ofImage swordImg;
+  ofImage previewImg;
   ofTrueTypeFont font;
   ofLight light;
   ofxAssimpModelLoader caracter;
   ofColor backgroundColor;
 
+  string previewImgName = "",
+	  currentImgName = "";
+
   float center_x;
   float center_y;
-  float hue, saturation, brightness;
-
-  int mousePosX;
-  int mousePosY;
-  int winWidth;
-  int winHeight;
+  
+  int guiHeight, guiWidth;
+  int mousePosX, mousePosY;
+  int winWidth, winHeight;
 
   float scale_caracter;
 
@@ -33,4 +34,6 @@ public:
   void draw();
 
   void updateModelShader(float h, float s, float b);
+
+
 };
