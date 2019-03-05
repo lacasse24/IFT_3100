@@ -1,14 +1,14 @@
-// IFT3100H19_ShaderLambert/renderer.cpp
-// Classe responsable du rendu de l'application.
-
 #include "renderer.h"
 
 void Renderer::setup()
 {
   ofSetFrameRate(60);
   ofSetWindowShape(512, 512);
-  ofSetBackgroundColor(15);
+  ofSetBackgroundColor(220);
   ofSetLogLevel(OF_LOG_VERBOSE);
+
+  font.load("font/quicksand.otf", 18);
+  swordImg.load("Img/sword.png");
 
   // paramètres
   scale_caracter = 1.5f;
@@ -27,6 +27,8 @@ void Renderer::setup()
 
 void Renderer::update()
 {
+ // ofSetBackgroundColor(backgroundColor);
+
   // position au centre de la fenêtre d'affichage
   center_x = ofGetWidth() / 2.0f;
   center_y = ofGetHeight() / 2.0f;
@@ -47,6 +49,9 @@ void Renderer::update()
 
 void Renderer::draw()
 {
+  // couleur d'arrière-plan
+  ofClear(backgroundColor);
+
   // activer l'occlusion en profondeur
   ofEnableDepthTest();
 
@@ -74,14 +79,21 @@ void Renderer::draw()
   // désactiver l'occlusion en profondeur
   ofDisableDepthTest();
 
+ 
+
+
+  font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+  swordImg.draw(100, 100, 50, 50);
+
 }
 
-void Renderer::updateshaderuniform(ofColor color)
+void Renderer::updateModelShader(float h, float s, float b)
 {
 	// passer les attributs uniformes du shader
 	shader.begin();
 	shader.setUniform3f("color_ambient", 0.1f, 0.1f, 0.1f);
-	shader.setUniform3f("color_diffuse", color.r / 255.0f, color.g / 255.0f, color.b / 255.0f);
+	//Le bug est ici ! J'essaie de tweaker pour avoir les bonnes couleurs ! Je crois qu'il va falloir convert la couleur du HSB en rgb et lui passer ! 
+	shader.setUniform3f("color_diffuse",h / 360.0f, s / 100.0f, b / 100.0f); 
 	shader.setUniform3f("light_position", glm::vec4(light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
 	shader.end();
 }

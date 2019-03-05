@@ -1,5 +1,5 @@
 #pragma once
-
+#include "renderer.h"
 #include "ofxGui.h"
 #include "ofMain.h"
 
@@ -15,11 +15,13 @@ public:
 
 	ofParameter<ofColor> color_picker_background;
 
-	ofParameter<float> slider_hsb_degree;
+	ofParameter<float> slider_hsb_hue;
 
 	ofParameter<float> slider_hsb_saturation;
 
 	ofParameter<float> slider_hsb_brightness;
+
+	float r, g, b;
 
 	void setup();
 

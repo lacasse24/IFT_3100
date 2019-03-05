@@ -22,7 +22,9 @@ public:
   void draw();
   void exit();
 
+  void mouseMoved(int x, int y);
+  void windowResized(int w, int h);
+
   void keyReleased(int key);
-  void menugaucheMouseReleaseHSB();
-  void menugaucheMouseReleaseRGBA();
+  
 };
