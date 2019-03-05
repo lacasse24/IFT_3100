@@ -1,14 +1,14 @@
-// IFT3100H19_ShaderLambert/renderer.cpp
-// Classe responsable du rendu de l'application.
-
 #include "renderer.h"
 
 void Renderer::setup()
 {
   ofSetFrameRate(60);
   ofSetWindowShape(512, 512);
-  ofSetBackgroundColor(15);
+  ofSetBackgroundColor(220);
   ofSetLogLevel(OF_LOG_VERBOSE);
+
+  font.load("font/quicksand.otf", 18);
+  swordImg.load("Img/sword.png");
 
   // paramètres
   scale_caracter = 1.5f;
@@ -23,15 +23,12 @@ void Renderer::setup()
   // chargement du shader
   shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
-
-
-  // initialisation de l'interface graphique
-  gui.setup();
-  gui.add(color_picker.set("diffuse color", ofColor(174, 223, 134), ofColor(0, 0), ofColor(255, 255)));
 }
 
 void Renderer::update()
 {
+ // ofSetBackgroundColor(backgroundColor);
+
   // position au centre de la fenêtre d'affichage
   center_x = ofGetWidth() / 2.0f;
   center_y = ofGetHeight() / 2.0f;
@@ -48,18 +45,13 @@ void Renderer::update()
   light.setPointLight();
   light.setDiffuseColor(255);
   light.setGlobalPosition(center_x, center_y, 255.0f);
-
-  // passer les attributs uniformes du shader
-  shader.begin();
-  shader.setUniform3f("color_ambient",  0.1f, 0.1f, 0.1f);
-  shader.setUniform3f("color_diffuse",  color_picker->r / 255.0f, color_picker->g / 255.0f, color_picker->b / 255.0f);
-  shader.setUniform3f("light_position", glm::vec4(light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-
-  shader.end();
 }
 
 void Renderer::draw()
 {
+  // couleur d'arrière-plan
+  ofClear(backgroundColor);
+
   // activer l'occlusion en profondeur
   ofEnableDepthTest();
 
@@ -87,6 +79,21 @@ void Renderer::draw()
   // désactiver l'occlusion en profondeur
   ofDisableDepthTest();
 
-  // dessiner l'interface graphique
-  gui.draw();
+ 
+
+
+  font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+  swordImg.draw(100, 100, 50, 50);
+
+}
+
+void Renderer::updateModelShader(float h, float s, float b)
+{
+	// passer les attributs uniformes du shader
+	shader.begin();
+	shader.setUniform3f("color_ambient", 0.1f, 0.1f, 0.1f);
+	//Le bug est ici ! J'essaie de tweaker pour avoir les bonnes couleurs ! Je crois qu'il va falloir convert la couleur du HSB en rgb et lui passer ! 
+	shader.setUniform3f("color_diffuse",h / 360.0f, s / 100.0f, b / 100.0f); 
+	shader.setUniform3f("light_position", glm::vec4(light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
+	shader.end();
 }

@@ -1,28 +1,28 @@
-// IFT3100H19_ShaderLambert/renderer.h
-// Classe responsable du rendu de l'application.
-
 #pragma once
 
 #include "ofMain.h"
 #include "ofxAssimpModelLoader.h"
-#include "ofxGui.h"
+
 
 class Renderer
 {
 public:
 
   ofShader shader;
-
+  ofImage swordImg;
+  ofTrueTypeFont font;
   ofLight light;
-
   ofxAssimpModelLoader caracter;
-
-  ofxPanel gui;
-
-  ofParameter<ofColor> color_picker;
+  ofColor backgroundColor;
 
   float center_x;
   float center_y;
+  float hue, saturation, brightness;
+
+  int mousePosX;
+  int mousePosY;
+  int winWidth;
+  int winHeight;
 
   float scale_caracter;
 
@@ -31,4 +31,6 @@ public:
   void setup();
   void update();
   void draw();
+
+  void updateModelShader(float h, float s, float b);
 };
