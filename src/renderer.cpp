@@ -8,7 +8,7 @@ void Renderer::setup()
   ofSetLogLevel(OF_LOG_VERBOSE);
 
   font.load("font/quicksand.otf", 18);
-  swordImg.load("Img/sword.png");
+  
 
   // paramètres
   scale_caracter = 1.5f;
@@ -28,6 +28,12 @@ void Renderer::setup()
 void Renderer::update()
 {
  // ofSetBackgroundColor(backgroundColor);
+
+	if (previewImgName != currentImgName)
+	{
+		currentImgName = previewImgName;
+		previewImg.load("Img/" + currentImgName);
+	}
 
   // position au centre de la fenêtre d'affichage
   center_x = ofGetWidth() / 2.0f;
@@ -79,12 +85,10 @@ void Renderer::draw()
   // désactiver l'occlusion en profondeur
   ofDisableDepthTest();
 
- 
-
-
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
-  swordImg.draw(100, 100, 50, 50);
 
+  previewImg.draw(10, guiHeight+10, 200, 200);
+	
 }
 
 void Renderer::updateModelShader(float h, float s, float b)

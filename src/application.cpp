@@ -1,5 +1,3 @@
-// IFT3100H19_ShaderLambert/application.cpp
-// Classe principale de l'application.
 
 #include "application.h"
 
@@ -13,9 +11,11 @@ void Application::setup()
 void Application::update()
 {
   renderer.update();
-
   renderer.backgroundColor = menugauche.color_picker_background;
-  renderer.updateModelShader(menugauche.slider_hsb_hue.get(),menugauche.slider_hsb_saturation.get(),menugauche.slider_hsb_brightness.get());
+  renderer.updateModelShader(menugauche.slider_hsb_hue, menugauche.slider_hsb_saturation, menugauche.slider_hsb_brightness);
+  renderer.guiHeight = menugauche.gui.getHeight();
+  renderer.guiWidth = menugauche.gui.getWidth();
+  renderer.previewImgName = menugauche.currentImgPath;
 
 }
 
