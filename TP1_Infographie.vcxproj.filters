@@ -49,6 +49,7 @@
     <ClCompile Include="src\application.cpp" />
     <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="src\menugauche.cpp" />
+    <ClCompile Include="GameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -266,6 +267,7 @@
     <ClInclude Include="src\application.h" />
     <ClInclude Include="src\renderer.h" />
     <ClInclude Include="src\menugauche.h" />
+    <ClInclude Include="GameObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
