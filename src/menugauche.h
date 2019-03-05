@@ -34,7 +34,10 @@ public:
 	void draw();
 	void update();
 
+
 	void setButton(ofxButton &btn, string name);
 	void btn_Pressed(const void * sender);
+	void convertHSBtoRGB();
+
 };
 

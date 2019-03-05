@@ -9,11 +9,11 @@ void menugauche::setup()
 	gui.setup("Menu de dessin");
 	color_picker_background.set("Couleur du fond", ofColor(31), ofColor(0, 0), ofColor(255, 255));
 
-	slider_hsb_brightness.set("Luminosite", 0, 0, 100);
-	slider_hsb_saturation.set("Saturation", 0,0,100);
-	slider_hsb_hue.set("Teinte", 42, 0, 360);
+	slider_hsb_brightness.set("Luminosite", 0.2, 0, 1);
+	slider_hsb_saturation.set("Saturation", 0.9,0,1);
+	slider_hsb_hue.set("Teinte", 250, 0, 360);
 
-	// Création de la hiéarchie dans le menu
+	// CrÃ©ation de la hiÃ©archie dans le menu
 	group_draw.setup("Couleur du modele");
 	group_draw.add(slider_hsb_hue);
 	group_draw.add(slider_hsb_saturation);
@@ -74,14 +74,6 @@ void menugauche::btn_Pressed(const void * sender)
 
 void menugauche::update() 
 {
-	slider_hsb_brightness.set(color.getBrightness());
-	slider_hsb_hue.set(color.getHue());
-	slider_hsb_saturation.set(color.getSaturation());
-
-	r = color.r;
-	g = color.g;
-	b = color.b;
-
 	color_picker_background.set(color);
 }
 
@@ -90,3 +82,4 @@ void menugauche::setButton(ofxButton &btn, string name)
 	btn.setName(name);
 	btn.addListener(this, &menugauche::btn_Pressed);
 }
+

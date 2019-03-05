@@ -35,5 +35,7 @@ public:
 
   void updateModelShader(float h, float s, float b);
 
+  ofColor HSVtoRGB(int H, double S, double V);
+
 
 };

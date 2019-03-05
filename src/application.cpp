@@ -16,6 +16,7 @@ void Application::update()
   renderer.guiHeight = menugauche.gui.getHeight();
   renderer.guiWidth = menugauche.gui.getWidth();
   renderer.previewImgName = menugauche.currentImgPath;
+
 }
 
 void Application::draw()
