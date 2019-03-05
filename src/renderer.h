@@ -5,7 +5,7 @@
 
 #include "ofMain.h"
 #include "ofxAssimpModelLoader.h"
-#include "ofxGui.h"
+
 
 class Renderer
 {
@@ -17,10 +17,6 @@ public:
 
   ofxAssimpModelLoader caracter;
 
-  ofxPanel gui;
-
-  ofParameter<ofColor> color_picker;
-
   float center_x;
   float center_y;
 
@@ -31,4 +27,6 @@ public:
   void setup();
   void update();
   void draw();
+
+  void updateshaderuniform(ofColor color);
 };

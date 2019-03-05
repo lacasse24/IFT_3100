@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -51,6 +48,7 @@
     </ClCompile>
     <ClCompile Include="src\application.cpp" />
     <ClCompile Include="src\renderer.cpp" />
+    <ClCompile Include="src\menugauche.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -94,9 +92,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h">
       <Filter>addons\ofxAssimpModelLoader\src</Filter>
     </ClInclude>
@@ -270,6 +265,7 @@
     </ClInclude>
     <ClInclude Include="src\application.h" />
     <ClInclude Include="src\renderer.h" />
+    <ClInclude Include="src\menugauche.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

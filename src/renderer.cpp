@@ -23,11 +23,6 @@ void Renderer::setup()
   // chargement du shader
   shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
-
-
-  // initialisation de l'interface graphique
-  gui.setup();
-  gui.add(color_picker.set("diffuse color", ofColor(174, 223, 134), ofColor(0, 0), ofColor(255, 255)));
 }
 
 void Renderer::update()
@@ -48,14 +43,6 @@ void Renderer::update()
   light.setPointLight();
   light.setDiffuseColor(255);
   light.setGlobalPosition(center_x, center_y, 255.0f);
-
-  // passer les attributs uniformes du shader
-  shader.begin();
-  shader.setUniform3f("color_ambient",  0.1f, 0.1f, 0.1f);
-  shader.setUniform3f("color_diffuse",  color_picker->r / 255.0f, color_picker->g / 255.0f, color_picker->b / 255.0f);
-  shader.setUniform3f("light_position", glm::vec4(light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-
-  shader.end();
 }
 
 void Renderer::draw()
@@ -87,6 +74,14 @@ void Renderer::draw()
   // désactiver l'occlusion en profondeur
   ofDisableDepthTest();
 
-  // dessiner l'interface graphique
-  gui.draw();
+}
+
+void Renderer::updateshaderuniform(ofColor color)
+{
+	// passer les attributs uniformes du shader
+	shader.begin();
+	shader.setUniform3f("color_ambient", 0.1f, 0.1f, 0.1f);
+	shader.setUniform3f("color_diffuse", color.r / 255.0f, color.g / 255.0f, color.b / 255.0f);
+	shader.setUniform3f("light_position", glm::vec4(light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
+	shader.end();
 }
