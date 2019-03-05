@@ -92,8 +92,54 @@ void Renderer::updateModelShader(float h, float s, float b)
 	// passer les attributs uniformes du shader
 	shader.begin();
 	shader.setUniform3f("color_ambient", 0.1f, 0.1f, 0.1f);
+	ofColor color = HSVtoRGB((int)h, (double)s,(double) b);
 	//Le bug est ici ! J'essaie de tweaker pour avoir les bonnes couleurs ! Je crois qu'il va falloir convert la couleur du HSB en rgb et lui passer ! 
-	shader.setUniform3f("color_diffuse",h / 360.0f, s / 100.0f, b / 100.0f); 
+	shader.setUniform3f("color_diffuse",color.r/255.0f,color.g / 255.0f,color.b / 255.0f);
 	shader.setUniform3f("light_position", glm::vec4(light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
 	shader.end();
+}
+
+//Méthode inspirée de la source : https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-both
+ofColor Renderer::HSVtoRGB(int H, double S, double V) {
+	ofColor color;
+	double C = S * V;
+	double X = C * (1 - abs(fmod(H / 60.0, 2) - 1));
+	double m = V - C;
+	double Rs, Gs, Bs;
+
+	if (H >= 0 && H < 60) {
+		Rs = C;
+		Gs = X;
+		Bs = 0;
+	}
+	else if (H >= 60 && H < 120) {
+		Rs = X;
+		Gs = C;
+		Bs = 0;
+	}
+	else if (H >= 120 && H < 180) {
+		Rs = 0;
+		Gs = C;
+		Bs = X;
+	}
+	else if (H >= 180 && H < 240) {
+		Rs = 0;
+		Gs = X;
+		Bs = C;
+	}
+	else if (H >= 240 && H < 300) {
+		Rs = X;
+		Gs = 0;
+		Bs = C;
+	}
+	else {
+		Rs = C;
+		Gs = 0;
+		Bs = X;
+	}
+
+	color.r = (Rs + m) * 255;
+	color.g= (Gs + m) * 255;
+	color.b = (Bs + m) * 255;
+	return color;
 }

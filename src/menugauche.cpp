@@ -7,9 +7,9 @@ void menugauche::setup()
 	gui.setup("Menu de dessin");
 	color_picker_background.set("Couleur du fond", ofColor(31), ofColor(0, 0), ofColor(255, 255));
 
-	slider_hsb_brightness.set("Luminosite", 0, 0, 100);
-	slider_hsb_saturation.set("Saturation", 0,0,100);
-	slider_hsb_hue.set("Teinte", 42, 0, 360);
+	slider_hsb_brightness.set("Luminosite", 0.2, 0, 1);
+	slider_hsb_saturation.set("Saturation", 0.9,0,1);
+	slider_hsb_hue.set("Teinte", 250, 0, 360);
 
 	// Création de la hiéarchie dans le menu
 	group_draw.setup("Couleur du modele");
@@ -30,13 +30,7 @@ void menugauche::draw()
 
 void menugauche::update() 
 {
-	slider_hsb_brightness.set(color.getBrightness());
-	slider_hsb_hue.set(color.getHue());
-	slider_hsb_saturation.set(color.getSaturation());
-
-	r = color.r;
-	g = color.g;
-	b = color.b;
-
 	color_picker_background.set(color);
 }
+
+

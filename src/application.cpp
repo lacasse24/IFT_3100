@@ -13,12 +13,10 @@ void Application::setup()
 void Application::update()
 {
   renderer.update();
-  //renderer.updateshaderuniform(menugauche.color);
+
   renderer.backgroundColor = menugauche.color_picker_background;
-  renderer.updateModelShader(menugauche.slider_hsb_hue, menugauche.slider_hsb_saturation, menugauche.slider_hsb_brightness);
-//  renderer.brightness = menugauche.color.get
- // renderer.hue = menugauche.slider_hsb_hue;
- // renderer.saturation = menugauche.slider_hsb_saturation;
+  renderer.updateModelShader(menugauche.slider_hsb_hue.get(),menugauche.slider_hsb_saturation.get(),menugauche.slider_hsb_brightness.get());
+
 }
 
 void Application::draw()
