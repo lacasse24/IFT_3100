@@ -1,5 +1,6 @@
 #pragma once
 #include <ofMain.h>
+#include "Transform.h"
 
 class GameObject
 {
@@ -10,7 +11,8 @@ public:
 
 
 private:
+	Transform _transform;
 	ofMesh* _mesh;
-
+	
 };
 
