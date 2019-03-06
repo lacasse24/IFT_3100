@@ -100,15 +100,15 @@ void Renderer::draw()
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
   swordImg.draw(100, 100, 50, 50);
 
-  glDepthFunc(GL_LEQUAL);
-  SkyBoxShader.begin();
-  glm::mat4 view = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
-  glUniformMatrix4fv(glGetUniformLocation(SkyBoxShader.getProgram, "view"), 1, GL_FALSE, glm::value_ptr(view));
-  
-  glBindVertexArray(SkyBoxVAO);
-  glBindTexture(GL_TEXTURE_CUBE_MAP, CubeMapLoader.getTexObj);
-  glDrawArrays(GL_TRIANGLES, 0, 36);
-  glBindVertexArray(0);
+  //glDepthFunc(GL_LEQUAL);
+  //SkyBoxShader.begin();
+  //glm::mat4 view = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
+  //glUniformMatrix4fv(glGetUniformLocation(SkyBoxShader.getProgram(), "view"), 1, GL_FALSE, glm::value_ptr(view));
+  //
+  //glBindVertexArray(SkyBoxVAO);
+  //glBindTexture(GL_TEXTURE_CUBE_MAP, CubeMapLoader.getTexObj());
+  //glDrawArrays(GL_TRIANGLES, 0, 36);
+  //glBindVertexArray(0);
 
 
 }

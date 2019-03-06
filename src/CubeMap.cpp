@@ -1,6 +1,6 @@
 #include "CubeMap.h"
 
-CubeMap::CubeMap(string PosX, string negPosX, string PosY, string negPosY, string PosZ, string NegPosZ)
+void CubeMap::LoadTexures(string PosX, string negPosX, string PosY, string negPosY, string PosZ, string NegPosZ)
 {
 	ofImage SkyTex[6];
 
@@ -12,16 +12,6 @@ CubeMap::CubeMap(string PosX, string negPosX, string PosY, string negPosY, strin
 	SkyTex[5].load(NegPosZ);
 
 	LoadTexures(SkyTex[0], SkyTex[1], SkyTex[2], SkyTex[3], SkyTex[4], SkyTex[5]);
-}
-
-CubeMap::~CubeMap()
-{
-
-}
-
-void CubeMap::LoadTexures(string PosX, string negPosX, string PosY, string negPosY, string PosZ, string NegPosZ)
-{
-	
 }
 
 

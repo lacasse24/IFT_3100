@@ -1,15 +1,5 @@
 #include "Skybox.h"
 
-Skybox::Skybox()
-{
-
-}
-
-Skybox::~Skybox()
-{
-
-}
-
 void Skybox::LoadTexures(string PosX, string negPosX, string PosY, string negPosY, string PosZ, string NegPosZ)
 {
 	ofImage SkyTex[6];
