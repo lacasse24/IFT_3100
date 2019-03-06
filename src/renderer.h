@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxAssimpModelLoader.h"
+#include "Skybox.h"
+#include "CubeMap.h"
 
 
 class Renderer
@@ -24,6 +26,8 @@ public:
   int winWidth;
   int winHeight;
 
+  ofCamera camera;
+
   float scale_caracter;
 
   bool use_rotation;
@@ -35,5 +39,55 @@ public:
   void updateModelShader(float h, float s, float b);
 
   ofColor HSVtoRGB(int H, double S, double V);
+
+  // SkyBox
+  ofShader SkyBoxShader;
+  GLuint SkyBoxVAO, SkyBoxVBO;
+  GLuint CubeTex;
+  CubeMap CubeMapLoader;
+  float skyboxVertices[108] = {
+	  // positions          
+	  -1.0f,  1.0f, -1.0f,
+	  -1.0f, -1.0f, -1.0f,
+	   1.0f, -1.0f, -1.0f,
+	   1.0f, -1.0f, -1.0f,
+	   1.0f,  1.0f, -1.0f,
+	  -1.0f,  1.0f, -1.0f,
+
+	  -1.0f, -1.0f,  1.0f,
+	  -1.0f, -1.0f, -1.0f,
+	  -1.0f,  1.0f, -1.0f,
+	  -1.0f,  1.0f, -1.0f,
+	  -1.0f,  1.0f,  1.0f,
+	  -1.0f, -1.0f,  1.0f,
+
+	   1.0f, -1.0f, -1.0f,
+	   1.0f, -1.0f,  1.0f,
+	   1.0f,  1.0f,  1.0f,
+	   1.0f,  1.0f,  1.0f,
+	   1.0f,  1.0f, -1.0f,
+	   1.0f, -1.0f, -1.0f,
+
+	  -1.0f, -1.0f,  1.0f,
+	  -1.0f,  1.0f,  1.0f,
+	   1.0f,  1.0f,  1.0f,
+	   1.0f,  1.0f,  1.0f,
+	   1.0f, -1.0f,  1.0f,
+	  -1.0f, -1.0f,  1.0f,
+
+	  -1.0f,  1.0f, -1.0f,
+	   1.0f,  1.0f, -1.0f,
+	   1.0f,  1.0f,  1.0f,
+	   1.0f,  1.0f,  1.0f,
+	  -1.0f,  1.0f,  1.0f,
+	  -1.0f,  1.0f, -1.0f,
+
+	  -1.0f, -1.0f, -1.0f,
+	  -1.0f, -1.0f,  1.0f,
+	   1.0f, -1.0f, -1.0f,
+	   1.0f, -1.0f, -1.0f,
+	  -1.0f, -1.0f,  1.0f,
+	   1.0f, -1.0f,  1.0f
+  };
 
 };

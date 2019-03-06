@@ -2,27 +2,39 @@
 
 void Renderer::setup()
 {
-  ofSetFrameRate(60);
-  ofSetWindowShape(512, 512);
-  ofSetBackgroundColor(220);
-  ofSetLogLevel(OF_LOG_VERBOSE);
+	ofSetFrameRate(60);
+	ofSetWindowShape(512, 512);
+	ofSetBackgroundColor(220);
+	ofSetLogLevel(OF_LOG_VERBOSE);
 
-  font.load("font/quicksand.otf", 18);
-  swordImg.load("Img/sword.png");
+	font.load("font/quicksand.otf", 18);
+	swordImg.load("Img/sword.png");
 
-  // paramètres
-  scale_caracter = 1.5f;
-  use_rotation = true;
+	// paramètres
+	scale_caracter = 1.5f;
+	use_rotation = true;
 
-  // chargement du modèle
-  caracter.loadModel("basicman.obj");
+	// chargement du modèle
+	caracter.loadModel("basicman.obj");
 
-  // désactiver le matériau par défaut du modèle
-  caracter.disableMaterials();
+	// désactiver le matériau par défaut du modèle
+	caracter.disableMaterials();
 
-  // chargement du shader
-  shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
+	// chargement du shader
+	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
+	// Skybox
+	SkyBoxShader.load("skybox.vs", "skybox.fs");
+
+	glGenVertexArrays(1, &SkyBoxVAO);
+	glGenBuffers(1, &SkyBoxVBO);
+	glBindVertexArray(SkyBoxVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, SkyBoxVBO);
+	glBufferData(GL_ARRAY_BUFFER, 3 * 36 * sizeof(GLfloat), &skyboxVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, 3 * sizeof(GLfloat), GL_FALSE, NULL);
+
+	CubeMapLoader.LoadTexures("siege_rt.tga", "siege_lf.tga", "siege_up.tga", "siege_dn.tga", "siege_ft.tga", "siege_bk.tga");
 }
 
 void Renderer::update()
@@ -49,6 +61,11 @@ void Renderer::update()
 
 void Renderer::draw()
 {
+	camera.begin();
+	camera.lookAt(ofVec3f(mousePosY, 0, mousePosX), ofVec3f(0, 1, 0));
+	camera.end();
+
+
   // couleur d'arrière-plan
   ofClear(backgroundColor);
 
@@ -80,12 +97,23 @@ void Renderer::draw()
   ofDisableDepthTest();
 
  
-
-
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
   swordImg.draw(100, 100, 50, 50);
 
+  glDepthFunc(GL_LEQUAL);
+  SkyBoxShader.begin();
+  glm::mat4 view = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
+  glUniformMatrix4fv(glGetUniformLocation(SkyBoxShader.getProgram, "view"), 1, GL_FALSE, glm::value_ptr(view));
+  
+  glBindVertexArray(SkyBoxVAO);
+  glBindTexture(GL_TEXTURE_CUBE_MAP, CubeMapLoader.getTexObj);
+  glDrawArrays(GL_TRIANGLES, 0, 36);
+  glBindVertexArray(0);
+
+
 }
+
+
 
 void Renderer::updateModelShader(float h, float s, float b)
 {
