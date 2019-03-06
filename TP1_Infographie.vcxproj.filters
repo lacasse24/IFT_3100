@@ -51,6 +51,8 @@
     <ClCompile Include="src\menugauche.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Holdable.cpp" />
+    <ClCompile Include="Wearable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -270,6 +272,8 @@
     <ClInclude Include="src\menugauche.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Holdable.h" />
+    <ClInclude Include="Wearable.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
