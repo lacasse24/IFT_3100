@@ -5,10 +5,12 @@ class GameObject
 {
 public:
 	GameObject();
-	~GameObject();
+	virtual ~GameObject();
+
+
 
 private:
-	ofMesh _mesh;
+	ofMesh* _mesh;
 
 };
 

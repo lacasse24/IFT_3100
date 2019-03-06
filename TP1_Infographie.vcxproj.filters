@@ -50,6 +50,7 @@
     <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="src\menugauche.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Character.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -268,6 +269,7 @@
     <ClInclude Include="src\renderer.h" />
     <ClInclude Include="src\menugauche.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Character.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
