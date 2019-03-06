@@ -51,6 +51,7 @@ public:
 
 private:
 	aiVector3D _position;
+	//TODO revised the rotation calculation
 	aiVector3D _rotation;
 	aiVector3D _scale;
 

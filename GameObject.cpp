@@ -3,21 +3,21 @@
 
 
 GameObject::GameObject() :
-	_transform(), _mesh(nullptr)
+	_transform(), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+{}
+
+GameObject::GameObject(Transform t) :
+	_transform(t), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {}
 
 GameObject::GameObject(const std::string & meshpath) :
-	_transform()
+	_transform(), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {
 	loadMesh(meshpath);
 }
 
-GameObject::GameObject(Transform t) :
-	_transform(t)
-{}
-
 GameObject::GameObject(Transform t, const std::string & meshpath) :
-	_transform(t)
+	_transform(t), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {
 	loadMesh(meshpath);
 }
@@ -26,6 +26,16 @@ GameObject::GameObject(Transform t, const std::string & meshpath) :
 GameObject::~GameObject()
 {
 	delete _mesh;
+}
+
+void GameObject::draw()
+{
+	_mesh->draw(_renderMode);
+}
+
+void GameObject::setRenderMode(ofPolyRenderMode mode)
+{
+	_renderMode = mode;
 }
 
 Transform & GameObject::getTransform()

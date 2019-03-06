@@ -8,12 +8,15 @@ class GameObject
 public:
 	GameObject();
 
-	explicit GameObject(const std::string &meshpath);
 	explicit GameObject(Transform t);
+	explicit GameObject(const std::string &meshpath);
 
 	GameObject(Transform t, const std::string &meshpath);
 
 	virtual ~GameObject();
+
+	void draw();
+	void setRenderMode(ofPolyRenderMode mode);
 
 	//return a reference of the transforms to make its manipulation easier
 	Transform& getTransform();
@@ -24,5 +27,7 @@ public:
 private:
 	Transform _transform;
 	ofMesh* _mesh;
+
+	ofPolyRenderMode _renderMode;
 	
 };
