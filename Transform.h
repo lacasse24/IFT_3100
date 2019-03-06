@@ -7,6 +7,7 @@ class Transform
 {
 public:
 	Transform();
+	Transform(aiVector3D pos, aiVector3D rot, aiVector3D sca);
 	~Transform();
 
 	//Transformation modification methods using a vector3
@@ -14,7 +15,7 @@ public:
 	void rotate(aiVector3D rot, float a);
 	void scale(aiVector3D sca);
 
-	//Transformation modification methods using x, y, z
+	//Transformation modification methods overload using x, y, z
 	void translate(float x, float y, float z);
 	void rotate(float x, float y, float z, float a);
 	void scale(float x, float y, float z);

@@ -2,16 +2,17 @@
 
 
 
-Transform::Transform()
-{
+Transform::Transform() :
+	_position(aiVector3D(0)), _rotation(aiVector3D(0)), _scale(aiVector3D(1))
+{}
 
-}
+Transform::Transform(aiVector3D pos, aiVector3D rot, aiVector3D sca) :
+	_position(pos), _rotation(rot), _scale(sca)
+{}
 
 
 Transform::~Transform()
-{
-
-}
+{}
 
 void Transform::translate(aiVector3D pos)
 {
