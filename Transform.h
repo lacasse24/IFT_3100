@@ -2,6 +2,7 @@
 
 #include <vector3.h>
 #include <quaternion.h>
+#include <list>
 
 class Transform
 {
@@ -35,10 +36,31 @@ public:
 	void setRotation(float x, float y, float z);
 	void setScale(float x, float y, float z);
 
+	void resetTransform();
+
+	//Parenting related methods
+	void parentTo(Transform* parent);
+	void removeParent();
+
+	bool hasParent();
+	bool hasChild();
+	int childCount();
+
+	Transform getParent();
+	Transform getTopParent();
+
 private:
 	aiVector3D _position;
 	aiVector3D _rotation;
 	aiVector3D _scale;
 
+	Transform* _parent;
+	std::list<Transform*> _childs;
+
+	//Parenting related private methods
+	void _addChild(Transform* child);
+	void _removeChild(Transform* child);
+
+	bool _isDeleting = false;
 };
 
