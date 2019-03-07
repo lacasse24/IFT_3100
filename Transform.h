@@ -13,6 +13,7 @@ public:
 	Transform(aiVector3D pos, const std::vector< std::pair<float, aiVector3D> > &rot, aiVector3D sca);
 	~Transform();
 
+	//Rotation augmentation related methods
 	void addRotation(std::pair<float, aiVector3D> rotation);
 	void addRotation(float angle, aiVector3D rot);
 	void addRotation(float angle, float x, float y, float z);
@@ -45,6 +46,7 @@ public:
 	void setRotation(int which, float angle, float x, float y, float z);
 	void setScale(float x, float y, float z);
 
+	//Reset Method
 	void resetTransform();
 
 	//Parenting related methods

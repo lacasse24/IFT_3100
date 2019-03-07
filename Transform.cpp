@@ -23,6 +23,8 @@ Transform::~Transform()
 	}
 }
 
+
+//-----Rotation augmentation related methods-----
 void Transform::addRotation(std::pair<float, aiVector3D> rotation)
 {
 	_rotations.push_back(rotation);
@@ -46,6 +48,7 @@ void Transform::addRotations(const std::vector<std::pair<float, aiVector3D>>& ro
 	}
 }
 
+//-----Transformation modification methods using a vector3-----
 void Transform::translate(aiVector3D pos)
 {
 	_position += pos;
@@ -56,6 +59,7 @@ void Transform::scale(aiVector3D sca)
 	scale(sca.x, sca.y, sca.z);
 }
 
+//-----Transformation modification methods overload using x, y, z-----
 void Transform::translate(float x, float y, float z)
 {
 	translate(aiVector3D(x, y, z));
@@ -75,6 +79,7 @@ void Transform::scale(float x, float y, float z)
 	_scale.z *= z;
 }
 
+//-----Getters-----
 Transform * Transform::get()
 {
 	return this;
@@ -102,6 +107,7 @@ aiVector3D Transform::getScale() const
 	return _scale;
 }
 
+//-----Setters using a vector3-----
 void Transform::setPosition(aiVector3D pos)
 {
 	_position = pos;
@@ -119,6 +125,7 @@ void Transform::setScale(aiVector3D sca)
 	_scale = sca;
 }
 
+//-----Setter using x, y, z-----
 void Transform::setPosition(float x, float y, float z)
 {
 	_position = aiVector3D(x, y, z);
@@ -136,6 +143,7 @@ void Transform::setScale(float x, float y, float z)
 	_scale = aiVector3D(x, y, z);
 }
 
+//-----Reset Method-----
 void Transform::resetTransform()
 {
 	_position = aiVector3D(0);
@@ -143,8 +151,7 @@ void Transform::resetTransform()
 	_scale = aiVector3D(1);
 }
 
-//Parenting related methods
-
+//-----Parenting related methods-----
 bool Transform::parentTo(Transform* parent)
 {
 	if (hasParent() || parent == this)
@@ -198,6 +205,7 @@ Transform Transform::getTopParent()
 		return *this;
 }
 
+//----Parenting related private methods-----
 void Transform::_addChild(Transform* child)
 {
 	_childs.push_back(child);

@@ -15,6 +15,7 @@ Character::~Character()
 	GameObject::~GameObject();
 }
 
+//-----Empty slot verification methods return true if empty false else-----
 bool Character::emptyLeftHand()
 {
 	return _leftHand == nullptr;
@@ -45,6 +46,7 @@ bool Character::emptyBoots()
 	return _boots == nullptr;
 }
 
+//-----Equip to slot methods return true if the item is equiped false if it couldn't be-----
 bool Character::equipLeftHand(std::shared_ptr<Holdable> holdable)
 {
 	if (!emptyLeftHand())
@@ -111,6 +113,7 @@ bool Character::equipBoots(std::shared_ptr<Boots> boots)
 	return true;
 }
 
+//-----Unequip slot methods return the equiped item that has been removed, and a nullptr if there where none-----
 std::shared_ptr<Holdable> Character::unequipLeftHand()
 {
 	if (emptyLeftHand())

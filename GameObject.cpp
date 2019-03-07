@@ -28,6 +28,7 @@ GameObject::~GameObject()
 	delete _mesh;
 }
 
+
 void GameObject::draw()
 {
 	const std::vector<std::pair<float, aiVector3D> > rotations = _transform.getRotations();
@@ -47,6 +48,7 @@ void GameObject::setRenderMode(ofPolyRenderMode mode)
 	_renderMode = mode;
 }
 
+//-----parenting related methods-----
 bool GameObject::parentTo(GameObject * go)
 {
 	return _transform.parentTo(go->getTransform().get());
@@ -57,11 +59,13 @@ void GameObject::removeParent()
 	_transform.removeParent();
 }
 
+//-----get Transform-----
 Transform & GameObject::getTransform()
 {
 	return _transform;
 }
 
+//-----Load mesh-----
 void GameObject::loadMesh(const std::string &meshpath)
 {
 	if (_mesh->loadModel(meshpath))
