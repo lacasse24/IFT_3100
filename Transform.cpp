@@ -75,6 +75,11 @@ void Transform::scale(float x, float y, float z)
 	_scale.z *= z;
 }
 
+Transform * Transform::get()
+{
+	return this;
+}
+
 aiVector3D Transform::getPosition() const
 {
 	auto pos = _position;

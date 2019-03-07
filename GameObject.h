@@ -19,6 +19,8 @@ public:
 	void draw();
 	void setRenderMode(ofPolyRenderMode mode);
 
+	bool parentTo(GameObject* go);
+	void removeParent();
 
 	//return a reference of the transforms to make its manipulation easier
 	Transform& getTransform();

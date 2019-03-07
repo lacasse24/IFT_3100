@@ -29,6 +29,8 @@ public:
 	void scale(float x, float y, float z);
 
 	//Getters
+	Transform* get();
+
 	aiVector3D getPosition() const;
 	const std::vector< std::pair<float, aiVector3D> >& getRotations() const;
 	aiVector3D getScale() const;

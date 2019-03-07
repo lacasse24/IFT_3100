@@ -47,6 +47,16 @@ void GameObject::setRenderMode(ofPolyRenderMode mode)
 	_renderMode = mode;
 }
 
+bool GameObject::parentTo(GameObject * go)
+{
+	return _transform.parentTo(go->getTransform().get());
+}
+
+void GameObject::removeParent()
+{
+	_transform.removeParent();
+}
+
 Transform & GameObject::getTransform()
 {
 	return _transform;
