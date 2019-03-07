@@ -4,6 +4,7 @@ class Armor : public Wearable
 {
 public:
 	Armor();
+	Armor(const std::string &meshpath);
 	virtual ~Armor();
 };
 

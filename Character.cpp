@@ -9,6 +9,13 @@ Character::Character() :
 
 }
 
+Character::Character(const std::string &meshpath) :
+	_leftHand(nullptr), _rightHand(nullptr), _helmet(nullptr), _cape(nullptr), _armor(nullptr), _boots(nullptr),
+	_lhTransform(), _rhTransform(), _hTransform(), _cTransform(), _aTransform(), _bTransform()
+{
+	loadMesh(meshpath);
+}
+
 
 Character::~Character()
 {

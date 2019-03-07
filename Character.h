@@ -14,6 +14,7 @@ class Character : public GameObject
 {
 public:
 	Character();
+	Character(const std::string &meshpath);
 	virtual ~Character();
 
 	//Empty slot verification methods return true if empty false else

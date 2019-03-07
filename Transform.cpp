@@ -23,7 +23,6 @@ Transform::~Transform()
 	}
 }
 
-
 //-----Rotation augmentation related methods-----
 void Transform::addRotation(std::pair<float, aiVector3D> rotation)
 {
