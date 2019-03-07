@@ -82,9 +82,9 @@ aiVector3D Transform::getPosition() const
 	return pos;
 }
 
-const std::vector< std::pair<float, aiVector3D> >& Transform::getRotation() const
+const std::vector< std::pair<float, aiVector3D> >& Transform::getRotations() const
 {
-	std::vector< std::pair<float, aiVector3D> > rotations = _parent->getRotation();
+	std::vector< std::pair<float, aiVector3D> > rotations = _parent->getRotations();
 	for (int i = 0; i < _rotations.size(); i++)
 	{
 		rotations.push_back(_rotations[i]);
@@ -142,7 +142,7 @@ void Transform::resetTransform()
 
 void Transform::parentTo(Transform* parent)
 {
-	if (hasParent())
+	if (hasParent() || parent == this)
 		return;
 
 	_parent = parent;
@@ -156,7 +156,7 @@ void Transform::removeParent()
 {
 	std::vector< std::pair<float, aiVector3D> > rotations = _rotations;
 	_position += _parent->getPosition();
-	_rotations = _parent->getRotation();
+	_rotations = _parent->getRotations();
 	addRotations(rotations);
 
 	_parent->_removeChild(this);

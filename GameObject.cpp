@@ -30,7 +30,7 @@ GameObject::~GameObject()
 
 void GameObject::draw()
 {
-	std::vector<std::pair<float, aiVector3D> > rotations = _transform.getRotations();
+	const std::vector<std::pair<float, aiVector3D> > rotations = _transform.getRotations();
 	_mesh->setPosition(_transform.getPosition().x, _transform.getPosition().y, _transform.getPosition().z);
 	_mesh->setScale(_transform.getScale().x, _transform.getScale().y, _transform.getScale().z);
 
