@@ -30,7 +30,7 @@ public:
 
 	//Getters
 	aiVector3D getPosition() const;
-	std::vector< std::pair<float, aiVector3D> > getRotation() const;
+	const std::vector< std::pair<float, aiVector3D> >& getRotation() const;
 	aiVector3D getScale() const;
 
 	//Setters using a vector3

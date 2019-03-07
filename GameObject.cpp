@@ -30,9 +30,15 @@ GameObject::~GameObject()
 
 void GameObject::draw()
 {
+	std::vector<std::pair<float, aiVector3D> > rotations = _transform.getRotations();
 	_mesh->setPosition(_transform.getPosition().x, _transform.getPosition().y, _transform.getPosition().z);
-	_mesh->setRotation();
 	_mesh->setScale(_transform.getScale().x, _transform.getScale().y, _transform.getScale().z);
+
+	for (int i = 0; i < rotations.size(); i++)
+	{
+		_mesh->setRotation(i, rotations[i].first, rotations[i].second.x, rotations[i].second.y, rotations[i].second.z);
+	}
+
 	_mesh->draw(_renderMode);
 }
 
