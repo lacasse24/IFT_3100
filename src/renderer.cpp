@@ -23,6 +23,24 @@ void Renderer::setup()
   // chargement du shader
   shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
+  // Chargement de la skybox
+  Core::Shader_Loader shaderLoader;
+  skyboxProgram = shaderLoader.CreateProgram(
+	  "C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/skybox.fs", 
+	  "C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/skybox.vs");
+
+  //C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/
+
+  std::vector<char*> faces;
+  faces.push_back("Img/SkyBox/siege_rt.tga");
+  faces.push_back("Img/SkyBox/siege_lf.tga");
+  faces.push_back("Img/SkyBox/siege_up.tga");
+  faces.push_back("Img/SkyBox/siege_dn.tga");
+  faces.push_back("Img/SkyBox/siege_bk.tga");
+  faces.push_back("Img/SkyBox/siege_ft.tga");
+
+  Skybox.creeSkybox(&skyboxProgram, faces);
+
 }
 
 void Renderer::update()
@@ -55,39 +73,49 @@ void Renderer::update()
 
 void Renderer::draw()
 {
-  // couleur d'arrière-plan
-  ofClear(backgroundColor);
+	// couleur d'arrière-plan
+	ofClear(backgroundColor);
 
-  // activer l'occlusion en profondeur
-  ofEnableDepthTest();
+	glm::mat4 Transformation;
+	glm::mat4 view;
+	glm::mat4 projection;
+	projection = glm::perspective(glm::radians(45.0f), (float)(512 / 512), 0.1f, 100.0f);
+	view = glm::lookAt(g_Position, g_Direction + g_Position, g_Orientation);
+  
+  
+	glm::mat4 viewSkybox = glm::mat4(glm::mat3(view));
+	Skybox.drawSkybox(viewSkybox, projection);
 
-  // activer l'éclairage dynamique
-  ofEnableLighting();
+	// activer l'occlusion en profondeur
+	ofEnableDepthTest();
 
-  // activer la lumière
-  light.enable();
+	// activer l'éclairage dynamique
+	ofEnableLighting();
 
-  // activer le shader
-  shader.begin();
+	// activer la lumière
+	light.enable();
 
-  // dessiner le caracter
-  caracter.draw(OF_MESH_FILL);
+	// activer le shader
+	shader.begin();
 
-  // désactiver le shader
-  shader.end();
+	// dessiner le caracter
+	caracter.draw(OF_MESH_FILL);
 
-  // désactiver la lumière
-  light.disable();
+	// désactiver le shader
+	shader.end();
 
-  // désactiver l'éclairage dynamique
-  ofDisableLighting();
+	// désactiver la lumière
+	light.disable();
 
-  // désactiver l'occlusion en profondeur
-  ofDisableDepthTest();
+	// désactiver l'éclairage dynamique
+	ofDisableLighting();
 
-  font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+	// désactiver l'occlusion en profondeur
+	ofDisableDepthTest();
 
-  previewImg.draw(10, guiHeight+10, 200, 200);
+	font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+
+	previewImg.draw(10, guiHeight+10, 200, 200);
 	
 }
 

@@ -5,7 +5,7 @@
 
 using namespace Core;
 
-std::string Shader_Loader::ReadShader(char *filename)
+std::string Shader_Loader::ReadShader(string filename)
 {
 
 	std::string shaderCode;
@@ -53,8 +53,8 @@ GLuint Shader_Loader::CreateShader(GLenum shaderType, std::string
 	return shader;
 }
 
-GLuint Shader_Loader::CreateProgram(char* vertexShaderFilename,
-	char* fragmentShaderFilename)
+GLuint Shader_Loader::CreateProgram(string vertexShaderFilename,
+	string fragmentShaderFilename)
 {
 
 	//read the shader files and save the code

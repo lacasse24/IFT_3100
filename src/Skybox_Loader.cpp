@@ -1,29 +1,28 @@
-#include "Skyboxloader.h"
+#include "Skybox_loader.h"
 #include<iostream>
 #include<vector>
 
-
 /****************Fonction permettant la création du skybox ********************/
-void Skybox::Skybox_Loader::creeSkybox(GLuint* program, std::vector<char*> faces)
+void Skybox_Loader::creeSkybox(GLuint* program, std::vector<char*> faces)
 {
-	//Texture_Loader textureload;
 	skyboxProgram = *program;
 
 	glUseProgram(skyboxProgram);
 
 	glGetUniformLocation(skyboxProgram, "UniIntensite");
-	//Cr?ation du cube dans un VAO
+
+	//Création du cube dans un VAO
 	glGenVertexArrays(1, &vaoCube);
 	glBindVertexArray(vaoCube);
 	drawCube(1.0f, 1.0f, 1.0f);
 	glBindVertexArray(0);
 
-	//Cr?ation de la texture Cubemap
+	//Création de la texture Cubemap
 	skyboxTexture = loadCubemap(faces);
 }
 
 /******************Fonction permettant le dessin du skybox *********************/
-void Skybox::Skybox_Loader::drawSkybox(glm::mat4 vue, glm::mat4 proj, bool Hit)
+void Skybox_Loader::drawSkybox(glm::mat4 vue, glm::mat4 proj)
 {
 	GLuint hprojection, hvue;
 
@@ -53,7 +52,7 @@ void Skybox::Skybox_Loader::drawSkybox(glm::mat4 vue, glm::mat4 proj, bool Hit)
 }
 
 /*******************Fonction priv?e appel?e par creeSkybox() pour la cr?ation du cube du skybox ************/
-void Skybox::Skybox_Loader::drawCube(float largeur, float hauteur, float profondeur)
+void Skybox_Loader::drawCube(float largeur, float hauteur, float profondeur)
 {
 	GLfloat skyboxVertices[] = {
 		// Positions          
@@ -110,7 +109,7 @@ void Skybox::Skybox_Loader::drawCube(float largeur, float hauteur, float profond
 	glEnableVertexAttribArray(0);
 }
 
-GLuint Skybox::Skybox_Loader::loadCubemap(std::vector<char*> faces)
+GLuint Skybox_Loader::loadCubemap(std::vector<char*> faces)
 {
 	GLuint textureID;
 	unsigned char* image;

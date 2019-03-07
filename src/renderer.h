@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxAssimpModelLoader.h"
+#include "Skybox_Loader.h"
+#include "Shader_Loader.h"
 
 
 class Renderer
@@ -36,6 +38,15 @@ public:
   void updateModelShader(float h, float s, float b);
 
   ofColor HSVtoRGB(int H, double S, double V);
+
+  GLuint skyboxProgram;
+  Skybox_Loader Skybox;
+
+  glm::vec3 g_Position = glm::vec3(0.0f, 0.0f, -10.0f);
+  glm::vec3 g_Direction = glm::vec3(0.0f, 0.0f, 1.0f);
+  glm::vec3 g_Orientation = glm::vec3(0.0f, 1.0f, 0.0f);
+  GLfloat g_Yaw = 90.0f;
+  GLfloat g_Pitch = 0.0f;
 
 
 };

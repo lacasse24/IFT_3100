@@ -7,11 +7,11 @@ namespace Core
 	class Shader_Loader
 	{
 	private:
-		std::string ReadShader(char *filename);
+		std::string ReadShader(string filename);
 		GLuint CreateShader(GLenum shaderType, std::string source, char* shadername);
 
 	public:
-		GLuint CreateProgram(char* VertexShaderFilename, char* FragmentShaderFilename);
+		GLuint CreateProgram(string VertexShaderFilename, string FragmentShaderFilename);
 	};
 }
 
