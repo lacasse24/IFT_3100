@@ -56,6 +56,9 @@
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="Cape.cpp" />
+    <ClCompile Include="Helmet.cpp" />
+    <ClCompile Include="Armor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -280,6 +283,9 @@
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="Shield.h" />
+    <ClInclude Include="Cape.h" />
+    <ClInclude Include="Helmet.h" />
+    <ClInclude Include="Armor.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
