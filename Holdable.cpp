@@ -9,7 +9,7 @@ Holdable::Holdable()
 
 Holdable::Holdable(const std::string & meshpath)
 {
-	loadMesh(meshpath);
+	loadModel(meshpath);
 }
 
 

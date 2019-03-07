@@ -13,13 +13,13 @@ GameObject::GameObject(Transform t) :
 GameObject::GameObject(const std::string & meshpath) :
 	_transform(), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {
-	loadMesh(meshpath);
+	loadModel(meshpath);
 }
 
 GameObject::GameObject(Transform t, const std::string & meshpath) :
 	_transform(t), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {
-	loadMesh(meshpath);
+	loadModel(meshpath);
 }
 
 
@@ -66,7 +66,7 @@ Transform & GameObject::getTransform()
 }
 
 //-----Load mesh-----
-void GameObject::loadMesh(const std::string &meshpath)
+void GameObject::loadModel(const std::string &meshpath)
 {
 	if (_mesh->loadModel(meshpath))
 		ofLog() << "Mesh loaded successfully";

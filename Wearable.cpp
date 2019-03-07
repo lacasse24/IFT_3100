@@ -9,7 +9,7 @@ Wearable::Wearable()
 
 Wearable::Wearable(const std::string & meshpath)
 {
-	loadMesh(meshpath);
+	loadModel(meshpath);
 }
 
 

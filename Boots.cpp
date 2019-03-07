@@ -9,7 +9,7 @@ Boots::Boots()
 
 Boots::Boots(const std::string & meshpath)
 {
-	loadMesh(meshpath);
+	loadModel(meshpath);
 }
 
 

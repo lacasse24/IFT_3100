@@ -26,7 +26,7 @@ public:
 	Transform& getTransform();
 
 	//Method that load the mesh
-	void loadMesh(const std::string &meshpath);
+	void loadModel(const std::string &meshpath);
 
 protected:
 	Transform _transform;
