@@ -17,7 +17,10 @@ public:
 	virtual ~GameObject();
 
 	void draw();
+	void draw(ofPolyRenderMode mode);
 	void setRenderMode(ofPolyRenderMode mode);
+
+	void disableMaterials();
 
 	bool parentTo(GameObject* go);
 	void removeParent();

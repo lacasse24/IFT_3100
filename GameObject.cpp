@@ -43,9 +43,22 @@ void GameObject::draw()
 	_mesh->draw(_renderMode);
 }
 
+void GameObject::draw(ofPolyRenderMode mode)
+{
+	ofPolyRenderMode current = _renderMode;
+	_renderMode = mode;
+	draw();
+	_renderMode = current;
+}
+
 void GameObject::setRenderMode(ofPolyRenderMode mode)
 {
 	_renderMode = mode;
+}
+
+void GameObject::disableMaterials()
+{
+	_mesh->disableMaterials();
 }
 
 //-----parenting related methods-----
@@ -69,7 +82,7 @@ Transform & GameObject::getTransform()
 void GameObject::loadModel(const std::string &meshpath)
 {
 	if (_mesh->loadModel(meshpath))
-		ofLog() << "Mesh loaded successfully";
+		ofLog() << "Model loaded successfully";
 	else
-		ofLog() << "Mesh load failed";
+		ofLog() << "Model load failed";
 }
