@@ -3,12 +3,12 @@
 
 
 Transform::Transform() :
-	_position(aiVector3D(0)), _rotation(aiVector3D(0)), _scale(aiVector3D(1)),
+	_position(aiVector3D(0)), _rotations(std::vector< std::pair<float, aiVector3D> >()), _scale(aiVector3D(1)),
 	_parent(nullptr), _childs(std::list<Transform*>())
 {}
 
-Transform::Transform(aiVector3D pos, aiVector3D rot, aiVector3D sca) :
-	_position(pos), _rotation(rot), _scale(sca),
+Transform::Transform(aiVector3D pos, const std::vector< std::pair<float, aiVector3D> > &rot, aiVector3D sca) :
+	_position(pos), _rotations(rot), _scale(sca),
 	_parent(nullptr), _childs(std::list<Transform*>())
 {}
 
@@ -23,15 +23,32 @@ Transform::~Transform()
 	}
 }
 
+void Transform::addRotation(std::pair<float, aiVector3D> rotation)
+{
+	_rotations.push_back(rotation);
+}
+
+void Transform::addRotation(float angle, aiVector3D rot)
+{
+	_rotations.push_back(std::pair<float, aiVector3D>(angle, rot));
+}
+
+void Transform::addRotation(float angle, float x, float y, float z)
+{
+	_rotations.push_back(std::pair<float, aiVector3D>(angle, aiVector3D(x, y, z)));
+}
+
+void Transform::addRotations(const std::vector<std::pair<float, aiVector3D>>& rotations)
+{
+	for (int i = 0; i < rotations.size(); i++)
+	{
+		_rotations.push_back(rotations[i]);
+	}
+}
+
 void Transform::translate(aiVector3D pos)
 {
 	_position += pos;
-}
-
-void Transform::rotate(aiVector3D rot, float a)
-{
-	aiQuaternion q = aiQuaternion(rot, a);
-	q.Rotate(_rotation);
 }
 
 void Transform::scale(aiVector3D sca)
@@ -44,10 +61,11 @@ void Transform::translate(float x, float y, float z)
 	translate(aiVector3D(x, y, z));
 }
 
-void Transform::rotate(float x, float y, float z, float a)
+void Transform::rotate(int which, float a)
 {
-	aiQuaternion q = aiQuaternion(aiVector3D(x, y, z), a);
-	q.Rotate(_rotation);
+	if (which >= _rotations.size())
+		return;
+	_rotations[which].first += a;
 }
 
 void Transform::scale(float x, float y, float z)
@@ -64,11 +82,14 @@ aiVector3D Transform::getPosition() const
 	return pos;
 }
 
-aiVector3D Transform::getRotation() const
+std::vector< std::pair<float, aiVector3D> > Transform::getRotation() const
 {
-	auto rot = _rotation;
-	rot += _parent->getRotation();
-	return rot;
+	std::vector< std::pair<float, aiVector3D> > rotations = _parent->getRotation();
+	for (int i = 0; i < _rotations.size(); i++)
+	{
+		rotations.push_back(_rotations[i]);
+	}
+	return rotations;
 }
 
 aiVector3D Transform::getScale() const
@@ -81,9 +102,11 @@ void Transform::setPosition(aiVector3D pos)
 	_position = pos;
 }
 
-void Transform::setRotation(aiVector3D rot)
+void Transform::setRotation(int which, float angle, aiVector3D rot)
 {
-	_rotation = rot;
+	if (which >= _rotations.size())
+		return;
+	_rotations[which] = std::pair<float, aiVector3D>(angle, rot);
 }
 
 void Transform::setScale(aiVector3D sca)
@@ -96,9 +119,11 @@ void Transform::setPosition(float x, float y, float z)
 	_position = aiVector3D(x, y, z);
 }
 
-void Transform::setRotation(float x, float y, float z)
+void Transform::setRotation(int which, float angle, float x, float y, float z)
 {
-	_rotation = aiVector3D(x, y, z);
+	if (which >= _rotations.size())
+		return;
+	_rotations[which] = std::pair<float, aiVector3D>(angle, aiVector3D(x, y, z));
 }
 
 void Transform::setScale(float x, float y, float z)
@@ -109,7 +134,7 @@ void Transform::setScale(float x, float y, float z)
 void Transform::resetTransform()
 {
 	_position = aiVector3D(0);
-	_rotation = aiVector3D(0);
+	_rotations.clear();
 	_scale = aiVector3D(1);
 }
 
@@ -124,13 +149,15 @@ void Transform::parentTo(Transform* parent)
 	_parent->_addChild(this);
 
 	_position = aiVector3D(0);
-	_rotation = aiVector3D(0);
+	_rotations.clear();
 }
 
 void Transform::removeParent()
 {
+	std::vector< std::pair<float, aiVector3D> > rotations = _rotations;
 	_position += _parent->getPosition();
-	_rotation += _parent->getRotation();
+	_rotations = _parent->getRotation();
+	addRotations(rotations);
 
 	_parent->_removeChild(this);
 	_parent = nullptr;

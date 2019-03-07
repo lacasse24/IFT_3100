@@ -2,38 +2,45 @@
 
 #include <vector3.h>
 #include <quaternion.h>
+#include <vector>
 #include <list>
+#include <utility>
 
 class Transform
 {
 public:
 	Transform();
-	Transform(aiVector3D pos, aiVector3D rot, aiVector3D sca);
+	Transform(aiVector3D pos, const std::vector< std::pair<float, aiVector3D> > &rot, aiVector3D sca);
 	~Transform();
+
+	void addRotation(std::pair<float, aiVector3D> rotation);
+	void addRotation(float angle, aiVector3D rot);
+	void addRotation(float angle, float x, float y, float z);
+
+	void addRotations(const std::vector<std::pair<float, aiVector3D>> &rotations);
 
 	//Transformation modification methods using a vector3
 	void translate(aiVector3D pos);
-	void rotate(aiVector3D rot, float a);
 	void scale(aiVector3D sca);
 
 	//Transformation modification methods overload using x, y, z
 	void translate(float x, float y, float z);
-	void rotate(float x, float y, float z, float a);
+	void rotate(int which, float a);
 	void scale(float x, float y, float z);
 
 	//Getters
 	aiVector3D getPosition() const;
-	aiVector3D getRotation() const;
+	std::vector< std::pair<float, aiVector3D> > getRotation() const;
 	aiVector3D getScale() const;
 
 	//Setters using a vector3
 	void setPosition(aiVector3D pos);
-	void setRotation(aiVector3D rot);
+	void setRotation(int which, float angle, aiVector3D rot);
 	void setScale(aiVector3D sca);
 
 	//Setter using x, y, z
 	void setPosition(float x, float y, float z);
-	void setRotation(float x, float y, float z);
+	void setRotation(int which, float angle, float x, float y, float z);
 	void setScale(float x, float y, float z);
 
 	void resetTransform();
@@ -51,8 +58,7 @@ public:
 
 private:
 	aiVector3D _position;
-	//TODO revised the rotation calculation
-	aiVector3D _rotation;
+	std::vector<std::pair<float, aiVector3D>> _rotations;
 	aiVector3D _scale;
 
 	Transform* _parent;

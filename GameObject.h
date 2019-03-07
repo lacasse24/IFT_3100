@@ -1,5 +1,6 @@
 #pragma once
 #include <ofMain.h>
+#include <ofxAssimpModelLoader.h>
 #include <string>
 #include "Transform.h"
 
@@ -24,9 +25,9 @@ public:
 	//Method that load the mesh
 	void loadMesh(const std::string &meshpath);
 
-private:
+protected:
 	Transform _transform;
-	ofMesh* _mesh;
+	ofxAssimpModelLoader* _mesh;
 
 	ofPolyRenderMode _renderMode;
 	

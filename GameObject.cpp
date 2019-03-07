@@ -30,6 +30,9 @@ GameObject::~GameObject()
 
 void GameObject::draw()
 {
+	_mesh->setPosition(_transform.getPosition().x, _transform.getPosition().y, _transform.getPosition().z);
+	_mesh->setRotation();
+	_mesh->setScale(_transform.getScale().x, _transform.getScale().y, _transform.getScale().z);
 	_mesh->draw(_renderMode);
 }
 
@@ -45,5 +48,8 @@ Transform & GameObject::getTransform()
 
 void GameObject::loadMesh(const std::string &meshpath)
 {
-	_mesh->load(meshpath);
+	if (_mesh->loadModel(meshpath))
+		ofLog() << "Mesh loaded successfully";
+	else
+		ofLog() << "Mesh load failed";
 }
