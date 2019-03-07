@@ -46,7 +46,7 @@ public:
 	void resetTransform();
 
 	//Parenting related methods
-	void parentTo(Transform* parent);
+	bool parentTo(Transform* parent);
 	void removeParent();
 
 	bool hasParent();

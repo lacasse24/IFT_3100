@@ -140,16 +140,18 @@ void Transform::resetTransform()
 
 //Parenting related methods
 
-void Transform::parentTo(Transform* parent)
+bool Transform::parentTo(Transform* parent)
 {
 	if (hasParent() || parent == this)
-		return;
+		return false;
 
 	_parent = parent;
 	_parent->_addChild(this);
 
 	_position = aiVector3D(0);
 	_rotations.clear();
+
+	return true;
 }
 
 void Transform::removeParent()
