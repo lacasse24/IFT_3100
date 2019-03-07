@@ -79,9 +79,6 @@ void Renderer::draw()
   // désactiver l'occlusion en profondeur
   ofDisableDepthTest();
 
- 
-
-
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
   swordImg.draw(100, 100, 50, 50);
 

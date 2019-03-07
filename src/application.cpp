@@ -7,6 +7,7 @@ void Application::setup()
 {
   renderer.setup();
   menugauche.setup();
+  gifEncoder.setup(ofGetWindowWidth(), ofGetWindowHeight(), 60*14, 8);
 
 }
 
@@ -40,6 +41,11 @@ void Application::windowResized(int w, int h)
 void Application::keyReleased(int key)
 {
   renderer.use_rotation = !renderer.use_rotation;
+
+}
+
+void Application::captureFrame()
+{
 }
 
 void Application::exit()

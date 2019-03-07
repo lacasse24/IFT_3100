@@ -8,6 +8,7 @@
 #include "renderer.h"
 #include "menugauche.h"
 #include "ofxGui.h"
+#include "ofxGifEncoder.h"
 
 class Application : public ofBaseApp
 {
@@ -26,5 +27,16 @@ public:
   void windowResized(int w, int h);
 
   void keyReleased(int key);
+
+  void captureFrame();
+
+  vector <ofTexture *> txs; // for previewing
+  vector <ofxGifEncoder::ofxGifFrame *> pxs;
+
+  int frameW, frameH;
+  int nFrames;
+
+  ofVideoGrabber vid;
+  ofxGifEncoder gifEncoder;
   
 };
