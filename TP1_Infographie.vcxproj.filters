@@ -54,6 +54,8 @@
     <ClCompile Include="Holdable.cpp" />
     <ClCompile Include="Wearable.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Sword.cpp" />
+    <ClCompile Include="Shield.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -276,6 +278,8 @@
     <ClInclude Include="Holdable.h" />
     <ClInclude Include="Wearable.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="Sword.h" />
+    <ClInclude Include="Shield.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
