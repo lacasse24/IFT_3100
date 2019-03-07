@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxSkyBox.h"
 #include "ofxAssimpModelLoader.h"
 
 
@@ -14,6 +15,11 @@ public:
   ofLight light;
   ofxAssimpModelLoader caracter;
   ofColor backgroundColor;
+  ofxSkyBox  skybox;
+  ofCamera camera;
+
+  ofPoint guiPosition;
+  ofVec3f sphereCenter;
 
   string previewImgName = "",
 	  currentImgName = "";
@@ -21,7 +27,7 @@ public:
   float center_x;
   float center_y;
   
-  int guiHeight, guiWidth;
+  int guiHeight;
   int mousePosX, mousePosY;
   int winWidth, winHeight;
 

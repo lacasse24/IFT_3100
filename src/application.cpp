@@ -14,7 +14,7 @@ void Application::update()
   renderer.backgroundColor = menugauche.color_picker_background;
   renderer.updateModelShader(menugauche.slider_hsb_hue, menugauche.slider_hsb_saturation, menugauche.slider_hsb_brightness);
   renderer.guiHeight = menugauche.gui.getHeight();
-  renderer.guiWidth = menugauche.gui.getWidth();
+  renderer.guiPosition = menugauche.gui.getPosition();
   renderer.previewImgName = menugauche.currentImgPath;
 
 }

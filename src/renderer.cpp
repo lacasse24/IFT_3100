@@ -23,6 +23,12 @@ void Renderer::setup()
   // chargement du shader
   shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
+  //Camera et skybox
+  sphereCenter = ofVec3f(0, 0, 0);
+  camera.setPosition(ofVec3f(0, 0, 0));
+  //camera.cacheMatrices(false);
+  skybox.load();
+
 }
 
 void Renderer::update()
@@ -55,39 +61,47 @@ void Renderer::update()
 
 void Renderer::draw()
 {
-  // couleur d'arrière-plan
-  ofClear(backgroundColor);
+	ofClear(backgroundColor);
+	camera.begin();
+	skybox.draw();
+	camera.lookAt(ofVec3f(mousePosY, 0, mousePosX), ofVec3f(0, 1, 0));
+	camera.end();
+	
 
-  // activer l'occlusion en profondeur
-  ofEnableDepthTest();
 
-  // activer l'éclairage dynamique
-  ofEnableLighting();
+	// couleur d'arrière-plan
+	//ofClear(backgroundColor);
 
-  // activer la lumière
-  light.enable();
+	// activer l'occlusion en profondeur
+	ofEnableDepthTest();
 
-  // activer le shader
-  shader.begin();
+	// activer l'éclairage dynamique
+	ofEnableLighting();
 
-  // dessiner le caracter
-  caracter.draw(OF_MESH_FILL);
+	// activer la lumière
+	light.enable();
 
-  // désactiver le shader
-  shader.end();
+	// activer le shader
+	shader.begin();
 
-  // désactiver la lumière
-  light.disable();
+	// dessiner le caracter
+	caracter.draw(OF_MESH_FILL);
 
-  // désactiver l'éclairage dynamique
-  ofDisableLighting();
+	// désactiver le shader
+	shader.end();
 
-  // désactiver l'occlusion en profondeur
-  ofDisableDepthTest();
+	// désactiver la lumière
+	light.disable();
 
-  font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+	// désactiver l'éclairage dynamique
+	ofDisableLighting();
 
-  previewImg.draw(10, guiHeight+10, 200, 200);
+	// désactiver l'occlusion en profondeur
+	ofDisableDepthTest();
+
+	font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+
+	previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
 	
 }
 
@@ -97,7 +111,6 @@ void Renderer::updateModelShader(float h, float s, float b)
 	shader.begin();
 	shader.setUniform3f("color_ambient", 0.1f, 0.1f, 0.1f);
 	ofColor color = HSVtoRGB((int)h, (double)s,(double) b);
-	//Le bug est ici ! J'essaie de tweaker pour avoir les bonnes couleurs ! Je crois qu'il va falloir convert la couleur du HSB en rgb et lui passer ! 
 	shader.setUniform3f("color_diffuse",color.r/255.0f,color.g / 255.0f,color.b / 255.0f);
 	shader.setUniform3f("light_position", glm::vec4(light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
 	shader.end();
