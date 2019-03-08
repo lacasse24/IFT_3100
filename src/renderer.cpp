@@ -2,32 +2,37 @@
 
 void Renderer::setup()
 {
-  ofSetFrameRate(60);
-  ofSetWindowShape(512, 512);
-  ofSetBackgroundColor(220);
-  ofSetLogLevel(OF_LOG_VERBOSE);
+	_character = new Character();
+	ofSetFrameRate(60);
+	ofSetWindowShape(512, 512);
+	ofSetBackgroundColor(220);
+	ofSetLogLevel(OF_LOG_VERBOSE);
 
-  font.load("font/quicksand.otf", 18);
-  
+	font.load("font/quicksand.otf", 18);
 
-  // paramètres
-  scale_caracter = 1.5f;
-  use_rotation = true;
+	// paramètres
+	scale_caracter = 1.5f;
+	use_rotation = true;
 
-  // chargement du modèle
-  caracter.loadModel("basicman.obj");
+	// chargement du modèle
+	//caracter.loadModel("basicman.obj"); old
+	_character->loadModel("basicman.obj");
 
-  // désactiver le matériau par défaut du modèle
-  caracter.disableMaterials();
+	// désactiver le matériau par défaut du modèle
+	//caracter.disableMaterials(); old
+	_character->disableMaterials();
 
-  // chargement du shader
-  shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
+	// Important de faire cette etape avant de faire un setRotation
+	_character->getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
+
+	// chargement du shader
+	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
 }
 
 void Renderer::update()
 {
- // ofSetBackgroundColor(backgroundColor);
+	// ofSetBackgroundColor(backgroundColor);
 
 	if (previewImgName != currentImgName)
 	{
@@ -35,55 +40,61 @@ void Renderer::update()
 		previewImg.load("Img/" + currentImgName);
 	}
 
-  // position au centre de la fenêtre d'affichage
-  center_x = ofGetWidth() / 2.0f;
-  center_y = ofGetHeight() / 2.0f;
+	// position au centre de la fenêtre d'affichage
+	center_x = ofGetWidth() / 2.0f;
+	center_y = ofGetHeight() / 2.0f;
 
-  // transformation du caracter
-  //caracter.setScale(0.5,1, 2);
-  caracter.setScale(scale_caracter, scale_caracter, scale_caracter);
-  caracter.setPosition(center_x, center_y + 90, 0);
+	// transformation du caracter
+	//caracter.setScale(0.5,1, 2);
+	//caracter.setScale(scale_caracter, scale_caracter, scale_caracter); old
+	_character->getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
+	//caracter.setPosition(center_x, center_y + 90, 0); old
+	_character->getTransform().setPosition(center_x, center_y + 90, 0);
 
-  if (use_rotation)
-    caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
+	if (use_rotation)
+	{
+		_character->getTransform().setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
+		//caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f); old
+	}
 
-  // configuration de la lumière
-  light.setPointLight();
-  light.setDiffuseColor(255);
-  light.setGlobalPosition(center_x, center_y, 255.0f);
+	// configuration de la lumière
+	light.setPointLight();
+	light.setDiffuseColor(255);
+	light.setGlobalPosition(center_x, center_y, 255.0f);
 }
 
 void Renderer::draw()
 {
-  // couleur d'arrière-plan
-  ofClear(backgroundColor);
+	// couleur d'arrière-plan
+	ofClear(backgroundColor);
 
-  // activer l'occlusion en profondeur
-  ofEnableDepthTest();
+	// activer l'occlusion en profondeur
+	ofEnableDepthTest();
 
-  // activer l'éclairage dynamique
-  ofEnableLighting();
+	// activer l'éclairage dynamique
+	ofEnableLighting();
 
-  // activer la lumière
-  light.enable();
+	// activer la lumière
+	light.enable();
 
-  // activer le shader
-  shader.begin();
+	// activer le shader
+	shader.begin();
 
-  // dessiner le caracter
-  caracter.draw(OF_MESH_FILL);
+	// dessiner le caracter
+	//caracter.draw(OF_MESH_FILL); old
+	_character->draw();
 
-  // désactiver le shader
-  shader.end();
+	// désactiver le shader
+	shader.end();
 
-  // désactiver la lumière
-  light.disable();
+	// désactiver la lumière
+	light.disable();
 
-  // désactiver l'éclairage dynamique
-  ofDisableLighting();
+	// désactiver l'éclairage dynamique
+	ofDisableLighting();
 
-  // désactiver l'occlusion en profondeur
-  ofDisableDepthTest();
+	// désactiver l'occlusion en profondeur
+	ofDisableDepthTest();
 
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 

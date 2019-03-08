@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Menu_de_dessin>
+	<Couleur_du_fond>31, 31, 31, 255</Couleur_du_fond>
+	<Couleur_du_modele>
+		<Teinte>360</Teinte>
+		<Saturation>1</Saturation>
+		<Luminosite>1</Luminosite>
+	</Couleur_du_modele>
+</Menu_de_dessin>

@@ -7,18 +7,18 @@
 
 int main()
 {
-  // paramètres du contexte de rendu
-  ofGLFWWindowSettings windowSettings;
+	// paramètres du contexte de rendu
+	ofGLFWWindowSettings windowSettings;
 
-  // résolution de la fenêtre d'affichage
-  windowSettings.setSize(512, 512);
+	// résolution de la fenêtre d'affichage
+	windowSettings.setSize(512, 512);
 
-  // sélection de la version de OpenGL
-  windowSettings.setGLVersion(3, 3);
+	// sélection de la version de OpenGL
+	windowSettings.setGLVersion(3, 3);
 
-  // création de la fenêtre
-  ofCreateWindow(windowSettings);
+	// création de la fenêtre
+	ofCreateWindow(windowSettings);
 
-  // démarrer l'exécution de l'application
-  ofRunApp(new Application());
+	// démarrer l'exécution de l'application
+	ofRunApp(new Application());
 }
