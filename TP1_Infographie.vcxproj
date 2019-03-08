@@ -187,6 +187,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Helmet.cpp" />
     <ClCompile Include="Holdable.cpp" />
+    <ClCompile Include="Legging.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="src\menugauche.cpp" />
     <ClCompile Include="src\application.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Helmet.h" />
     <ClInclude Include="Holdable.h" />
+    <ClInclude Include="Legging.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="src\menugauche.h" />
     <ClInclude Include="src\application.h" />

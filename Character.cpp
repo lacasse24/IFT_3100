@@ -50,6 +50,11 @@ bool Character::emptyArmor()
 	return _armor == nullptr;
 }
 
+bool Character::emptyLegging()
+{
+	return _legging == nullptr;
+}
+
 bool Character::emptyBoots()
 {
 	return _boots == nullptr;
@@ -107,6 +112,17 @@ bool Character::equipArmor(std::shared_ptr<Armor> armor)
 
 	_armor = armor;
 	_armor.get()->getTransform().parentTo(_aTransform.get());
+
+	return true;
+}
+
+bool Character::equipLegging(std::shared_ptr<Legging> legging)
+{
+	if (!emptyLegging())
+		return false;
+
+	_legging = legging;
+	_legging.get()->getTransform().parentTo(_lTransform.get());
 
 	return true;
 }
@@ -183,6 +199,18 @@ std::shared_ptr<Armor> Character::unequipArmor()
 	return tmp;
 }
 
+std::shared_ptr<Legging> Character::unequipLegging()
+{
+	if (emptyLegging())
+		return std::shared_ptr<Legging>();
+
+	auto tmp = _legging;
+	_legging.get()->getTransform().removeParent();
+	_legging = nullptr;
+
+	return tmp;
+}
+
 std::shared_ptr<Boots> Character::unequipBoots()
 {
 	if (emptyBoots())
@@ -228,6 +256,13 @@ std::shared_ptr<Armor> Character::swapArmor(std::shared_ptr<Armor> armor)
 {
 	std::shared_ptr<Armor> item = unequipArmor();
 	equipArmor(armor);
+	return item;
+}
+
+std::shared_ptr<Legging> Character::swapLegging(std::shared_ptr<Legging> legging)
+{
+	std::shared_ptr<Legging> item = unequipLegging();
+	equipLegging(legging);
 	return item;
 }
 
