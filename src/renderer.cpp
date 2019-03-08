@@ -37,12 +37,12 @@ void Renderer::setup()
   //C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/
 
   std::vector<char*> faces;
-  faces.push_back("Img/SkyBox/siege_rt.tga");
-  faces.push_back("Img/SkyBox/siege_lf.tga");
-  faces.push_back("Img/SkyBox/siege_up.tga");
-  faces.push_back("Img/SkyBox/siege_dn.tga");
-  faces.push_back("Img/SkyBox/siege_bk.tga");
-  faces.push_back("Img/SkyBox/siege_ft.tga");
+  faces.push_back("../bin/data/Img/SkyBox/siege_rt.tga");
+  faces.push_back("../bin/data/Img/SkyBox/siege_lf.tga");
+  faces.push_back("../bin/data/Img/SkyBox/siege_up.tga");
+  faces.push_back("../bin/data/Img/SkyBox/siege_dn.tga");
+  faces.push_back("../bin/data/Img/SkyBox/siege_bk.tga");
+  faces.push_back("../bin/data/Img/SkyBox/siege_ft.tga");
 
   GLuint pgm = ofSkybox.getProgram();
   Skybox.creeSkybox(&pgm, faces);

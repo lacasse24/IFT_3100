@@ -128,19 +128,65 @@ GLuint Skybox_Loader::loadCubemap(std::vector<char*> faces)
 
 	for (GLuint i = 0; i < faces.size(); i++)
 	{
-		ofImage img;
-		//img.allocate(512, 512, OF_IMAGE_COLOR);
-		img.load(faces[i]);
-		int size = img.getWidth();
-		unsigned char *data = new unsigned char[512 * 512 * 3];
-		data = img.getPixels().getData();
+		image = ReadImage(faces[i]);
 
 		//Ici, insérer le data de l'image dans le buffer
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, 3, size, size, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, canaux, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+
+		SOIL_free_image_data(image);
 	}
 	glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
 	return textureID;
 
+}
+
+//GLuint Skybox_Loader::loadCubemap(std::vector<char*> faces)
+//{
+//	GLuint textureID;
+//	unsigned char* image;
+//
+//	glGenTextures(1, &textureID);
+//	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+//
+//	//wrapping
+//	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+//	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+//	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+//	//filtering
+//	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//
+//
+//	for (GLuint i = 0; i < faces.size(); i++)
+//	{
+//		ofImage img;
+//		//img.allocate(512, 512, OF_IMAGE_COLOR);
+//		img.load(faces[i]);
+//		int size = img.getWidth();
+//		unsigned char *data = new unsigned char[512 * 512 * 3];
+//		data = img.getPixels().getData();
+//
+//		//Ici, insérer le data de l'image dans le buffer
+//		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, 3, size, size, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+//	}
+//	glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+//	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+//
+//	return textureID;
+//
+//}
+
+unsigned char* Skybox_Loader::ReadImage(char * filename)
+{
+
+	unsigned char* image = SOIL_load_image(filename, &width, &height, &canaux, SOIL_LOAD_AUTO);
+	if (0 == image)
+	{
+		std::cout << "SOIL loading error: '%s'\n";
+		std::cout << SOIL_last_result();
+	}
+
+	return image;
 }
