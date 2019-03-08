@@ -3,6 +3,13 @@
 #include "ofMain.h"
 #include "ofxAssimpModelLoader.h"
 
+#include "../Character.h"
+#include "../Shield.h"
+#include "../Sword.h"
+#include "../Helmet.h"
+#include "../Cape.h"
+#include "../Armor.h"
+#include "../Boots.h"
 
 class Renderer
 {
@@ -35,5 +42,8 @@ public:
   void updateModelShader(float h, float s, float b);
 
   ofColor HSVtoRGB(int H, double S, double V);
+
+private:
+	Character _character;
 
 };

@@ -15,10 +15,12 @@ void Renderer::setup()
   use_rotation = true;
 
   // chargement du modèle
-  caracter.loadModel("basicman.obj");
+  //caracter.loadModel("basicman.obj"); old
+  _character.loadModel("basicman.obj");
 
   // désactiver le matériau par défaut du modèle
-  caracter.disableMaterials();
+  //caracter.disableMaterials(); old
+  _character.disableMaterials();
 
   // chargement du shader
   shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
@@ -27,24 +29,29 @@ void Renderer::setup()
 
 void Renderer::update()
 {
- // ofSetBackgroundColor(backgroundColor);
+	// ofSetBackgroundColor(backgroundColor);
 
-  // position au centre de la fenêtre d'affichage
-  center_x = ofGetWidth() / 2.0f;
-  center_y = ofGetHeight() / 2.0f;
+	// position au centre de la fenêtre d'affichage
+	center_x = ofGetWidth() / 2.0f;
+	center_y = ofGetHeight() / 2.0f;
 
-  // transformation du caracter
-  //caracter.setScale(0.5,1, 2);
-  caracter.setScale(scale_caracter, scale_caracter, scale_caracter);
-  caracter.setPosition(center_x, center_y + 90, 0);
+	// transformation du caracter
+	//caracter.setScale(0.5,1, 2);
+	//caracter.setScale(scale_caracter, scale_caracter, scale_caracter); old
+	_character.getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
+	//caracter.setPosition(center_x, center_y + 90, 0); old
+	_character.getTransform().setPosition(center_x, center_y + 90, 0);
 
-  if (use_rotation)
-    caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
+	_character.getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
 
-  // configuration de la lumière
-  light.setPointLight();
-  light.setDiffuseColor(255);
-  light.setGlobalPosition(center_x, center_y, 255.0f);
+	if (use_rotation)
+		//caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f); old
+		_character.getTransform().setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
+
+	// configuration de la lumière
+	light.setPointLight();
+	light.setDiffuseColor(255);
+	light.setGlobalPosition(center_x, center_y, 255.0f);
 }
 
 void Renderer::draw()
@@ -65,7 +72,8 @@ void Renderer::draw()
   shader.begin();
 
   // dessiner le caracter
-  caracter.draw(OF_MESH_FILL);
+  //caracter.draw(OF_MESH_FILL); old
+  _character.draw(OF_MESH_FILL);
 
   // désactiver le shader
   shader.end();
