@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "..\Dependencies\soil\src\SOIL.h"
 #include <iostream>
 #include <vector>
 
@@ -19,6 +20,11 @@ private:
 
 	void drawCube(float largeur, float hauteur, float profondeur);
 	GLuint loadCubemap(std::vector<char*> faces);
+	unsigned char* ReadImage(char * filename);
+
+	int width = 512;
+	int height = 512;
+	int canaux = 3;
 };
 
 
