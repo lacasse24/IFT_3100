@@ -3,21 +3,21 @@
 
 
 GameObject::GameObject() :
-	_transform(), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+	_transform(), _mesh(new ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {}
 
 GameObject::GameObject(Transform t) :
-	_transform(t), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+	_transform(t), _mesh(new ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {}
 
 GameObject::GameObject(const std::string & meshpath) :
-	_transform(), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+	_transform(), _mesh(new ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {
 	loadModel(meshpath);
 }
 
 GameObject::GameObject(Transform t, const std::string & meshpath) :
-	_transform(t), _mesh(nullptr), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+	_transform(t), _mesh(new ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
 {
 	loadModel(meshpath);
 }

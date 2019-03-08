@@ -17,7 +17,7 @@ public:
 	Character(const std::string &meshpath);
 	virtual ~Character();
 
-	//Empty slot verification methods return true if empty false else
+	//Empty slot verification methods, return true if empty false else
 	bool emptyLeftHand();
 	bool emptyRightHand();
 
@@ -26,7 +26,7 @@ public:
 	bool emptyArmor();
 	bool emptyBoots();
 
-	//Equip to slot methods return true if the item is equiped false if it couldn't be
+	//Equip to slot methods, return true if the item is equiped false if it couldn't be
 	bool equipLeftHand(std::shared_ptr<Holdable> holdable);
 	bool equipRightHand(std::shared_ptr<Holdable> holdable);
 
@@ -35,7 +35,7 @@ public:
 	bool equipArmor(std::shared_ptr<Armor> armor);
 	bool equipBoots(std::shared_ptr<Boots> boots);
 
-	//Unequip slot methods return the equiped item that has been removed, and a nullptr if there where none
+	//Unequip slot methods, return the equiped item that has been removed, and a nullptr if there where none
 	std::shared_ptr<Holdable> unequipLeftHand();
 	std::shared_ptr<Holdable> unequipRightHand();
 
@@ -43,6 +43,15 @@ public:
 	std::shared_ptr<Cape> unequipCape();
 	std::shared_ptr<Armor> unequipArmor();
 	std::shared_ptr<Boots> unequipBoots();
+
+	//Swap slot methods, return the equiped item if any and equip the given item
+	std::shared_ptr<Holdable> swapLeftHand(std::shared_ptr<Holdable> holdable);
+	std::shared_ptr<Holdable> swapRightHand(std::shared_ptr<Holdable> holdable);
+
+	std::shared_ptr<Helmet> swapHelmet(std::shared_ptr<Helmet> helmet);
+	std::shared_ptr<Cape> swapCape(std::shared_ptr<Cape> cape);
+	std::shared_ptr<Armor> swapArmor(std::shared_ptr<Armor> armor);
+	std::shared_ptr<Boots> swapBoots(std::shared_ptr<Boots> boots);
 
 private:
 	std::shared_ptr<Holdable> _leftHand;

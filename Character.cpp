@@ -192,3 +192,46 @@ std::shared_ptr<Boots> Character::unequipBoots()
 
 	return tmp;
 }
+
+//-----Swap slot methods, return the equiped item if any and equip the given item-----
+std::shared_ptr<Holdable> Character::swapLeftHand(std::shared_ptr<Holdable> holdable)
+{
+	std::shared_ptr<Holdable> item = unequipLeftHand();
+	equipLeftHand(holdable);
+	return item;
+}
+
+std::shared_ptr<Holdable> Character::swapRightHand(std::shared_ptr<Holdable> holdable)
+{
+	std::shared_ptr<Holdable> item = unequipRightHand();
+	equipRightHand(holdable);
+	return item;
+}
+
+std::shared_ptr<Helmet> Character::swapHelmet(std::shared_ptr<Helmet> helmet)
+{
+	std::shared_ptr<Helmet> item = unequipHelmet();
+	equipHelmet(helmet);
+	return item;
+}
+
+std::shared_ptr<Cape> Character::swapCape(std::shared_ptr<Cape> cape)
+{
+	std::shared_ptr<Cape> item = unequipCape();
+	equipCape(cape);
+	return item;
+}
+
+std::shared_ptr<Armor> Character::swapArmor(std::shared_ptr<Armor> armor)
+{
+	std::shared_ptr<Armor> item = unequipArmor();
+	equipArmor(armor);
+	return item;
+}
+
+std::shared_ptr<Boots> Character::swapBoots(std::shared_ptr<Boots> boots)
+{
+	std::shared_ptr<Boots> item = unequipBoots();
+	equipBoots(boots);
+	return item;
+}

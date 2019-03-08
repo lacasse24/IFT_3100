@@ -53,9 +53,9 @@ public:
 	bool parentTo(Transform* parent);
 	void removeParent();
 
-	bool hasParent();
-	bool hasChild();
-	int childCount();
+	bool hasParent() const;
+	bool hasChild() const;
+	int childCount() const;
 
 	Transform getParent();
 	Transform getTopParent();

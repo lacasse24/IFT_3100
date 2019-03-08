@@ -66,7 +66,7 @@ void Transform::translate(float x, float y, float z)
 
 void Transform::rotate(int which, float a)
 {
-	if (which >= _rotations.size())
+	if (which >= _rotations.size() && which < 0)
 		return;
 	_rotations[which].first += a;
 }
@@ -87,13 +87,20 @@ Transform * Transform::get()
 aiVector3D Transform::getPosition() const
 {
 	auto pos = _position;
-	pos += _parent->getPosition();
+	if (hasParent())
+		pos += _parent->getPosition();
 	return pos;
 }
 
 const std::vector< std::pair<float, aiVector3D> >& Transform::getRotations() const
 {
-	std::vector< std::pair<float, aiVector3D> > rotations = _parent->getRotations();
+	std::vector< std::pair<float, aiVector3D> > rotations;
+
+	if (hasParent())
+		rotations = _parent->getRotations();
+	else
+		rotations = std::vector< std::pair<float, aiVector3D> >();
+
 	for (int i = 0; i < _rotations.size(); i++)
 	{
 		rotations.push_back(_rotations[i]);
@@ -114,7 +121,7 @@ void Transform::setPosition(aiVector3D pos)
 
 void Transform::setRotation(int which, float angle, aiVector3D rot)
 {
-	if (which >= _rotations.size())
+	if (which >= _rotations.size() && which < 0)
 		return;
 	_rotations[which] = std::pair<float, aiVector3D>(angle, rot);
 }
@@ -132,7 +139,7 @@ void Transform::setPosition(float x, float y, float z)
 
 void Transform::setRotation(int which, float angle, float x, float y, float z)
 {
-	if (which >= _rotations.size())
+	if (which >= _rotations.size() && which < 0)
 		return;
 	_rotations[which] = std::pair<float, aiVector3D>(angle, aiVector3D(x, y, z));
 }
@@ -167,6 +174,9 @@ bool Transform::parentTo(Transform* parent)
 
 void Transform::removeParent()
 {
+	if (!hasParent())
+		return;
+
 	std::vector< std::pair<float, aiVector3D> > rotations = _rotations;
 	_position += _parent->getPosition();
 	_rotations = _parent->getRotations();
@@ -176,17 +186,17 @@ void Transform::removeParent()
 	_parent = nullptr;
 }
 
-bool Transform::hasParent()
+bool Transform::hasParent() const
 {
 	return _parent != nullptr;
 }
 
-bool Transform::hasChild()
+bool Transform::hasChild() const
 {
 	return _childs.empty();
 }
 
-int Transform::childCount()
+int Transform::childCount() const
 {
 	return _childs.size();
 }
