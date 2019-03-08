@@ -98,7 +98,7 @@ void Renderer::draw()
 
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-  previewImg.draw(10, guiHeight+10, 200, 200);
+  previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
 	
 }
 

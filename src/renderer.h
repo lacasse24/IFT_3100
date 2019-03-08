@@ -21,13 +21,13 @@ public:
 	ofLight light;
 	ofxAssimpModelLoader caracter;
 	ofColor backgroundColor;
-
+	ofPoint guiPosition;
 	std::string previewImgName = "", currentImgName = "";
 
 	float center_x;
 	float center_y;
   
-	int guiHeight, guiWidth;
+	int guiHeight;
 	int mousePosX, mousePosY;
 	int winWidth, winHeight;
 
