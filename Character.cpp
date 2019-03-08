@@ -4,16 +4,18 @@
 
 Character::Character() :
 	_leftHand(nullptr), _rightHand(nullptr), _helmet(nullptr), _cape(nullptr), _armor(nullptr), _boots(nullptr),
-	_lhTransform(), _rhTransform(), _hTransform(), _cTransform(), _aTransform(), _bTransform()
+	_lhTransform(Transform()), _rhTransform(Transform()),
+	_hTransform(Transform()), _cTransform(Transform()), _aTransform(Transform()), _bTransform(Transform())
 {
-
+	GameObject::GameObject();
 }
 
 Character::Character(const std::string &meshpath) :
 	_leftHand(nullptr), _rightHand(nullptr), _helmet(nullptr), _cape(nullptr), _armor(nullptr), _boots(nullptr),
-	_lhTransform(), _rhTransform(), _hTransform(), _cTransform(), _aTransform(), _bTransform()
+	_lhTransform(Transform()), _rhTransform(Transform()),
+	_hTransform(Transform()), _cTransform(Transform()), _aTransform(Transform()), _bTransform(Transform())
 {
-	loadModel(meshpath);
+	GameObject::GameObject(meshpath);
 }
 
 

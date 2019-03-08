@@ -4,12 +4,12 @@
 
 Helmet::Helmet()
 {
-
+	Wearable::Wearable();
 }
 
 Helmet::Helmet(const std::string & meshpath)
 {
-	loadModel(meshpath);
+	Wearable::Wearable(meshpath);
 }
 
 

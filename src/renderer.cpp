@@ -2,28 +2,31 @@
 
 void Renderer::setup()
 {
-  ofSetFrameRate(60);
-  ofSetWindowShape(512, 512);
-  ofSetBackgroundColor(220);
-  ofSetLogLevel(OF_LOG_VERBOSE);
+	ofSetFrameRate(60);
+	ofSetWindowShape(512, 512);
+	ofSetBackgroundColor(220);
+	ofSetLogLevel(OF_LOG_VERBOSE);
 
-  font.load("font/quicksand.otf", 18);
-  swordImg.load("Img/sword.png");
+	font.load("font/quicksand.otf", 18);
+	swordImg.load("Img/sword.png");
 
-  // paramètres
-  scale_caracter = 1.5f;
-  use_rotation = true;
+	// paramètres
+	scale_caracter = 1.5f;
+	use_rotation = true;
 
-  // chargement du modèle
-  //caracter.loadModel("basicman.obj"); old
-  _character.loadModel("basicman.obj");
+	// chargement du modèle
+	//caracter.loadModel("basicman.obj"); old
+	_character.loadModel("basicman.obj");
 
-  // désactiver le matériau par défaut du modèle
-  //caracter.disableMaterials(); old
-  _character.disableMaterials();
+	// désactiver le matériau par défaut du modèle
+	//caracter.disableMaterials(); old
+	_character.disableMaterials();
 
-  // chargement du shader
-  shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
+	// Important de faire cette etape avant de faire un setRotation
+	_character.getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
+
+	// chargement du shader
+	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
 }
 
@@ -41,8 +44,6 @@ void Renderer::update()
 	_character.getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
 	//caracter.setPosition(center_x, center_y + 90, 0); old
 	_character.getTransform().setPosition(center_x, center_y + 90, 0);
-
-	_character.getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
 
 	if (use_rotation)
 		//caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f); old
@@ -73,7 +74,7 @@ void Renderer::draw()
 
   // dessiner le caracter
   //caracter.draw(OF_MESH_FILL); old
-  _character.draw(OF_MESH_FILL);
+  _character.draw();
 
   // désactiver le shader
   shader.end();

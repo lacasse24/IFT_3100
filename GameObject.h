@@ -33,7 +33,7 @@ public:
 
 protected:
 	Transform _transform;
-	ofxAssimpModelLoader* _mesh;
+	ofxAssimpModelLoader _mesh;
 
 	ofPolyRenderMode _renderMode;
 	

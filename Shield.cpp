@@ -4,7 +4,12 @@
 
 Shield::Shield()
 {
+	Holdable::Holdable();
+}
 
+Shield::Shield(const std::string & meshpath)
+{
+	Holdable::Holdable(meshpath);
 }
 
 

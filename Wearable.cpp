@@ -4,12 +4,12 @@
 
 Wearable::Wearable()
 {
-
+	GameObject::GameObject();
 }
 
 Wearable::Wearable(const std::string & meshpath)
 {
-	loadModel(meshpath);
+	GameObject::GameObject(meshpath);
 }
 
 

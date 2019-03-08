@@ -4,12 +4,12 @@
 
 Holdable::Holdable()
 {
-
+	GameObject::GameObject();
 }
 
 Holdable::Holdable(const std::string & meshpath)
 {
-	loadModel(meshpath);
+	GameObject::GameObject(meshpath);
 }
 
 

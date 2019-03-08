@@ -4,12 +4,12 @@
 
 Armor::Armor()
 {
-
+	Wearable::Wearable();
 }
 
 Armor::Armor(const std::string & meshpath)
 {
-	loadModel(meshpath);
+	Wearable::Wearable(meshpath);
 }
 
 

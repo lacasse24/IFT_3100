@@ -4,12 +4,12 @@
 
 Cape::Cape()
 {
-
+	Wearable::Wearable();
 }
 
 Cape::Cape(const std::string & meshpath)
 {
-	loadModel(meshpath);
+	Wearable::Wearable(meshpath);
 }
 
 

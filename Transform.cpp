@@ -92,7 +92,7 @@ aiVector3D Transform::getPosition() const
 	return pos;
 }
 
-const std::vector< std::pair<float, aiVector3D> >& Transform::getRotations() const
+std::vector< std::pair<float, aiVector3D> > Transform::getRotations() const
 {
 	std::vector< std::pair<float, aiVector3D> > rotations;
 

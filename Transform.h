@@ -33,7 +33,7 @@ public:
 	Transform* get();
 
 	aiVector3D getPosition() const;
-	const std::vector< std::pair<float, aiVector3D> >& getRotations() const;
+	std::vector< std::pair<float, aiVector3D> > getRotations() const;
 	aiVector3D getScale() const;
 
 	//Setters using a vector3

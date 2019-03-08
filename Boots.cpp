@@ -4,12 +4,12 @@
 
 Boots::Boots()
 {
-
+	Wearable::Wearable();
 }
 
 Boots::Boots(const std::string & meshpath)
 {
-	loadModel(meshpath);
+	Wearable::Wearable(meshpath);
 }
 
 
