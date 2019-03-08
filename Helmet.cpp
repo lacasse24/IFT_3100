@@ -15,5 +15,5 @@ Helmet::Helmet(const std::string & meshpath)
 
 Helmet::~Helmet()
 {
-	Wearable::~Wearable();
+	
 }

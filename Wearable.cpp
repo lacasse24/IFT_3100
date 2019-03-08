@@ -15,5 +15,5 @@ Wearable::Wearable(const std::string & meshpath)
 
 Wearable::~Wearable()
 {
-	GameObject::~GameObject();
+
 }

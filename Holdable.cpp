@@ -15,5 +15,5 @@ Holdable::Holdable(const std::string & meshpath)
 
 Holdable::~Holdable()
 {
-	GameObject::~GameObject();
+	
 }

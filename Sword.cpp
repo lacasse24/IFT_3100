@@ -15,5 +15,5 @@ Sword::Sword(const std::string & meshpath)
 
 Sword::~Sword()
 {
-	Holdable::~Holdable();
+	
 }

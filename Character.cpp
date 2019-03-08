@@ -21,7 +21,7 @@ Character::Character(const std::string &meshpath) :
 
 Character::~Character()
 {
-	GameObject::~GameObject();
+	
 }
 
 //-----Empty slot verification methods return true if empty false else-----

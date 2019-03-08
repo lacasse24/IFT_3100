@@ -15,5 +15,5 @@ Shield::Shield(const std::string & meshpath)
 
 Shield::~Shield()
 {
-	Holdable::~Holdable();
+	
 }

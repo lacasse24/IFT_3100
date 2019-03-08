@@ -15,5 +15,5 @@ Cape::Cape(const std::string & meshpath)
 
 Cape::~Cape()
 {
-	Wearable::~Wearable();
+	
 }

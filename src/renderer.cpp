@@ -2,6 +2,7 @@
 
 void Renderer::setup()
 {
+	_character = new Character();
 	ofSetFrameRate(60);
 	ofSetWindowShape(512, 512);
 	ofSetBackgroundColor(220);
@@ -16,14 +17,14 @@ void Renderer::setup()
 
 	// chargement du modèle
 	//caracter.loadModel("basicman.obj"); old
-	_character.loadModel("basicman.obj");
+	_character->loadModel("basicman.obj");
 
 	// désactiver le matériau par défaut du modèle
 	//caracter.disableMaterials(); old
-	_character.disableMaterials();
+	_character->disableMaterials();
 
 	// Important de faire cette etape avant de faire un setRotation
-	_character.getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
+	_character->getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
 
 	// chargement du shader
 	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
@@ -41,13 +42,15 @@ void Renderer::update()
 	// transformation du caracter
 	//caracter.setScale(0.5,1, 2);
 	//caracter.setScale(scale_caracter, scale_caracter, scale_caracter); old
-	_character.getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
+	_character->getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
 	//caracter.setPosition(center_x, center_y + 90, 0); old
-	_character.getTransform().setPosition(center_x, center_y + 90, 0);
+	_character->getTransform().setPosition(center_x, center_y + 90, 0);
 
 	if (use_rotation)
+	{
+		_character->getTransform().setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
 		//caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f); old
-		_character.getTransform().setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
+	}
 
 	// configuration de la lumière
 	light.setPointLight();
@@ -74,7 +77,7 @@ void Renderer::draw()
 
   // dessiner le caracter
   //caracter.draw(OF_MESH_FILL); old
-  _character.draw();
+  _character->draw();
 
   // désactiver le shader
   shader.end();

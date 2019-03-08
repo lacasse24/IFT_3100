@@ -15,5 +15,5 @@ Armor::Armor(const std::string & meshpath)
 
 Armor::~Armor()
 {
-	Wearable::~Wearable();
+	
 }

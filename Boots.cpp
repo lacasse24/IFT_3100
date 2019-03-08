@@ -15,5 +15,5 @@ Boots::Boots(const std::string & meshpath)
 
 Boots::~Boots()
 {
-	Wearable::~Wearable();
+	
 }

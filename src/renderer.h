@@ -19,7 +19,7 @@ public:
   ofImage swordImg;
   ofTrueTypeFont font;
   ofLight light;
-  ofxAssimpModelLoader caracter;
+  //ofxAssimpModelLoader caracter; old
   ofColor backgroundColor;
 
   float center_x;
@@ -44,6 +44,6 @@ public:
   ofColor HSVtoRGB(int H, double S, double V);
 
 private:
-	Character _character;
+	GameObject* _character;
 
 };
