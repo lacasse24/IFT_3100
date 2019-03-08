@@ -17,6 +17,10 @@ public:
   ofxAssimpModelLoader caracter;
   ofColor backgroundColor;
 
+  ofCamera camera;
+  float angle;
+  float angleH, roll, distance;
+
   string previewImgName = "",
 	  currentImgName = "";
 
@@ -41,8 +45,9 @@ public:
 
   GLuint skyboxProgram;
   Skybox_Loader Skybox;
+  ofShader ofSkybox;
 
-  glm::vec3 g_Position = glm::vec3(0.0f, 0.0f, -10.0f);
+  glm::vec3 g_Position = glm::vec3(0.0f, 0.0f, -30.0f);
   glm::vec3 g_Direction = glm::vec3(0.0f, 0.0f, 1.0f);
   glm::vec3 g_Orientation = glm::vec3(0.0f, 1.0f, 0.0f);
   GLfloat g_Yaw = 90.0f;

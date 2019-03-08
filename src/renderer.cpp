@@ -8,11 +8,15 @@ void Renderer::setup()
   ofSetLogLevel(OF_LOG_VERBOSE);
 
   font.load("font/quicksand.otf", 18);
+
+  // Setup de la caméra
+  angleH = roll = 0.0f;
+  distance = 500.f;
   
 
   // paramètres
   scale_caracter = 1.5f;
-  use_rotation = true;
+  use_rotation = false;
 
   // chargement du modèle
   caracter.loadModel("basicman.obj");
@@ -24,10 +28,11 @@ void Renderer::setup()
   shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
   // Chargement de la skybox
+  ofSkybox.load("Img/SkyBox/skybox.vs", "Img/SkyBox/skybox.fs");
   Core::Shader_Loader shaderLoader;
   skyboxProgram = shaderLoader.CreateProgram(
-	  "C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/skybox.fs", 
-	  "C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/skybox.vs");
+	  "C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/bin/data/Img/SkyBox/skybox.vs", 
+	  "C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/bin/data/Img/SkyBox/skybox.fs");
 
   //C:/Users/Philippe/Documents/of_v0.10.1_vs2017_release/apps/myApps/IFT_3100/
 
@@ -39,12 +44,21 @@ void Renderer::setup()
   faces.push_back("Img/SkyBox/siege_bk.tga");
   faces.push_back("Img/SkyBox/siege_ft.tga");
 
-  Skybox.creeSkybox(&skyboxProgram, faces);
+  GLuint pgm = ofSkybox.getProgram();
+  Skybox.creeSkybox(&pgm, faces);
 
 }
 
 void Renderer::update()
 {
+
+	// Camera 
+	angleH += 1.f;
+
+	camera.orbit(angleH, 0.f, distance);
+	camera.roll(180.f);
+
+
  // ofSetBackgroundColor(backgroundColor);
 
 	if (previewImgName != currentImgName)
@@ -60,7 +74,7 @@ void Renderer::update()
   // transformation du caracter
   //caracter.setScale(0.5,1, 2);
   caracter.setScale(scale_caracter, scale_caracter, scale_caracter);
-  caracter.setPosition(center_x, center_y + 90, 0);
+  caracter.setPosition(center_x + 100.f, center_y -100.f, 0);
 
   if (use_rotation)
     caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
@@ -73,18 +87,25 @@ void Renderer::update()
 
 void Renderer::draw()
 {
+	// caméra
+	camera.begin();
+
 	// couleur d'arrière-plan
 	ofClear(backgroundColor);
 
 	glm::mat4 Transformation;
 	glm::mat4 view;
 	glm::mat4 projection;
-	projection = glm::perspective(glm::radians(45.0f), (float)(512 / 512), 0.1f, 100.0f);
+	
+	projection = glm::perspective(glm::radians(45.0f), (float)(ofGetWidth() / ofGetHeight()), 0.1f, 100.0f);
 	view = glm::lookAt(g_Position, g_Direction + g_Position, g_Orientation);
+	//ofGetCurrentMatrix()
   
-  
-	glm::mat4 viewSkybox = glm::mat4(glm::mat3(view));
-	Skybox.drawSkybox(viewSkybox, projection);
+	glm::mat4 camProj = camera.getProjectionMatrix();
+	glm::mat4 camView = camera.getModelViewMatrix();
+
+	glm::mat4 viewSkybox = glm::mat4(glm::mat3(camView));
+	Skybox.drawSkybox(viewSkybox, camProj);
 
 	// activer l'occlusion en profondeur
 	ofEnableDepthTest();
@@ -115,7 +136,9 @@ void Renderer::draw()
 
 	font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-	previewImg.draw(10, guiHeight+10, 200, 200);
+	//previewImg.draw(10, guiHeight+10, 200, 200);
+
+	camera.end();
 	
 }
 
