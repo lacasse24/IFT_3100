@@ -17,7 +17,7 @@ void Renderer::setup()
 
 	// chargement du modèle
 	//caracter.loadModel("basicman.obj"); old
-	_character->loadModel("basicman.obj");
+	_character->loadModel("Lumberjack/Lumberjack2.fbx");
 
 
 	// désactiver le matériau par défaut du modèle
@@ -135,13 +135,14 @@ void Renderer::draw()
 
 	// activer la lumière
 	light.enable();
+	_character->draw();
 
 	// activer le shader
 	shader.begin();
 
 	// dessiner le caracter
 	//caracter.draw(OF_MESH_FILL); old
-	_character->draw();
+	
 	for (int i = 0; i < equipments.size(); i++)
 	{
 		equipments[i]->draw();
@@ -163,7 +164,7 @@ void Renderer::draw()
 	
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-  previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
+  //previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
 	
 }
 
