@@ -10,6 +10,7 @@
 #include "../Cape.h"
 #include "../Armor.h"
 #include "../Boots.h"
+#include "../GameObject.h"
 
 class Renderer
 {
@@ -22,7 +23,9 @@ public:
 	ofxAssimpModelLoader caracter;
 	ofColor backgroundColor;
 	ofPoint guiPosition;
-	std::string previewImgName = "", currentImgName = "";
+	std::string previewImgName = "", currentImgName = "", lastImportedModelPath,importedModelCategory;
+	vector<tuple<string, string>> strEquipments;
+
 
 	float center_x;
 	float center_y;
@@ -39,12 +42,14 @@ public:
 	void update();
 	void draw();
 
+	int lastSize = 0;
 	void updateModelShader(float h, float s, float b);
-
 	ofColor HSVtoRGB(int H, double S, double V);
 
 private:
-	GameObject* _character;
+	Character* _character;
+	vector<GameObject*> equipments;
+	GameObject* _sword;
 
 
 };

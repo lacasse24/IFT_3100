@@ -3,6 +3,7 @@
 void Renderer::setup()
 {
 	_character = new Character();
+	
 	ofSetFrameRate(60);
 	ofSetWindowShape(512, 512);
 	ofSetBackgroundColor(220);
@@ -18,17 +19,19 @@ void Renderer::setup()
 	//caracter.loadModel("basicman.obj"); old
 	_character->loadModel("basicman.obj");
 
+
 	// désactiver le matériau par défaut du modèle
-	//caracter.disableMaterials(); old
 	_character->disableMaterials();
 
 	// Important de faire cette etape avant de faire un setRotation
 	_character->getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
+	
 
 	// chargement du shader
 	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
 
 }
+
 
 void Renderer::update()
 {
@@ -37,7 +40,62 @@ void Renderer::update()
 	if (previewImgName != currentImgName)
 	{
 		currentImgName = previewImgName;
-		previewImg.load("Img/" + currentImgName);
+		if (previewImgName.size() < 20)
+		{
+			previewImg.load("Img/" + currentImgName);
+		}
+		else
+		{
+			previewImg.load(currentImgName);
+		}
+		
+	}
+
+	if (strEquipments.size() != lastSize)
+	{
+		tuple<string, string> lastElem = strEquipments[strEquipments.size() - 1];
+
+		//Manque a mettre l'element à la bonne place (l'équiper)!
+		if (std::get<1>(lastElem) == "Sword")
+		{
+			Sword* item = new Sword(std::get<0>(lastElem));
+			equipments.push_back(item);
+			item->loadModel(std::get<0>(lastElem));
+
+			//_character->equipLeftHand(make_shared<Sword>(item));
+		}
+		else if (std::get<1>(lastElem) == "Armor")
+		{
+			Armor* item = new Armor(std::get<0>(lastElem));
+			equipments.push_back(item);
+			item->loadModel(std::get<0>(lastElem));
+		}
+		else if (std::get<1>(lastElem) == "Legging")
+		{
+			Legging* item = new Legging(std::get<0>(lastElem));
+			equipments.push_back(item);
+			item->loadModel(std::get<0>(lastElem));
+		}
+		else if (std::get<1>(lastElem) == "Boots")
+		{
+			Boots* item = new Boots(std::get<0>(lastElem));
+			equipments.push_back(item);
+			item->loadModel(std::get<0>(lastElem));
+		}
+		else if (std::get<1>(lastElem) == "Shield")
+		{
+			Shield* item = new Shield(std::get<0>(lastElem));
+			equipments.push_back(item);
+			item->loadModel(std::get<0>(lastElem));
+		}
+		else if (std::get<1>(lastElem) == "Helmet")
+		{
+			Helmet* item = new Helmet(std::get<0>(lastElem));
+			equipments.push_back(item);
+			item->loadModel(std::get<0>(lastElem));
+		}
+
+		lastSize = strEquipments.size();
 	}
 
 	// position au centre de la fenêtre d'affichage
@@ -45,11 +103,12 @@ void Renderer::update()
 	center_y = ofGetHeight() / 2.0f;
 
 	// transformation du caracter
-	//caracter.setScale(0.5,1, 2);
-	//caracter.setScale(scale_caracter, scale_caracter, scale_caracter); old
+
 	_character->getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
 	//caracter.setPosition(center_x, center_y + 90, 0); old
 	_character->getTransform().setPosition(center_x, center_y + 90, 0);
+
+	
 
 	if (use_rotation)
 	{
@@ -83,6 +142,12 @@ void Renderer::draw()
 	// dessiner le caracter
 	//caracter.draw(OF_MESH_FILL); old
 	_character->draw();
+	for (int i = 0; i < equipments.size(); i++)
+	{
+		equipments[i]->draw();
+	}
+	
+	
 
 	// désactiver le shader
 	shader.end();
@@ -95,7 +160,7 @@ void Renderer::draw()
 
 	// désactiver l'occlusion en profondeur
 	ofDisableDepthTest();
-
+	
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
   previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);

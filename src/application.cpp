@@ -17,6 +17,12 @@ void Application::update()
 	renderer.guiPosition = menugauche.gui.getPosition();
 	renderer.previewImgName = menugauche.currentImgPath;
 
+	if (menugauche.currentModelPath != "" && menugauche.currentModelPath != renderer.lastImportedModelPath)
+	{
+		renderer.strEquipments.push_back(make_tuple(menugauche.currentModelPath, menugauche.importedImgType));
+		renderer.lastImportedModelPath = menugauche.importedModelPath;
+	}
+
 }
 
 void Application::draw()

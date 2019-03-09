@@ -23,21 +23,30 @@ public:
 	ofxGuiGroup menuPlatebody;
 	ofxGuiGroup menuSword;
 
-	ofxButton btnDHSword, btnGladiatorHelm;
+	ofxGuiGroup menuImport;
+	ofxButton btnDHSword, btnGladiatorHelm, btnImportImg, btnImportModel, btnModelCategory;
 
-	string currentImgPath;
+	bool importImgOk, importModelOk, modelCategoryOk;
 
+	string currentImgPath, importedImgPath, importedModelPath, importedModelCategory,importedImgName,importedImgType,currentModelPath;
+
+	//ImportedImgPath and ImportedModelPath
+	vector<tuple<string, string, string>>  importedModelInfos;
+
+
+	bool verifyModelCategory(string category);
 	float r, g, b;
 
 	void setup();
 
 	void draw();
 	void update();
-
-
+	vector<string> acceptedCategory;
+	int importedModelCategoryIndex;
+	void verifyEverythingOk();
+	bool verifyExtension(string imgPath, vector<string> extensions);
+	string stringToUpper(string str);
 	void setButton(ofxButton &btn, string name);
 	void btn_Pressed(const void * sender);
-	void convertHSBtoRGB();
-
 };
 
