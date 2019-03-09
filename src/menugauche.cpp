@@ -186,9 +186,9 @@ void menugauche::verifyEverythingOk()
 		importedImgType = types[importedModelCategoryIndex];
 	
 		
-		//importImgOk = false;
-		//importModelOk = false;
-		//modelCategoryOk = false;
+		importImgOk = false;
+		importModelOk = false;
+		modelCategoryOk = false;
 	}
 }
 

@@ -20,11 +20,16 @@ public:
 	ofImage previewImg;
 	ofTrueTypeFont font;
 	ofLight light;
+	ofEasyCam cam;
 	ofxAssimpModelLoader caracter;
 	ofColor backgroundColor;
 	ofPoint guiPosition;
 	std::string previewImgName = "", currentImgName = "", lastImportedModelPath,importedModelCategory;
 	vector<tuple<string, string>> strEquipments;
+
+	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox;
+	ofSpherePrimitive sphere;
+	ofTexture mTex;
 
 
 	float center_x;

@@ -3,7 +3,11 @@
 void Renderer::setup()
 {
 	_character = new Character();
+	//sphere.setPosition(ofGetWidth()*2, ofGetHeight()*.75, 10000);
+	sphere.move(100, 100, 200);
+	//cam.setTarget(sphere);
 	
+
 	ofSetFrameRate(60);
 	ofSetWindowShape(512, 512);
 	ofSetBackgroundColor(220);
@@ -26,9 +30,14 @@ void Renderer::setup()
 	// Important de faire cette etape avant de faire un setRotation
 	_character->getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
 	
+	
 
 	// chargement du shader
 	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
+
+	ofDisableAlphaBlending();
+	ofEnableDepthTest();
+	
 
 }
 
@@ -114,6 +123,7 @@ void Renderer::update()
 	{
 		_character->getTransform().setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
 		//caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f); old
+		
 	}
 
 	// configuration de la lumière
@@ -148,10 +158,38 @@ void Renderer::draw()
 		equipments[i]->draw();
 	}
 	
-	
+	aiVector3D pos = _character->getTransform().getPosition();
+	box.setWidth(110);
+	box.setHeight(110);
+	boxSecond.setWidth(110);
+	boxSecond.setHeight(70);
+	boxThird.setWidth(110);
+	boxThird.setHeight(50);
+
+	box.setPosition(pos.x, pos.y + 240, pos.z);
+	boxSecond.setPosition(pos.x - 110, pos.y + 240, pos.z);
+	boxThird.setPosition(pos.x + 100, pos.y + 240, pos.z);
+
+	box.draw();
+	boxSecond.draw();
+	boxThird.draw();
 
 	// désactiver le shader
 	shader.end();
+
+	//sphere.setRadius(1000);
+	skybox.set(1000, 1000, 1000);
+	cam.begin();
+	//cam.roll(1);
+
+	ofDisableArbTex();
+	ofLoadImage(mTex, "Img/galaxy.jpg");
+	//mTex.setTextureWrap(GL_REPEAT, GL_REPEAT);
+	mTex.bind();
+	skybox.draw();
+	//sphere.draw();
+	mTex.unbind();
+	cam.end();
 
 	// désactiver la lumière
 	light.disable();
@@ -162,9 +200,9 @@ void Renderer::draw()
 	// désactiver l'occlusion en profondeur
 	ofDisableDepthTest();
 	
-  font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+    font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-  //previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
+   previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
 	
 }
 
