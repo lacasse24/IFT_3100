@@ -13,6 +13,8 @@ public:
   ofTrueTypeFont font;
   ofLight light;
   ofxAssimpModelLoader caracter;
+  ofTexture caracterTex;
+  ofTexture tex;
   ofColor backgroundColor;
 
   string previewImgName = "",

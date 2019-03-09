@@ -15,14 +15,20 @@ void Renderer::setup()
   use_rotation = true;
 
   // chargement du modèle
-  caracter.loadModel("basicman.obj");
+  
+  //ofLoadImage(tex, "Character/lumberJack_diffuse.png");
+  //tex.loadData()
+  caracter.loadModel("Character/Lumberjack/Lumberjack.fbx");
+  caracter.enableTextures();
+  ofTexture text = caracter.getTextureForMesh(0);
+  text = tex;
+  //caracterTex = caracter.getTextureForMesh("Character/lumberJack_diffuse.png");
 
   // désactiver le matériau par défaut du modèle
   caracter.disableMaterials();
 
   // chargement du shader
   shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
-
 }
 
 void Renderer::update()
@@ -68,13 +74,22 @@ void Renderer::draw()
   light.enable();
 
   // activer le shader
-  shader.begin();
+  //shader.begin();
 
   // dessiner le caracter
+  //caracterTex.bind();
+  ofDisableArbTex();
+  //ofMesh mesh = caracter.getMesh(0);
+  //tex.bind();
+  //mesh.drawFaces();
   caracter.draw(OF_MESH_FILL);
+  //tex.unbind();
+
+  
+  //caracterTex.unbind();
 
   // désactiver le shader
-  shader.end();
+  //shader.end();
 
   // désactiver la lumière
   light.disable();
@@ -87,7 +102,7 @@ void Renderer::draw()
 
   font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-  previewImg.draw(10, guiHeight+10, 200, 200);
+  //previewImg.draw(10, guiHeight+10, 200, 200);
 	
 }
 
