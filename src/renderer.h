@@ -26,6 +26,8 @@ public:
 	std::string previewImgName = "", currentImgName = "", lastImportedModelPath,importedModelCategory;
 	vector<tuple<string, string>> strEquipments;
 
+	ofEasyCam EasyCam;
+
 
 	float center_x;
 	float center_y;

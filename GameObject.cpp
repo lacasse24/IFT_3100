@@ -43,6 +43,7 @@ void GameObject::draw()
 
 void GameObject::draw(ofPolyRenderMode mode)
 {
+	ofDisableArbTex();
 	ofPolyRenderMode current = _renderMode;
 	_renderMode = mode;
 	draw();

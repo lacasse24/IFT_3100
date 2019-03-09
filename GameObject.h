@@ -31,6 +31,9 @@ public:
 	//Method that load the mesh
 	void loadModel(const std::string &meshpath);
 
+	// getters
+	ofxAssimpModelLoader getMesh() { return _mesh; };
+
 protected:
 	Transform _transform;
 	ofxAssimpModelLoader _mesh;
