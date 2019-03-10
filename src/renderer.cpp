@@ -32,6 +32,7 @@ void Renderer::setup()
 	// chargement du modèle
 	//caracter.loadModel("basicman.obj"); old
 	_character->loadModel("Lumberjack/Lumberjack2.fbx");
+	ofTexture t = _character->getMesh().getTextureForMesh(0);
 
 	// Chargement textures
 	ofLoadImage(SBbk,	"Img/SkyBox/siege_bk.tga");
@@ -58,7 +59,9 @@ void Renderer::setup()
 	use_rotation = false;
 
 	// Important de faire cette etape avant de faire un setRotation
-	_character->getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
+	//_character->getTransform().addRotation(180.f, 1.0f, 0.0f, 0.0f);
+	_character->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
+	_character->getTransform().addRotation(0.f, 0.0f, 1.0f, 0.0f);
 	
 	
 
@@ -151,15 +154,14 @@ void Renderer::update()
 
 	_character->getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
 	//caracter.setPosition(center_x, center_y + 90, 0); old
-	_character->getTransform().setPosition(0, 0, 0);
-	_character->getTransform().setRotation(0, 180.f, 1.0f, 0.0f, 0.0f);
-	_character->getTransform().setRotation(0, 180.f, 0.0f, 0.0f, 1.0f);
+	_character->getTransform().setPosition(50, 0, 0);
 
+	_BoundBox.CalculateDelimitations(_character->getMesh());
 
 
 	if (use_rotation)
 	{
-		_character->getTransform().setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
+		_character->getTransform().setRotation(1, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
 	}
 
 	// configuration de la lumière
@@ -196,6 +198,20 @@ void Renderer::draw()
 	// activer le shader
 	shader.begin();
 
+
+	std::vector<glm::vec3> MeshVertices = _character->getMesh().getMesh(0).getVertices();
+	ofPoint p = _character->getMesh().getScale();
+	ofMatrix4x4 m =  _character->getMesh().getModelMatrix();
+
+	_BoundBox.draw(*_character);
+
+	BBox.setScale(205.f);
+	BBox.drawWireframe();
+	
+
+	// dessiner le caracter
+
+
 	
 	for (int i = 0; i < equipments.size(); i++)
 	{
@@ -211,10 +227,12 @@ void Renderer::draw()
 	pedSphere1.setPosition(pos.x - 110, pos.y - 160, pos.z);
 	pedSphere2.setPosition(pos.x + 110, pos.y - 170, pos.z);
 
+
 	box.draw();
 	boxSecond.draw();
 	boxThird.draw();
 	
+
 	// désactiver le shader
 	shader.end();
 
@@ -244,8 +262,12 @@ void Renderer::draw()
 
 	previewImg.draw((guiPosition.x)*-1, (guiPosition.y + guiHeight + 10)*-1,guiPosition.z, 200, 200);
 
-  EasyCam.end();
+	EasyCam.end();
 	
+}
+
+void DrawBoundingBox(ofxAssimpModelLoader model)
+{
 }
 
 void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height)
@@ -266,8 +288,8 @@ void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture
 	ofPushMatrix();
 	//ofScale(1, 1, -1);
 	//ofScale(-1, 1, 1);
-	ofRotate(-90.f, 1.f, 0.f, 0.f);
-	ofRotate(-90.f, 0.f, 0.f, 1.f);
+	ofRotateDeg(-90.f, 1.f, 0.f, 0.f);
+	ofRotateDeg(-90.f, 0.f, 0.f, 1.f);
 	top.draw(-Half, -Half, Half, height, height);
 	//top.draw(0, 0, 0, height, height);
 	ofPopMatrix();
@@ -275,14 +297,14 @@ void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture
 	// Bottom
 	ofPushMatrix();
 	ofScale(-1, 1, 1);
-	ofRotate(-90.f, 1.0f, 0.f, 0.f);
-	ofRotate(-90.f, 0.f, 0.f, 1.f);
+	ofRotateDeg(-90.f, 1.0f, 0.f, 0.f);
+	ofRotateDeg(-90.f, 0.f, 0.f, 1.f);
 	btm.draw(-Half, -Half, -Half, height, height); 
 	ofPopMatrix();
 
 	// Left
 	ofPushMatrix();
-	ofRotate(90.f, 0.f, 1.f, 0.f);
+	ofRotateDeg(90.f, 0.f, 1.f, 0.f);
 	left.draw(-Half, -Half, Half, height, height);
 	ofPopMatrix();
 

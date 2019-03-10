@@ -9,6 +9,7 @@
 #include "../Cape.h"
 #include "../Armor.h"
 #include "../Boots.h"
+#include "../BoundingBox.h"
 #include "../GameObject.h"
 #include "./cursors/Cursor.h"
 
@@ -29,9 +30,9 @@ public:
 
 
 	ofEasyCam EasyCam;
-	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox;
-	ofSpherePrimitive sphere,pedSphere1,pedSphere2;
 
+	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox, BBox;
+	ofSpherePrimitive sphere,pedSphere1,pedSphere2;
 
 	// textures
 	ofTexture Sun, Galaxy;
@@ -39,8 +40,9 @@ public:
 	ofTexture SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright;
 	ofPoint points[4];
 
-
 	void drawCursor(Cursor* cursor);
+
+	BoundingBox _BoundBox;
 
 	float center_x;
 	float center_y;
@@ -62,6 +64,7 @@ public:
 	void updateModelShader(float h, float s, float b);
 	ofColor HSVtoRGB(int H, double S, double V);
 	void DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height);
+	void DrawBoundingBox(ofxAssimpModelLoader model);
 
 private:
 	Character* _character;
