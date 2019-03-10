@@ -64,17 +64,40 @@ void Renderer::setup()
 	ofEnableDepthTest();
 	
 
-	// Caméra
+	// Camera
 	EasyCam.setFarClip(5000.f);
 	//EasyCam.setDistance(300.f);
 	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
 	//EasyCam.rollDeg(180.f);
 	//EasyCam.lookAt(_character->getMesh().getPosition());
-
 	_sword = std::make_shared<Sword>(Sword());
-	_sword->loadModel("dhsword.obj");
+	_helmet = std::make_shared<Helmet>(Helmet());
+	_cape = std::make_shared<Cape>(Cape());
+	_armor = std::make_shared<Armor>(Armor());
+	_legging = std::make_shared<Legging>(Legging());
+	_boots = std::make_shared<Boots>(Boots());
+
+	_sword->loadModel("testBox.obj");
+	_helmet->loadModel("testBox.obj");
+	_cape->loadModel("testBox.obj");
+	_armor->loadModel("testBox.obj");
+	_legging->loadModel("testBox.obj");
+	_boots->loadModel("testBox.obj");
+
 	_character->equipLeftHand(_sword);
-	_sword->getTransform().setScale(0.5, 0.5, 0.5);
+	_character->equipHelmet(_helmet);
+	_character->equipCape(_cape);
+	_character->equipArmor(_armor);
+	_character->equipLegging(_legging);
+	_character->equipBoots(_boots);
+
+	_sword->getTransform().setScale(.2, .2, .2);
+	_helmet->getTransform().setScale(.2, .2, .2);
+	_cape->getTransform().setScale(.2, .2, .2);
+	_armor->getTransform().setScale(.2, .2, .2);
+	_legging->getTransform().setScale(.2, .2, .2);
+	_boots->getTransform().setScale(.2, .2, .2);
+
 }
 
 
@@ -105,39 +128,33 @@ void Renderer::update()
 		{
 			Sword* item = new Sword(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
-			//_character->equipLeftHand(make_shared<Sword>(item));
+			//_character->equipLeftHand(make_shared<Sword>(*item));
 		}
 		else if (std::get<1>(lastElem) == "Armor")
 		{
 			Armor* item = new Armor(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 
 		}
 		else if (std::get<1>(lastElem) == "Legging")
 		{
 			Legging* item = new Legging(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 		}
 		else if (std::get<1>(lastElem) == "Boots")
 		{
 			Boots* item = new Boots(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 		}
 		else if (std::get<1>(lastElem) == "Shield")
 		{
 			Shield* item = new Shield(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 		}
 		else if (std::get<1>(lastElem) == "Helmet")
 		{
 			Helmet* item = new Helmet(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 		}
 
 		lastSize = strEquipments.size();
@@ -185,7 +202,13 @@ void Renderer::draw()
 	// activer la lumière
 	light.enable();
 	_character->draw();
-	_sword->draw();
+
+	_sword.get()->draw();
+	_helmet.get()->draw();
+	_cape.get()->draw();
+	_armor.get()->draw();
+	_legging.get()->draw();
+	_boots.get()->draw();
 
 	// activer le shader
 	shader.begin();

@@ -16,6 +16,7 @@ enum ChildInstance
 	helmet,
 	cape,
 	armor,
+	legging,
 	boots
 };
 
