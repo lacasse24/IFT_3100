@@ -1,6 +1,8 @@
 #include "renderer.h"
 
 
+
+
 void Renderer::drawCursor(Cursor* pCursor)
 {
 	ofEnableAlphaBlending();
@@ -18,7 +20,6 @@ void Renderer::setup()
 	sphere.move(100, 100, 200);
 	//cam.setTarget(sphere);
 	
-
 	ofSetFrameRate(60);
 	ofSetWindowShape(512, 512);
 	ofSetBackgroundColor(220);
@@ -69,8 +70,7 @@ void Renderer::setup()
 	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
 	//EasyCam.rollDeg(180.f);
 	//EasyCam.lookAt(_character->getMesh().getPosition());
-
-
+	imageFiltre.load("./Img/saloon.jpg");
 }
 
 
@@ -182,6 +182,10 @@ void Renderer::draw()
 	light.enable();
 	_character->draw();
 
+	int dimensionx = 850;
+	int dimensiony = 400;
+	imageFiltre.draw(dimensionx / -2, dimensiony / -2, -90, dimensionx, dimensiony);
+
 	// activer le shader
 	shader.begin();
 
@@ -238,7 +242,6 @@ void Renderer::draw()
     font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
    previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
-
   EasyCam.end();
 	
 }
@@ -302,6 +305,7 @@ void Renderer::updateModelShader(float h, float s, float b)
 	shader.end();
 }
 
+
 //Méthode inspirée de la source : https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-both
 ofColor Renderer::HSVtoRGB(int H, double S, double V) {
 	ofColor color;
@@ -345,4 +349,95 @@ ofColor Renderer::HSVtoRGB(int H, double S, double V) {
 	color.g= (Gs + m) * 255;
 	color.b = (Bs + m) * 255;
 	return color;
+}
+void Renderer::filterinvert()
+{
+	
+	
+	imageFiltre.load("./Img/saloon.jpg");
+	int x, y;
+	int index;
+	int imageHeight = imageFiltre.getHeight();
+	int imageWith = imageFiltre.getWidth();
+	ofImage invertimage;
+
+	ofColor sourceColor;
+
+	sourceColor.antiqueWhite;
+	invertimage.allocate(imageFiltre.getWidth(), imageFiltre.getHeight(), OF_IMAGE_COLOR);
+
+	ofPixels pixelsdest = invertimage.getPixels();
+	ofPixels pixelssrc = imageFiltre.getPixels();
+
+	pixelsdest.setColor(ofColor::white);
+	for (y = 0; y < imageHeight; y++)
+	{
+		for (x = 0; x < imageWith; x++)
+		{
+
+			//index = (imageWith * y) + x;
+			/*sourceColor = pixelssrc.getColor(index);
+			pixelsdest.setColor(index, sourceColor.getInverted());*/
+			ofColor color = pixelssrc.getColor(x%imageWith, y%imageHeight);
+			color.invert();
+			pixelsdest.setColor(x%imageWith, y%imageHeight, color);
+		}
+	}
+
+	imageFiltre.setFromPixels(pixelsdest);
+}
+
+void Renderer::filterbackwhite()
+{
+	imageFiltre.load("./Img/saloon.jpg");
+	int x, y;
+	int imageHeight = imageFiltre.getHeight();
+	int imageWith = imageFiltre.getWidth();
+	int moyenne;
+	ofPixels pixelsdest = imageFiltre.getPixels();
+	ofPixels pixelssrc = imageFiltre.getPixels();
+
+	for (y = 0; y < imageHeight; y++)
+	{
+		for (x = 0; x < imageWith; x++)
+		{
+			ofColor color = pixelssrc.getColor(x%imageWith, y%imageHeight);
+			moyenne = (color.r + color.b + color.g) / 3;
+			pixelsdest.setColor(x%imageWith, y%imageHeight, ofColor(moyenne,moyenne,moyenne,255));
+		}
+	}
+	imageFiltre.setFromPixels(pixelsdest);
+}
+
+void Renderer::filterColourBlind()
+{
+	imageFiltre.load("./Img/saloon.jpg");
+	int x, y;
+	int random = rand() % 3;
+	int imageHeight = imageFiltre.getHeight();
+	int imageWith = imageFiltre.getWidth();
+	ofPixels pixelsdest = imageFiltre.getPixels();
+	ofPixels pixelssrc = imageFiltre.getPixels();
+
+	for (y = 0; y < imageHeight; y++)
+	{
+		for (x = 0; x < imageWith; x++)
+		{
+			ofColor color = pixelssrc.getColor(x%imageWith, y%imageHeight);
+			switch (random)
+			{
+			case 0 :
+				color.r = 0;
+				break;
+			case 1 : 
+				color.g = 0;
+				break;
+			case 2 :
+				color.b = 0;
+				break;
+			}
+			pixelsdest.setColor(x%imageWith, y%imageHeight, color);
+		}
+	}
+	imageFiltre.setFromPixels(pixelsdest);
 }
