@@ -6,8 +6,14 @@ menugauche::menugauche()
 menugauche::menugauche(Renderer* renderer)
 {
 	_renderer = renderer;
-	swordCursor = SwordCursor();
-	_cursor = &swordCursor;
+	swordCursor = new SwordCursor();
+	chestPlateCursor = new ChestPlateCursor();
+	leggingsCursor = new LeggingsCursor();
+	bootsCursor = new BootsCursor();
+	shieldCursor = new ShieldCursor();
+	helmetCursor = new HelmetCursor();
+	normalCursor = new NormalCursor();
+	_cursor = normalCursor;
 }
 void menugauche::setup()
 {
@@ -79,6 +85,8 @@ void menugauche::setup()
 void menugauche::draw(int positionx,int positiony)
 {
 	gui.draw();
+	_renderer->mousePosX = ofGetMouseX();
+	_renderer->mousePosY = ofGetMouseY();
 	_renderer->drawCursor(_cursor);
 }
 //, bool & pressed
@@ -90,12 +98,12 @@ void menugauche::btn_Pressed(const void * sender)
 	if (name == "Gladiator")
 	{
 		currentImgPath = "helm.jpg";
-		//_cursor = &helmetCursor;
+		_cursor = helmetCursor;
 	}
 	else if (name == "Sneaky")
 	{
 		currentImgPath = "Sneaky.png";
-		//_cursor = &helmetCursor;
+		_cursor = swordCursor;
 	}
 	else if (name == "Import image")
 	{

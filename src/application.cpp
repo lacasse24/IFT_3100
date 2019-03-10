@@ -3,14 +3,17 @@
 
 Application::Application()
 {
+	normalcursor = new NormalCursor();
 	renderer = Renderer();
 	_menugauche = menugauche(&renderer);
+	ofHideCursor();
 }
 
 void Application::setup()
 {
   renderer.setup();
   _menugauche.setup();
+  
 }
 
 void Application::update()
@@ -48,6 +51,11 @@ void Application::windowResized(int w, int h)
 {
 	renderer.winHeight = h;
 	renderer.winWidth = w;
+}
+
+void Application::mouseReleased(int x, int y, int button)
+{
+	_menugauche._cursor = normalcursor;
 }
 
 void Application::keyReleased(int key)

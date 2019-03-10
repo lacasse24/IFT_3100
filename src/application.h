@@ -17,6 +17,7 @@ public:
 	Application();
 	Renderer renderer;
 	menugauche _menugauche;
+	NormalCursor* normalcursor;
 	ofParameter<float> slider_hsb_degree;
 	int positionx, positiony;
 	void setup();
@@ -25,7 +26,7 @@ public:
 	void exit();
 	void mouseMoved(int x, int y);
 	void windowResized(int w, int h);
-
+	void Application::mouseReleased(int x, int y, int button);
 	void keyReleased(int key);
   
 };

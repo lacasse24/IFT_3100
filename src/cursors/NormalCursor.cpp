@@ -17,5 +17,5 @@ void NormalCursor::drawCursor()
 {
 	int x = Cursor::positionx;
 	int y = Cursor::positiony;
-	image.draw((float)x, (float)y, 40, 40);
+	image.draw((float)x-10, (float)y-7, 40, 40);
 }

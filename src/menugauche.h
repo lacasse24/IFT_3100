@@ -12,13 +12,13 @@ public:
 	menugauche();
 	menugauche(Renderer* renderer);
 	Cursor* _cursor;
-	SwordCursor swordCursor;
-	ChestPlateCursor chestPlate;
-	LeggingsCursor leggingsCursor;
-	BootsCursor bootsCursor;
-	ShieldCursor shieldCursor;
-	HelmetCursor helmetCursor;
-	NormalCursor normalCursor;
+	SwordCursor* swordCursor;
+	ChestPlateCursor* chestPlateCursor;
+	LeggingsCursor* leggingsCursor;
+	BootsCursor* bootsCursor;
+	ShieldCursor* shieldCursor;
+	HelmetCursor* helmetCursor;
+	NormalCursor* normalCursor;
 
 	Renderer* _renderer;
 	ofColor color;
