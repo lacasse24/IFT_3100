@@ -70,6 +70,7 @@
     <ClCompile Include="src\cursors\CapeCursor.cpp" />
     <ClCompile Include="src\cursors\HelmetCursor.cpp" />
     <ClCompile Include="src\cursors\NormalCursor.cpp" />
+    <ClCompile Include="BoundingBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -309,6 +310,7 @@
     <ClInclude Include="src\cursors\AllCursorsHeader.h" />
     <ClInclude Include="src\cursors\HelmetCursor.h" />
     <ClInclude Include="src\cursors\NormalCursor.h" />
+    <ClInclude Include="BoundingBox.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
