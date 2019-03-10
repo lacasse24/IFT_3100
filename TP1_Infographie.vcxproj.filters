@@ -61,6 +61,7 @@
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Boots.cpp" />
     <ClCompile Include="Legging.cpp" />
+    <ClCompile Include="BoundingBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -290,6 +291,7 @@
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Boots.h" />
     <ClInclude Include="Legging.h" />
+    <ClInclude Include="BoundingBox.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

@@ -10,6 +10,7 @@
 #include "../Cape.h"
 #include "../Armor.h"
 #include "../Boots.h"
+#include "../BoundingBox.h"
 #include "../GameObject.h"
 
 class Renderer
@@ -28,7 +29,7 @@ public:
 	vector<tuple<string, string>> strEquipments;
 
 	ofEasyCam EasyCam;
-	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox, BoundingBox;
+	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox, BBox;
 	ofSpherePrimitive sphere;
 
 
@@ -37,6 +38,8 @@ public:
 	ofTexture mTex ,imageTexture;
 	ofTexture SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright;
 	ofPoint points[4];
+
+	BoundingBox _BoundBox;
 
 	float center_x;
 	float center_y;

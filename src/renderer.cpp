@@ -23,6 +23,7 @@ void Renderer::setup()
 	// chargement du modèle
 	//caracter.loadModel("basicman.obj"); old
 	_character->loadModel("Lumberjack/Lumberjack2.fbx");
+	ofTexture t = _character->getMesh().getTextureForMesh(0);
 
 	// Chargement textures
 	ofLoadImage(Galaxy, "Img/galaxy.jpg");
@@ -41,7 +42,9 @@ void Renderer::setup()
 	use_rotation = false;
 
 	// Important de faire cette etape avant de faire un setRotation
-	_character->getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
+	//_character->getTransform().addRotation(180.f, 1.0f, 0.0f, 0.0f);
+	_character->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
+	_character->getTransform().addRotation(0.f, 0.0f, 1.0f, 0.0f);
 	
 	
 
@@ -58,6 +61,9 @@ void Renderer::setup()
 	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
 	//EasyCam.rollDeg(180.f);
 	//EasyCam.lookAt(_character->getMesh().getPosition());
+
+	// Bounding Box
+	_BoundBox.parentTo(_character);
 
 }
 
@@ -135,15 +141,14 @@ void Renderer::update()
 
 	_character->getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
 	//caracter.setPosition(center_x, center_y + 90, 0); old
-	_character->getTransform().setPosition(0, 0, 0);
-	_character->getTransform().setRotation(0, 180.f, 1.0f, 0.0f, 0.0f);
-	_character->getTransform().setRotation(0, 180.f, 0.0f, 0.0f, 1.0f);
+	_character->getTransform().setPosition(50, 0, 0);
 
+	_BoundBox.CalculateDelimitations(_character->getMesh());
 
 
 	if (use_rotation)
 	{
-		_character->getTransform().setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
+		_character->getTransform().setRotation(1, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
 	}
 
 	// configuration de la lumière
@@ -172,37 +177,13 @@ void Renderer::draw()
 	shader.begin();
 
 	std::vector<glm::vec3> MeshVertices = _character->getMesh().getMesh(0).getVertices();
-	float MinX, MaxX, MinY, MaxY, MinZ, MaxZ;
-	MinX = MaxX = MinY = MaxY = MinZ = MaxZ = 0;
-	for (int i = 0; i < MeshVertices.size(); i++)
-	{
-		float posx = MeshVertices[i].x;
-		float posy = MeshVertices[i].y;
-		float posz = MeshVertices[i].z;
-		// Vertex en X
-		if (posx < MinX) { MinX = posx; }
-		if (posx > MaxX) { MaxX = posx; }
+	ofPoint p = _character->getMesh().getScale();
+	ofMatrix4x4 m =  _character->getMesh().getModelMatrix();
 
-		if (posy < MinY) { MinY = posy; }
-		if (posy > MaxY) { MaxY = posy; }
+	_BoundBox.draw(*_character);
 
-		if (posz < MinZ) { MinZ = posz; }
-		if (posz > MaxZ) { MaxZ = posz; }
-	}
-
-	float sizeX = std::abs(MaxX - MinX);
-	float SizeY = std::abs(MaxY - MinY);
-	float SizeZ = std::abs(MaxZ - MinZ);
-
-	BoundingBox.setWidth(sizeX);
-	BoundingBox.setHeight(SizeY);
-	BoundingBox.setDepth(SizeZ);
-
-	BoundingBox.setPosition(MinX, MinY, MinZ);
-	BoundingBox.setScale(205.f);
-	BoundingBox.drawWireframe();
-	
-
+	BBox.setScale(205.f);
+	BBox.drawWireframe();
 	
 
 	// dessiner le caracter
@@ -278,8 +259,8 @@ void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture
 	ofPushMatrix();
 	//ofScale(1, 1, -1);
 	//ofScale(-1, 1, 1);
-	ofRotate(-90.f, 1.f, 0.f, 0.f);
-	ofRotate(-90.f, 0.f, 0.f, 1.f);
+	ofRotateDeg(-90.f, 1.f, 0.f, 0.f);
+	ofRotateDeg(-90.f, 0.f, 0.f, 1.f);
 	top.draw(-Half, -Half, Half, height, height);
 	//top.draw(0, 0, 0, height, height);
 	ofPopMatrix();
@@ -287,14 +268,14 @@ void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture
 	// Bottom
 	ofPushMatrix();
 	ofScale(-1, 1, 1);
-	ofRotate(-90.f, 1.0f, 0.f, 0.f);
-	ofRotate(-90.f, 0.f, 0.f, 1.f);
+	ofRotateDeg(-90.f, 1.0f, 0.f, 0.f);
+	ofRotateDeg(-90.f, 0.f, 0.f, 1.f);
 	btm.draw(-Half, -Half, -Half, height, height); 
 	ofPopMatrix();
 
 	// Left
 	ofPushMatrix();
-	ofRotate(90.f, 0.f, 1.f, 0.f);
+	ofRotateDeg(90.f, 0.f, 1.f, 0.f);
 	left.draw(-Half, -Half, Half, height, height);
 	ofPopMatrix();
 
