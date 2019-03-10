@@ -50,8 +50,8 @@ void Renderer::setup()
 	boxSecond.setHeight(70);
 	boxThird.setWidth(110);
 	boxThird.setHeight(50);
-	pedSphere1.setRadius(80);
-	pedSphere2.setRadius(80);
+	pedSphere1.setRadius(50);
+	pedSphere2.setRadius(50);
 
 	// désactiver le matériau par défaut du modèle
 	_character->disableMaterials();
@@ -208,8 +208,8 @@ void Renderer::draw()
 	box.setPosition(pos.x, pos.y - 240, pos.z);
 	boxSecond.setPosition(pos.x - 110, pos.y - 240, pos.z);
 	boxThird.setPosition(pos.x + 100, pos.y - 240, pos.z);
-	pedSphere1.setPosition(pos.x - 250, pos.y - 240, pos.z);
-	pedSphere2.setPosition(pos.x + 240, pos.y - 240, pos.z);
+	pedSphere1.setPosition(pos.x - 110, pos.y - 160, pos.z);
+	pedSphere2.setPosition(pos.x + 110, pos.y - 170, pos.z);
 
 	box.draw();
 	boxSecond.draw();
