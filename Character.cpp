@@ -192,17 +192,17 @@ bool Character::equip(shared_ptr<GameObject> go, float x, float y)
 	switch (current)
 	{
 	case 0:
-		equipLeftHand(static_cast<shared_ptr<Holdable>>(go.get()));
+		equipLeftHand(make_shared<Holdable>(*dynamic_cast<Holdable*>(go.get())));
 	case 1:
-		equipRightHand(static_cast<shared_ptr<Holdable>>(go.get()));
+		equipRightHand(make_shared<Holdable>(*dynamic_cast<Holdable*>(go.get())));
 	case 2:
-		equipHelmet(static_cast<shared_ptr<Helmet>>(go.get()));
+		equipHelmet(make_shared<Helmet>(*dynamic_cast<Helmet*>(go.get())));
 	case 3:
-		equipCape(static_cast<shared_ptr<Cape>>(go.get()));
+		equipCape(make_shared<Cape>(*dynamic_cast<Cape*>(go.get())));
 	case 4:
-		equipArmor(static_cast<shared_ptr<Armor>>(go.get()));
+		equipArmor(make_shared<Armor>(*dynamic_cast<Armor*>(go.get())));
 	case 5:
-		equipBoots(static_cast<shared_ptr<Boots>>(go.get()));
+		equipBoots(make_shared<Boots>(*dynamic_cast<Boots*>(go.get())));
 	default:
 		return false;
 	}
