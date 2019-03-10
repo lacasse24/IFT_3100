@@ -79,7 +79,7 @@ void Application::keyReleased(int key)
 			std::string debuts = "cd ./data/gif && ffmpeg.exe -f image2 -framerate 10 -i ./imagebuffer/%d.png  ./gifexported/"+time_stamp+ ".gif";
 			const char* cstr = debuts.c_str();
 			system(cstr);
-			char* path = "./data/gif/imagebuffer";
+			char* path = "./data/gif/imagebuffer/";
 			std::experimental::filesystem::remove_all(path);
 			fs::create_directories(path);
 		}
