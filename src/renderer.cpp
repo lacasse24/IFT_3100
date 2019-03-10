@@ -198,33 +198,17 @@ void Renderer::draw()
 	// désactiver le shader
 	shader.end();
 
-	Sun.bind();
 	//sphere.setRadius(1000);
 	skybox.set(1000, 1000, 1000);
-	//cam.begin();
-	//cam.roll(1);
 
-	ofDisableArbTex();
+	//ofDisableArbTex();
 	
 	//x,y,z,w,h
 	DrawSkyBox(SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright, 5000);
-	
-	//Sun.draw(0, 0, 0, 1000, 1000);
-	//imageTexture.draw(-500, -500, -500, 1000, 1000);
-	//imageTexture.draw(-500, -500, 500, 1000, 1000);
-	//imageTexture.draw(500, 0, 500, 1000, 1000);
-	//imageTexture.draw(0, 0, -500, 1000, 1000);
-	
-	//imageTexture.draw(0, 0, 1000, 1000, 1000);
 
-
-	//skybox.setSideColor(0, ofColor::red);
-	//vector<ofMeshFace> triangles = skybox.getMesh().getFace;
-	//mTex.bind();
 	//skybox.draw();
 	//sphere.draw();
-	
-	Sun.unbind();
+
 	//cam.end();
 
 
