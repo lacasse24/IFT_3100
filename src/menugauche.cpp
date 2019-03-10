@@ -23,14 +23,14 @@ void menugauche::setup()
 
 	// Initialisation des controles du menu
 	gui.setup("Tools");
-	color_picker_background.set("Background color", ofColor(31), ofColor(0, 0), ofColor(255, 255));
+	color_picker_background.set("Spheres color", ofColor(31), ofColor(0, 0), ofColor(255, 255));
 
 	slider_hsb_brightness.set("Hue", 0, 0, 100);
 	slider_hsb_saturation.set("Saturation", 0, 0, 100);
 	slider_hsb_hue.set("Brightness", 42, 0, 360);
 
 	// Création de la hiéarchie dans le menu
-	group_draw.setup("Model color");
+	group_draw.setup("Pedestal color");
 	group_draw.add(slider_hsb_hue);
 	group_draw.add(slider_hsb_saturation);
 	group_draw.add(slider_hsb_brightness);

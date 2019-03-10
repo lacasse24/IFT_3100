@@ -20,7 +20,7 @@ void Renderer::setup()
 
 	ofSetFrameRate(60);
 	ofSetWindowShape(512, 512);
-	ofSetBackgroundColor(220);
+	backgroundColor.set(255);
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofEnableAlphaBlending();
 	font.load("font/quicksand.otf", 18);
@@ -44,6 +44,15 @@ void Renderer::setup()
 	ofDisableArbTex();
 	ofLoadImage(Sun, "Img/sun.png");
 
+	box.setWidth(110);
+	box.setHeight(110);
+	boxSecond.setWidth(110);
+	boxSecond.setHeight(70);
+	boxThird.setWidth(110);
+	boxThird.setHeight(50);
+	pedSphere1.setRadius(80);
+	pedSphere2.setRadius(80);
+
 	// désactiver le matériau par défaut du modèle
 	_character->disableMaterials();
 	use_rotation = false;
@@ -63,10 +72,7 @@ void Renderer::setup()
 
 	// Caméra
 	EasyCam.setFarClip(5000.f);
-	//EasyCam.setDistance(300.f);
-	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
-	//EasyCam.rollDeg(180.f);
-	//EasyCam.lookAt(_character->getMesh().getPosition());
+
 
 
 }
@@ -164,11 +170,10 @@ void Renderer::update()
 
 void Renderer::draw()
 {
-	//ofClear(0, 0, 0, 255);
+
 	EasyCam.begin();
 
-	// couleur d'arrière-plan
-	ofClear(backgroundColor);
+	//ofClear(backgroundColor);
 
 	// activer l'occlusion en profondeur
 	ofEnableDepthTest();
@@ -178,13 +183,19 @@ void Renderer::draw()
 
 	// activer la lumière
 	light.enable();
+
 	_character->draw();
+
+	
+	ofPushStyle(); // push the current style for use later
+	ofSetColor(backgroundColor);
+	pedSphere1.draw();
+	pedSphere2.draw();
+	ofPopStyle();   // recall the pushed style
 
 	// activer le shader
 	shader.begin();
 
-	// dessiner le caracter
-	//caracter.draw(OF_MESH_FILL); old
 	
 	for (int i = 0; i < equipments.size(); i++)
 	{
@@ -192,21 +203,18 @@ void Renderer::draw()
 	}
 	
 	aiVector3D pos = _character->getTransform().getPosition();
-	box.setWidth(110);
-	box.setHeight(110);
-	boxSecond.setWidth(110);
-	boxSecond.setHeight(70);
-	boxThird.setWidth(110);
-	boxThird.setHeight(50);
+	
 
 	box.setPosition(pos.x, pos.y - 240, pos.z);
 	boxSecond.setPosition(pos.x - 110, pos.y - 240, pos.z);
 	boxThird.setPosition(pos.x + 100, pos.y - 240, pos.z);
+	pedSphere1.setPosition(pos.x - 250, pos.y - 240, pos.z);
+	pedSphere2.setPosition(pos.x + 240, pos.y - 240, pos.z);
 
 	box.draw();
 	boxSecond.draw();
 	boxThird.draw();
-
+	
 	// désactiver le shader
 	shader.end();
 
@@ -221,11 +229,7 @@ void Renderer::draw()
 	//x,y,z,w,h
 	DrawSkyBox(SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright, 5000);
 
-	
 	sphere.draw();
-
-	//cam.end();
-
 
 	// désactiver la lumière
 	light.disable();
@@ -238,7 +242,7 @@ void Renderer::draw()
 	
     font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-   previewImg.draw((guiPosition.x)*-1, (guiPosition.y + guiHeight + 10)*-1,guiPosition.z, 200, 200);
+	previewImg.draw((guiPosition.x)*-1, (guiPosition.y + guiHeight + 10)*-1,guiPosition.z, 200, 200);
 
   EasyCam.end();
 	
