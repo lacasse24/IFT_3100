@@ -36,12 +36,12 @@ void Character::setup()
 	_aTransform.parentTo(_transform.get());
 	_bTransform.parentTo(_transform.get());
 
-	_lhTransform.setPosition(10, 10, 0);
-	_rhTransform.setPosition(-10, 10, 0);
-	_hTransform.setPosition(0, 20, 0);
-	_cTransform.setPosition(0, 10, 0);
-	_aTransform.setPosition(0, 5, 0);
-	_bTransform.setPosition(0, -10, 0);
+	_lhTransform.setPosition(10, 1, 0);
+	_rhTransform.setPosition(-10, 1, 0);
+	_hTransform.setPosition(0, 2, 0);
+	_cTransform.setPosition(0, 1, 0);
+	_aTransform.setPosition(0, .5, 0);
+	_bTransform.setPosition(0, -1, 0);
 }
 
 void Character::update()
@@ -229,7 +229,7 @@ bool Character::equipLeftHand(std::shared_ptr<Holdable> holdable)
 		return false;
 
 	_leftHand = holdable;
-	_leftHand.get()->getTransform().parentTo(_lhTransform.get());
+	_leftHand->getTransform().parentTo(_lhTransform.get());
 
 	return true;
 }
@@ -240,7 +240,7 @@ bool Character::equipRightHand(std::shared_ptr<Holdable> holdable)
 		return false;
 
 	_rightHand = holdable;
-	_rightHand.get()->getTransform().parentTo(_rhTransform.get());
+	_rightHand->getTransform().parentTo(_rhTransform.get());
 
 	return true;
 }
@@ -251,7 +251,7 @@ bool Character::equipHelmet(std::shared_ptr<Helmet> helmet)
 		return false;
 
 	_helmet = helmet;
-	_helmet.get()->getTransform().parentTo(_hTransform.get());
+	_helmet->getTransform().parentTo(_hTransform.get());
 
 	return true;
 }
@@ -262,7 +262,7 @@ bool Character::equipCape(std::shared_ptr<Cape> cape)
 		return false;
 
 	_cape = cape;
-	_cape.get()->getTransform().parentTo(_cTransform.get());
+	_cape->getTransform().parentTo(_cTransform.get());
 
 	return true;
 }
@@ -273,7 +273,7 @@ bool Character::equipArmor(std::shared_ptr<Armor> armor)
 		return false;
 
 	_armor = armor;
-	_armor.get()->getTransform().parentTo(_aTransform.get());
+	_armor->getTransform().parentTo(_aTransform.get());
 
 	return true;
 }
@@ -284,7 +284,7 @@ bool Character::equipLegging(std::shared_ptr<Legging> legging)
 		return false;
 
 	_legging = legging;
-	_legging.get()->getTransform().parentTo(_lTransform.get());
+	_legging->getTransform().parentTo(_lTransform.get());
 
 	return true;
 }
@@ -295,7 +295,7 @@ bool Character::equipBoots(std::shared_ptr<Boots> boots)
 		return false;
 
 	_boots = boots;
-	_boots.get()->getTransform().parentTo(_bTransform.get());
+	_boots->getTransform().parentTo(_bTransform.get());
 
 	return true;
 }

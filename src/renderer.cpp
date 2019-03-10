@@ -72,10 +72,9 @@ void Renderer::setup()
 	//EasyCam.lookAt(_character->getMesh().getPosition());
 
 	_sword = std::make_shared<Sword>(Sword());
-	_sword->loadModel("Lumberjack/dhsword.obj");
+	_sword->loadModel("dhsword.obj");
 	_character->equipLeftHand(_sword);
-	_sword->getTransform().setScale(100, 100, 100);
-	_sword->getTransform().setPosition(0, 0, 0);
+	_sword->getTransform().setScale(0.5, 0.5, 0.5);
 }
 
 
