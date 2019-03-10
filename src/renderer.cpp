@@ -171,6 +171,40 @@ void Renderer::draw()
 	// activer le shader
 	shader.begin();
 
+	std::vector<glm::vec3> MeshVertices = _character->getMesh().getMesh(0).getVertices();
+	float MinX, MaxX, MinY, MaxY, MinZ, MaxZ;
+	MinX = MaxX = MinY = MaxY = MinZ = MaxZ = 0;
+	for (int i = 0; i < MeshVertices.size(); i++)
+	{
+		float posx = MeshVertices[i].x;
+		float posy = MeshVertices[i].y;
+		float posz = MeshVertices[i].z;
+		// Vertex en X
+		if (posx < MinX) { MinX = posx; }
+		if (posx > MaxX) { MaxX = posx; }
+
+		if (posy < MinY) { MinY = posy; }
+		if (posy > MaxY) { MaxY = posy; }
+
+		if (posz < MinZ) { MinZ = posz; }
+		if (posz > MaxZ) { MaxZ = posz; }
+	}
+
+	float sizeX = std::abs(MaxX - MinX);
+	float SizeY = std::abs(MaxY - MinY);
+	float SizeZ = std::abs(MaxZ - MinZ);
+
+	BoundingBox.setWidth(sizeX);
+	BoundingBox.setHeight(SizeY);
+	BoundingBox.setDepth(SizeZ);
+
+	BoundingBox.setPosition(MinX, MinY, MinZ);
+	BoundingBox.setScale(205.f);
+	BoundingBox.drawWireframe();
+	
+
+	
+
 	// dessiner le caracter
 	//caracter.draw(OF_MESH_FILL); old
 	
@@ -191,9 +225,9 @@ void Renderer::draw()
 	boxSecond.setPosition(pos.x - 110, pos.y - 240, pos.z);
 	boxThird.setPosition(pos.x + 100, pos.y - 240, pos.z);
 
-	box.draw();
-	boxSecond.draw();
-	boxThird.draw();
+	//box.draw();
+	//boxSecond.draw();
+	//boxThird.draw();
 
 	// désactiver le shader
 	shader.end();
@@ -201,16 +235,9 @@ void Renderer::draw()
 	//sphere.setRadius(1000);
 	skybox.set(1000, 1000, 1000);
 
-	//ofDisableArbTex();
-	
-	//x,y,z,w,h
 	DrawSkyBox(SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright, 5000);
 
-	//skybox.draw();
 	//sphere.draw();
-
-	//cam.end();
-
 
 	// désactiver la lumière
 	light.disable();
@@ -223,10 +250,14 @@ void Renderer::draw()
 	
     font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-   previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
+	//previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
 
-  EasyCam.end();
+	EasyCam.end();
 	
+}
+
+void DrawBoundingBox(ofxAssimpModelLoader model)
+{
 }
 
 void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height)

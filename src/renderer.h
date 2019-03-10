@@ -28,7 +28,7 @@ public:
 	vector<tuple<string, string>> strEquipments;
 
 	ofEasyCam EasyCam;
-	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox;
+	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox, BoundingBox;
 	ofSpherePrimitive sphere;
 
 
@@ -57,6 +57,7 @@ public:
 	void updateModelShader(float h, float s, float b);
 	ofColor HSVtoRGB(int H, double S, double V);
 	void DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height);
+	void DrawBoundingBox(ofxAssimpModelLoader model);
 
 private:
 	Character* _character;
