@@ -182,8 +182,16 @@
   <ItemGroup>
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Boots.cpp" />
+    <ClCompile Include="src\cursors\NormalCursor.cpp" />
+    <ClCompile Include="src\cursors\HelmetCursor.cpp" />
+    <ClCompile Include="src\cursors\CapeCursor.cpp" />
+    <ClCompile Include="src\cursors\ChestPlateCursor.cpp" />
+    <ClCompile Include="src\cursors\LeggingsCursor.cpp" />
+    <ClCompile Include="src\cursors\BootsCursor.cpp" />
     <ClCompile Include="Cape.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="src\cursors\ShieldCursor.cpp" />
+    <ClCompile Include="src\cursors\Cursor.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Helmet.cpp" />
     <ClCompile Include="Holdable.cpp" />
@@ -208,14 +216,25 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="Sword.cpp" />
+    <ClCompile Include="src\cursors\SwordCursor.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Wearable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Boots.h" />
+    <ClInclude Include="src\cursors\NormalCursor.h" />
+    <ClInclude Include="src\cursors\HelmetCursor.h" />
+    <ClInclude Include="src\cursors\AllCursorsHeader.h" />
+    <ClInclude Include="src\cursors\CapeCursor.h" />
+    <ClInclude Include="src\cursors\ChestPlateCursor.h" />
+    <ClInclude Include="src\cursors\LeggingsCursor.h" />
+    <ClInclude Include="src\cursors\BootsCursor.h" />
     <ClInclude Include="Cape.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="src\cursors\SwordCursor.h" />
+    <ClInclude Include="src\cursors\ShieldCursor.h" />
+    <ClInclude Include="src\cursors\Cursor.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Helmet.h" />
     <ClInclude Include="Holdable.h" />
@@ -299,6 +318,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="addons.make" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ProjectExtensions>

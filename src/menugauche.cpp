@@ -1,5 +1,20 @@
 #include "menugauche.h"
 
+menugauche::menugauche()
+{
+}
+menugauche::menugauche(Renderer* renderer)
+{
+	_renderer = renderer;
+	swordCursor = new SwordCursor();
+	chestPlateCursor = new ChestPlateCursor();
+	leggingsCursor = new LeggingsCursor();
+	bootsCursor = new BootsCursor();
+	shieldCursor = new ShieldCursor();
+	helmetCursor = new HelmetCursor();
+	normalCursor = new NormalCursor();
+	_cursor = normalCursor;
+}
 void menugauche::setup()
 {
 	acceptedCategory = { stringToUpper("Armor"),stringToUpper("Legging"),stringToUpper("Boots"),stringToUpper("Helmet"),stringToUpper("Shield"),stringToUpper("Sword") };
@@ -32,7 +47,7 @@ void menugauche::setup()
 	menuSword.add(btnDHSword.setup(""));
 	setButton(btnDHSword, "Sneaky");
 
-
+	
 	menuShield.setup("Shield");
 	menuPlatebody.setup("Armor");
 	menuPlatelegs.setup("Legging");
@@ -63,11 +78,16 @@ void menugauche::setup()
 	gui.add(&group_draw);
 	gui.add(&menuEquipments);
 
+	
+
 }
 
-void menugauche::draw()
+void menugauche::draw(int positionx,int positiony)
 {
 	gui.draw();
+	_renderer->mousePosX = ofGetMouseX();
+	_renderer->mousePosY = ofGetMouseY();
+	_renderer->drawCursor(_cursor);
 }
 //, bool & pressed
 void menugauche::btn_Pressed(const void * sender)
@@ -76,9 +96,15 @@ void menugauche::btn_Pressed(const void * sender)
 	const string & name = v->getName();
 
 	if (name == "Gladiator")
+	{
 		currentImgPath = "helm.jpg";
+		_cursor = helmetCursor;
+	}
 	else if (name == "Sneaky")
+	{
 		currentImgPath = "Sneaky.png";
+		_cursor = swordCursor;
+	}
 	else if (name == "Import image")
 	{
 		ofFileDialogResult result = ofSystemLoadDialog("Charger l'image du modele");
@@ -142,6 +168,8 @@ void menugauche::btn_Pressed(const void * sender)
 		currentImgPath = "";
 
 }
+
+
 bool menugauche::verifyModelCategory(string category)
 {
 	int x = 0;

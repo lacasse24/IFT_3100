@@ -1,0 +1,10 @@
+#pragma once
+#include "BootsCursor.h"
+#include "CapeCursor.h"
+#include "ChestPlateCursor.h"
+#include "Cursor.h"
+#include "LeggingsCursor.h"
+#include "ShieldCursor.h"
+#include "SwordCursor.h"
+#include "HelmetCursor.h"
+#include "NormalCursor.h"
