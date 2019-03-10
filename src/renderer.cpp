@@ -13,10 +13,9 @@ void Renderer::drawCursor(Cursor* pCursor)
 void Renderer::setup()
 {
 	_character = new Character();
-	//sphere.setPosition(ofGetWidth()*2, ofGetHeight()*.75, 10000);
-	//cam.setTarget(skybox);
-	sphere.move(100, 100, 200);
-	//cam.setTarget(sphere);
+	sphere.move(1400, 800, -2000);
+	sphere.setRadius(120);
+	
 	
 
 	ofSetFrameRate(60);
@@ -35,9 +34,6 @@ void Renderer::setup()
 	_character->loadModel("Lumberjack/Lumberjack2.fbx");
 
 	// Chargement textures
-	ofLoadImage(Galaxy, "Img/galaxy.jpg");
-	ofLoadImage(Sun, "Img/sun.png");
-
 	ofLoadImage(SBbk,	"Img/SkyBox/siege_bk.tga");
 	ofLoadImage(SBfrnt,	"Img/SkyBox/siege_ft.tga");
 	ofLoadImage(SBtop,	"Img/SkyBox/siege_up.tga");
@@ -45,6 +41,8 @@ void Renderer::setup()
 	ofLoadImage(SBleft, "Img/SkyBox/siege_lf.tga");
 	ofLoadImage(SBright,"Img/SkyBox/siege_rt.tga");
 
+	ofDisableArbTex();
+	ofLoadImage(Sun, "Img/sun.png");
 
 	// désactiver le matériau par défaut du modèle
 	_character->disableMaterials();
@@ -212,16 +210,19 @@ void Renderer::draw()
 	// désactiver le shader
 	shader.end();
 
-	//sphere.setRadius(1000);
-	skybox.set(1000, 1000, 1000);
+	
 
-	//ofDisableArbTex();
+	
+	Sun.bind();
+	sphere.draw();
+	Sun.unbind();
+	sphere.roll(1);
 	
 	//x,y,z,w,h
 	DrawSkyBox(SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright, 5000);
 
-	//skybox.draw();
-	//sphere.draw();
+	
+	sphere.draw();
 
 	//cam.end();
 
@@ -237,7 +238,7 @@ void Renderer::draw()
 	
     font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-   previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
+   previewImg.draw((guiPosition.x)*-1, (guiPosition.y + guiHeight + 10)*-1,guiPosition.z, 200, 200);
 
   EasyCam.end();
 	
