@@ -27,6 +27,7 @@ public:
 	std::string previewImgName = "", currentImgName = "", lastImportedModelPath,importedModelCategory;
 	vector<tuple<string, string>> strEquipments;
 
+	ofEasyCam EasyCam;
 	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox;
 	ofSpherePrimitive sphere;
 	ofTexture mTex;

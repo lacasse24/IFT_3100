@@ -26,6 +26,7 @@ void Renderer::setup()
 
 	// désactiver le matériau par défaut du modèle
 	_character->disableMaterials();
+	use_rotation = false;
 
 	// Important de faire cette etape avant de faire un setRotation
 	_character->getTransform().addRotation(0.3f, 0.0f, 1.0f, 0.0f);
@@ -38,6 +39,12 @@ void Renderer::setup()
 	ofDisableAlphaBlending();
 	ofEnableDepthTest();
 	
+
+	// Caméra
+	//EasyCam.setDistance(300.f);
+	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
+	//EasyCam.rollDeg(180.f);
+	//EasyCam.lookAt(_character->getMesh().getPosition());
 
 }
 
@@ -115,7 +122,9 @@ void Renderer::update()
 
 	_character->getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
 	//caracter.setPosition(center_x, center_y + 90, 0); old
-	_character->getTransform().setPosition(center_x, center_y + 90, 0);
+	_character->getTransform().setPosition(0, 0, 0);
+	_character->getTransform().setRotation(0, 180.f, 1.0f, 0.0f, 0.0f);
+	_character->getTransform().setRotation(0, 180.f, 0.0f, 0.0f, 1.0f);
 
 	
 
@@ -134,6 +143,7 @@ void Renderer::update()
 
 void Renderer::draw()
 {
+	EasyCam.begin();
 	// couleur d'arrière-plan
 	ofClear(backgroundColor);
 
@@ -166,9 +176,9 @@ void Renderer::draw()
 	boxThird.setWidth(110);
 	boxThird.setHeight(50);
 
-	box.setPosition(pos.x, pos.y + 240, pos.z);
-	boxSecond.setPosition(pos.x - 110, pos.y + 240, pos.z);
-	boxThird.setPosition(pos.x + 100, pos.y + 240, pos.z);
+	box.setPosition(pos.x, pos.y - 240, pos.z);
+	boxSecond.setPosition(pos.x - 110, pos.y - 240, pos.z);
+	boxThird.setPosition(pos.x + 100, pos.y - 240, pos.z);
 
 	box.draw();
 	boxSecond.draw();
@@ -179,7 +189,6 @@ void Renderer::draw()
 
 	//sphere.setRadius(1000);
 	skybox.set(1000, 1000, 1000);
-	cam.begin();
 	//cam.roll(1);
 
 	ofDisableArbTex();
@@ -189,7 +198,7 @@ void Renderer::draw()
 	skybox.draw();
 	//sphere.draw();
 	mTex.unbind();
-	cam.end();
+
 
 	// désactiver la lumière
 	light.disable();
@@ -203,6 +212,8 @@ void Renderer::draw()
     font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
    previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
+
+  EasyCam.end();
 	
 }
 
