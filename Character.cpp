@@ -29,7 +29,21 @@ Character::~Character()
 void Character::setup()
 {
 	GameObject::setup();
+	_lhTransform.parentTo(_transform.get());
+	_rhTransform.parentTo(_transform.get());
+	_hTransform.parentTo(_transform.get());
+	_cTransform.parentTo(_transform.get());
+	_aTransform.parentTo(_transform.get());
+	_lTransform.parentTo(_transform.get());
+	_bTransform.parentTo(_transform.get());
 
+	_lhTransform.setPosition(170, 100, -10);
+	_rhTransform.setPosition(-170, 100, -10);
+	_hTransform.setPosition(0, 160, -10);
+	_cTransform.setPosition(0, 120, -10);
+	_aTransform.setPosition(0, 80, -10);
+	_lTransform.setPosition(0, -20, -10);
+	_bTransform.setPosition(0, -170, 0);
 }
 
 void Character::update()
@@ -91,6 +105,14 @@ bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 		empty = emptyArmor();
 	}
 
+	dist = _lTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = ChildInstance::legging;
+		empty = emptyLegging();
+	}
+
 	dist = _bTransform.getDistFrom(x, y, 0);
 	if (dist < best)
 	{
@@ -143,7 +165,7 @@ bool Character::equip(shared_ptr<GameObject> go, float x, float y)
 	if (!canEquip(go, x, y))
 		return false;
 
-	ChildInstance current = ChildInstance::null;
+	int current = -1;
 	float best = 43;
 	float dist = 0;
 
@@ -151,42 +173,49 @@ bool Character::equip(shared_ptr<GameObject> go, float x, float y)
 	if (dist < best)
 	{
 		best = dist;
-		current = ChildInstance::holdable;
+		current = 0;
 	}
 
 	dist = _rhTransform.getDistFrom(x, y, 0);
 	if (dist < best)
 	{
 		best = dist;
-		current = ChildInstance::holdable;
+		current = 1;
 	}
 
 	dist = _hTransform.getDistFrom(x, y, 0);
 	if (dist < best)
 	{
 		best = dist;
-		current = ChildInstance::helmet;
+		current = 2;
 	}
 
 	dist = _cTransform.getDistFrom(x, y, 0);
 	if (dist < best)
 	{
 		best = dist;
-		current = ChildInstance::cape;
+		current = 3;
 	}
 
 	dist = _aTransform.getDistFrom(x, y, 0);
 	if (dist < best)
 	{
 		best = dist;
-		current = ChildInstance::armor;
+		current = 4;
+	}
+
+	dist = _lTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = 5;
 	}
 
 	dist = _bTransform.getDistFrom(x, y, 0);
 	if (dist < best)
 	{
 		best = dist;
-		current = ChildInstance::boots;
+		current = 6;
 	}
 
 	switch (current)
@@ -202,6 +231,8 @@ bool Character::equip(shared_ptr<GameObject> go, float x, float y)
 	case 4:
 		equipArmor(make_shared<Armor>(*dynamic_cast<Armor*>(go.get())));
 	case 5:
+		equipLegging(make_shared<Legging>(*dynamic_cast<Legging*>(go.get())));
+	case 6:
 		equipBoots(make_shared<Boots>(*dynamic_cast<Boots*>(go.get())));
 	default:
 		return false;
@@ -217,7 +248,7 @@ bool Character::equipLeftHand(std::shared_ptr<Holdable> holdable)
 		return false;
 
 	_leftHand = holdable;
-	_leftHand.get()->getTransform().parentTo(_lhTransform.get());
+	_leftHand->getTransform().parentTo(_lhTransform.get());
 
 	return true;
 }
@@ -228,7 +259,7 @@ bool Character::equipRightHand(std::shared_ptr<Holdable> holdable)
 		return false;
 
 	_rightHand = holdable;
-	_rightHand.get()->getTransform().parentTo(_rhTransform.get());
+	_rightHand->getTransform().parentTo(_rhTransform.get());
 
 	return true;
 }
@@ -239,7 +270,7 @@ bool Character::equipHelmet(std::shared_ptr<Helmet> helmet)
 		return false;
 
 	_helmet = helmet;
-	_helmet.get()->getTransform().parentTo(_hTransform.get());
+	_helmet->getTransform().parentTo(_hTransform.get());
 
 	return true;
 }
@@ -250,7 +281,7 @@ bool Character::equipCape(std::shared_ptr<Cape> cape)
 		return false;
 
 	_cape = cape;
-	_cape.get()->getTransform().parentTo(_cTransform.get());
+	_cape->getTransform().parentTo(_cTransform.get());
 
 	return true;
 }
@@ -261,7 +292,7 @@ bool Character::equipArmor(std::shared_ptr<Armor> armor)
 		return false;
 
 	_armor = armor;
-	_armor.get()->getTransform().parentTo(_aTransform.get());
+	_armor->getTransform().parentTo(_aTransform.get());
 
 	return true;
 }
@@ -272,7 +303,7 @@ bool Character::equipLegging(std::shared_ptr<Legging> legging)
 		return false;
 
 	_legging = legging;
-	_legging.get()->getTransform().parentTo(_lTransform.get());
+	_legging->getTransform().parentTo(_lTransform.get());
 
 	return true;
 }
@@ -283,7 +314,7 @@ bool Character::equipBoots(std::shared_ptr<Boots> boots)
 		return false;
 
 	_boots = boots;
-	_boots.get()->getTransform().parentTo(_bTransform.get());
+	_boots->getTransform().parentTo(_bTransform.get());
 
 	return true;
 }
@@ -330,11 +361,18 @@ std::shared_ptr<GameObject> Character::unequip(float x, float y)
 		current = 4;
 	}
 
-	dist = _bTransform.getDistFrom(x, y, 0);
+	dist = _lTransform.getDistFrom(x, y, 0);
 	if (dist < best)
 	{
 		best = dist;
 		current = 5;
+	}
+
+	dist = _bTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = 6;
 	}
 
 	switch (current)
@@ -350,6 +388,8 @@ std::shared_ptr<GameObject> Character::unequip(float x, float y)
 	case 4:
 		return unequipArmor();
 	case 5:
+		return unequipLegging();
+	case 6:
 		return unequipBoots();
 	default:
 		return unequiped;

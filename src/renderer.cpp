@@ -13,9 +13,13 @@ void Renderer::drawCursor(Cursor* pCursor)
 void Renderer::setup()
 {
 	_character = new Character();
+	_character->setup();
+
 	sphere.move(1400, 800, -2000);
 	sphere.setRadius(120);
-	
+	//sphere.setPosition(ofGetWidth()*2, ofGetHeight()*.75, 10000);
+	//cam.setTarget(skybox);
+	//cam.setTarget(sphere);
 	
 
 	ofSetFrameRate(60);
@@ -73,11 +77,39 @@ void Renderer::setup()
 	ofEnableDepthTest();
 	
 
-	// Caméra
+	// Camera
 	EasyCam.setFarClip(5000.f);
 
 
+	/* For debug purposes
+	_sword = std::make_shared<Sword>(Sword());
+	_helmet = std::make_shared<Helmet>(Helmet());
+	_cape = std::make_shared<Cape>(Cape());
+	_armor = std::make_shared<Armor>(Armor());
+	_legging = std::make_shared<Legging>(Legging());
+	_boots = std::make_shared<Boots>(Boots());
 
+	_sword->loadModel("testBox.obj");
+	_helmet->loadModel("testBox.obj");
+	_cape->loadModel("testBox.obj");
+	_armor->loadModel("testBox.obj");
+	_legging->loadModel("testBox.obj");
+	_boots->loadModel("testBox.obj");
+
+	_character->equipLeftHand(_sword);
+	_character->equipHelmet(_helmet);
+	_character->equipCape(_cape);
+	_character->equipArmor(_armor);
+	_character->equipLegging(_legging);
+	_character->equipBoots(_boots);
+
+	_sword->getTransform().setScale(.2, .2, .2);
+	_helmet->getTransform().setScale(.2, .2, .2);
+	_cape->getTransform().setScale(.2, .2, .2);
+	_armor->getTransform().setScale(.2, .2, .2);
+	_legging->getTransform().setScale(.2, .2, .2);
+	_boots->getTransform().setScale(.2, .2, .2);
+	*/
 }
 
 
@@ -108,39 +140,33 @@ void Renderer::update()
 		{
 			Sword* item = new Sword(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
-			//_character->equipLeftHand(make_shared<Sword>(item));
+			//_character->equipLeftHand(make_shared<Sword>(*item));
 		}
 		else if (std::get<1>(lastElem) == "Armor")
 		{
 			Armor* item = new Armor(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 
 		}
 		else if (std::get<1>(lastElem) == "Legging")
 		{
 			Legging* item = new Legging(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 		}
 		else if (std::get<1>(lastElem) == "Boots")
 		{
 			Boots* item = new Boots(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 		}
 		else if (std::get<1>(lastElem) == "Shield")
 		{
 			Shield* item = new Shield(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 		}
 		else if (std::get<1>(lastElem) == "Helmet")
 		{
 			Helmet* item = new Helmet(std::get<0>(lastElem));
 			equipments.push_back(item);
-			item->loadModel(std::get<0>(lastElem));
 		}
 
 		lastSize = strEquipments.size();
@@ -188,6 +214,14 @@ void Renderer::draw()
 
 	_character->draw();
 
+	/* For debug purposes
+	_sword.get()->draw();
+	_helmet.get()->draw();
+	_cape.get()->draw();
+	_armor.get()->draw();
+	_legging.get()->draw();
+	_boots.get()->draw();
+	*/
 	
 	ofPushStyle(); // push the current style for use later
 	ofSetColor(backgroundColor);
