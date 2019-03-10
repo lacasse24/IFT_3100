@@ -237,8 +237,6 @@ void Renderer::draw()
 	shader.end();
 
 	
-
-	
 	Sun.bind();
 	sphere.draw();
 	Sun.unbind();
@@ -260,10 +258,10 @@ void Renderer::draw()
 	
     font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 
-	previewImg.draw((guiPosition.x)*-1, (guiPosition.y + guiHeight + 10)*-1,guiPosition.z, 200, 200);
-
 	EasyCam.end();
-	
+
+	font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+	previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
 }
 
 void DrawBoundingBox(ofxAssimpModelLoader model)
