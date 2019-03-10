@@ -166,7 +166,7 @@ void Renderer::update()
 
 void Renderer::draw()
 {
-
+	//ofClear(0, 0, 0, 255);
 	EasyCam.begin();
 
 	// couleur d'arrière-plan

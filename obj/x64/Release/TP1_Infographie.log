@@ -1,0 +1,382 @@
+﻿  Armor.cpp
+  Boots.cpp
+  NormalCursor.cpp
+  HelmetCursor.cpp
+  CapeCursor.cpp
+  ChestPlateCursor.cpp
+  LeggingsCursor.cpp
+  BootsCursor.cpp
+  Cape.cpp
+  Character.cpp
+  ShieldCursor.cpp
+  Cursor.cpp
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Character.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Character.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ChestPlateCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ChestPlateCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Character.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Character.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Character.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ChestPlateCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Character.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ChestPlateCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ChestPlateCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ChestPlateCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\HelmetCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\HelmetCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Boots.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Boots.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\HelmetCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\HelmetCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\HelmetCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\HelmetCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ShieldCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ShieldCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Boots.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Boots.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Boots.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Boots.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ShieldCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ShieldCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ShieldCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\ShieldCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Armor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Armor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Armor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Armor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Armor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Armor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\CapeCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\CapeCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\LeggingsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\LeggingsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\CapeCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\CapeCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\CapeCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\CapeCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\LeggingsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\LeggingsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\LeggingsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\LeggingsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\NormalCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\NormalCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\NormalCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\NormalCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\NormalCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\NormalCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Cape.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Cape.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Cape.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Cape.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Cape.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Cape.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\Cursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\Cursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\Cursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\Cursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\Cursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\Cursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\BootsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\BootsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\BootsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\BootsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\BootsCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\BootsCursor.cpp)
+  GameObject.cpp
+  Helmet.cpp
+  Holdable.cpp
+  Legging.cpp
+  Shield.cpp
+  menugauche.cpp
+  application.cpp
+  main.cpp
+  ofxAssimpAnimation.cpp
+  ofxAssimpMeshHelper.cpp
+  ofxAssimpModelLoader.cpp
+  ofxAssimpTexture.cpp
+  ofxBaseGui.cpp
+  ofxButton.cpp
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file GameObject.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file GameObject.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file GameObject.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file GameObject.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file GameObject.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file GameObject.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Helmet.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Helmet.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Holdable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Holdable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Helmet.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Helmet.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Helmet.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Helmet.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Legging.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Legging.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Holdable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Holdable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Holdable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Holdable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Legging.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Legging.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Legging.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Legging.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Shield.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Shield.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Shield.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Shield.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Shield.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Shield.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\menugauche.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\menugauche.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\menugauche.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\menugauche.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\menugauche.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\menugauche.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\application.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\application.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\application.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\application.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\application.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\application.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\src\menugauche.cpp(236): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxassimpmodelloader\src\ofxassimpmodelloader.cpp(65): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxassimpmodelloader\src\ofxassimpmodelloader.cpp(341): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxassimpmodelloader\src\ofxassimpmodelloader.cpp(516): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxassimpmodelloader\src\ofxassimpmodelloader.cpp(607): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxassimpmodelloader\src\ofxassimpmodelloader.cpp(687): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxassimpmodelloader\src\ofxassimpmodelloader.cpp(759): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxassimpmodelloader\src\ofxassimpmodelloader.cpp(981): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxBaseGui.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxBaseGui.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxBaseGui.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxBaseGui.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxBaseGui.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxBaseGui.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxButton.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxButton.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxButton.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxButton.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxButton.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxButton.cpp)
+  ofxColorPicker.cpp
+  ofxGuiGroup.cpp
+  ofxInputField.cpp
+  ofxLabel.cpp
+  ofxPanel.cpp
+  ofxSlider.cpp
+  ofxSliderGroup.cpp
+  ofxToggle.cpp
+  renderer.cpp
+  Sword.cpp
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxColorPicker.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxColorPicker.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxColorPicker.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxColorPicker.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxColorPicker.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxColorPicker.cpp)
+  SwordCursor.cpp
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxInputField.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxInputField.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxPanel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxPanel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxInputField.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxInputField.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxInputField.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxInputField.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxPanel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxPanel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxPanel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxPanel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxLabel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxLabel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxLabel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxLabel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxLabel.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxLabel.cpp)
+  Transform.cpp
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(215): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(194): note: while compiling class template member function 'ofMesh ofxColorPicker_<unsigned char>::getColorPoint(void)'
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(485): note: see reference to function template instantiation 'ofMesh ofxColorPicker_<unsigned char>::getColorPoint(void)' being compiled
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(490): note: see reference to class template instantiation 'ofxColorPicker_<unsigned char>' being compiled
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(216): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(225): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(226): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(245): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(236): note: while compiling class template member function 'ofMesh ofxColorPicker_<unsigned char>::getColorWheel(void)'
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(484): note: see reference to function template instantiation 'ofMesh ofxColorPicker_<unsigned char>::getColorWheel(void)' being compiled
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(246): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSlider.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSlider.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSlider.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSlider.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSlider.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSlider.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\transform.cpp(201): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofpolyline.inl(396): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxColorPicker.cpp)
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofpolyline.inl(318): note: while compiling class template member function 'void ofPolyline_<ofDefaultVertexType>::arc(const T &,float,float,float,float,bool,int)'
+          with
+          [
+              T=ofDefaultVertexType
+          ] (compiling source file ..\..\..\addons\ofxGui\src\ofxColorPicker.cpp)
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(208): note: see reference to function template instantiation 'void ofPolyline_<ofDefaultVertexType>::arc(const T &,float,float,float,float,bool,int)' being compiled
+          with
+          [
+              T=ofDefaultVertexType
+          ]
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(194): note: while compiling class template member function 'ofMesh ofxColorPicker_<unsigned char>::getColorPoint(void)'
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxcolorpicker.cpp(485): note: see reference to function template instantiation 'ofMesh ofxColorPicker_<unsigned char>::getColorPoint(void)' being compiled
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(370): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(352): note: while compiling class template member function 'bool ofxInputField<float>::mousePressed(ofMouseEventArgs &)'
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(804): note: see reference to class template instantiation 'ofxInputField<float>' being compiled
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(531): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(472): note: while compiling class template member function 'bool ofxInputField<float>::keyPressed(ofKeyEventArgs &)'
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(558): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(560): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(775): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(772): note: while compiling class template member function 'void ofxInputField<float>::valueChanged(Type &)'
+          with
+          [
+              Type=float
+          ]
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(148): note: see reference to function template instantiation 'void ofxInputField<float>::valueChanged(Type &)' being compiled
+          with
+          [
+              Type=float
+          ]
+  Wearable.cpp
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxToggle.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxToggle.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxToggle.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxToggle.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxToggle.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file ..\..\..\addons\ofxGui\src\ofxToggle.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\renderer.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\renderer.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\renderer.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\renderer.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\renderer.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\renderer.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Sword.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Sword.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Sword.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Sword.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Sword.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Sword.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(26): warning C4267: 'argument': conversion from 'size_t' to 'glm::tvec3<float,0>::length_type', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(11): note: while compiling class template member function 'ofxVecSlider_<ofDefaultVec3> *ofxVecSlider_<ofDefaultVec3>::setup(ofParameter<ofDefaultVec3>,float,float)'
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(7): note: see reference to function template instantiation 'ofxVecSlider_<ofDefaultVec3> *ofxVecSlider_<ofDefaultVec3>::setup(ofParameter<ofDefaultVec3>,float,float)' being compiled
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(69): note: see reference to class template instantiation 'ofxVecSlider_<ofDefaultVec3>' being compiled
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(59): warning C4267: 'argument': conversion from 'size_t' to 'glm::tvec3<float,0>::length_type', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(54): note: while compiling class template member function 'void ofxVecSlider_<ofDefaultVec3>::changeValue(VecType &)'
+          with
+          [
+              VecType=ofDefaultVec3
+          ]
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(19): note: see reference to function template instantiation 'void ofxVecSlider_<ofDefaultVec3>::changeValue(VecType &)' being compiled
+          with
+          [
+              VecType=ofDefaultVec3
+          ]
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(26): warning C4267: 'argument': conversion from 'size_t' to 'glm::tvec2<float,0>::length_type', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(11): note: while compiling class template member function 'ofxVecSlider_<ofDefaultVec2> *ofxVecSlider_<ofDefaultVec2>::setup(ofParameter<ofDefaultVec2>,float,float)'
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(7): note: see reference to function template instantiation 'ofxVecSlider_<ofDefaultVec2> *ofxVecSlider_<ofDefaultVec2>::setup(ofParameter<ofDefaultVec2>,float,float)' being compiled
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(64): note: see reference to class template instantiation 'ofxVecSlider_<ofDefaultVec2>' being compiled
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(59): warning C4267: 'argument': conversion from 'size_t' to 'glm::tvec2<float,0>::length_type', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(54): note: while compiling class template member function 'void ofxVecSlider_<ofDefaultVec2>::changeValue(VecType &)'
+          with
+          [
+              VecType=ofDefaultVec2
+          ]
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(19): note: see reference to function template instantiation 'void ofxVecSlider_<ofDefaultVec2>::changeValue(VecType &)' being compiled
+          with
+          [
+              VecType=ofDefaultVec2
+          ]
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(26): warning C4267: 'argument': conversion from 'size_t' to 'glm::tvec4<float,0>::length_type', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(11): note: while compiling class template member function 'ofxVecSlider_<ofDefaultVec4> *ofxVecSlider_<ofDefaultVec4>::setup(ofParameter<ofDefaultVec4>,float,float)'
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(7): note: see reference to function template instantiation 'ofxVecSlider_<ofDefaultVec4> *ofxVecSlider_<ofDefaultVec4>::setup(ofParameter<ofDefaultVec4>,float,float)' being compiled
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(74): note: see reference to class template instantiation 'ofxVecSlider_<ofDefaultVec4>' being compiled
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(59): warning C4267: 'argument': conversion from 'size_t' to 'glm::tvec4<float,0>::length_type', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(54): note: while compiling class template member function 'void ofxVecSlider_<ofDefaultVec4>::changeValue(VecType &)'
+          with
+          [
+              VecType=ofDefaultVec4
+          ]
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(19): note: see reference to function template instantiation 'void ofxVecSlider_<ofDefaultVec4>::changeValue(VecType &)' being compiled
+          with
+          [
+              VecType=ofDefaultVec4
+          ]
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(26): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(11): note: while compiling class template member function 'ofxVecSlider_<ofVec3f> *ofxVecSlider_<ofVec3f>::setup(ofParameter<ofPoint>,float,float)'
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(7): note: see reference to function template instantiation 'ofxVecSlider_<ofVec3f> *ofxVecSlider_<ofVec3f>::setup(ofParameter<ofPoint>,float,float)' being compiled
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(84): note: see reference to class template instantiation 'ofxVecSlider_<ofVec3f>' being compiled
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(54): note: while compiling class template member function 'void ofxVecSlider_<ofVec3f>::changeValue(VecType &)'
+          with
+          [
+              VecType=ofVec3f
+          ]
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\addons\ofxgui\src\ofxslidergroup.cpp(19): note: see reference to function template instantiation 'void ofxVecSlider_<ofVec3f>::changeValue(VecType &)' being compiled
+          with
+          [
+              VecType=ofVec3f
+          ]
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\src\renderer.cpp(139): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\src\renderer.cpp(264): warning C4996: 'ofRotate': Use ofRotateDeg or ofRotateRad
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1008): note: see declaration of 'ofRotate'
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\src\renderer.cpp(265): warning C4996: 'ofRotate': Use ofRotateDeg or ofRotateRad
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1008): note: see declaration of 'ofRotate'
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\src\renderer.cpp(273): warning C4996: 'ofRotate': Use ofRotateDeg or ofRotateRad
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1008): note: see declaration of 'ofRotate'
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\src\renderer.cpp(274): warning C4996: 'ofRotate': Use ofRotateDeg or ofRotateRad
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1008): note: see declaration of 'ofRotate'
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\src\renderer.cpp(280): warning C4996: 'ofRotate': Use ofRotateDeg or ofRotateRad
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1008): note: see declaration of 'ofRotate'
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\apps\myapps\ift_3100\src\renderer.cpp(286): warning C4996: 'ofRotate': Use ofRotateDeg or ofRotateRad
+  d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1008): note: see declaration of 'ofRotate'
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\SwordCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\SwordCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\SwordCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\SwordCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\SwordCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\cursors\SwordCursor.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Wearable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Wearable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Wearable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Wearable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Wearable.cpp)
+d:\travaux_universitaires\hiver2019\infographie\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file Wearable.cpp)
+     Creating library bin\TP1_Infographie.lib and object bin\TP1_Infographie.exp
+Transform.obj : error LNK2001: unresolved external symbol "public: class aiVector3t<float> const & __cdecl aiVector3t<float>::operator+=(class aiVector3t<float> const &)" (??Y?$aiVector3t@M@@QEAAAEBV0@AEBV0@@Z)
+bin\TP1_Infographie.exe : fatal error LNK1120: 1 unresolved externals

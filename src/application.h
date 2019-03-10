@@ -9,6 +9,10 @@
 #include "./cursors/AllCursorsHeader.h"
 #include "ofxGui.h"
 
+#include <iostream>
+#include <cstdint>
+#include <experimental/filesystem>
+namespace fs = std::experimental::filesystem;
 
 class Application : public ofBaseApp
 {
@@ -28,5 +32,8 @@ public:
 	void windowResized(int w, int h);
 	void Application::mouseReleased(int x, int y, int button);
 	void keyReleased(int key);
+	int startednumberframe;
+	int frameCounter;
+	bool isrecording;
   
 };
