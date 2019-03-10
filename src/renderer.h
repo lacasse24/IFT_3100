@@ -30,8 +30,9 @@ public:
 	ofEasyCam EasyCam;
 	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox;
 	ofSpherePrimitive sphere;
-	ofTexture mTex;
 
+	ofTexture mTex ,imageTexture;
+	ofPoint points[4];
 
 	float center_x;
 	float center_y;

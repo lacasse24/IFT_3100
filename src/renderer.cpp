@@ -4,6 +4,7 @@ void Renderer::setup()
 {
 	_character = new Character();
 	//sphere.setPosition(ofGetWidth()*2, ofGetHeight()*.75, 10000);
+	//cam.setTarget(skybox);
 	sphere.move(100, 100, 200);
 	//cam.setTarget(sphere);
 	
@@ -126,13 +127,11 @@ void Renderer::update()
 	_character->getTransform().setRotation(0, 180.f, 1.0f, 0.0f, 0.0f);
 	_character->getTransform().setRotation(0, 180.f, 0.0f, 0.0f, 1.0f);
 
-	
+
 
 	if (use_rotation)
 	{
 		_character->getTransform().setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
-		//caracter.setRotation(0, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f); old
-		
 	}
 
 	// configuration de la lumière
@@ -189,15 +188,30 @@ void Renderer::draw()
 
 	//sphere.setRadius(1000);
 	skybox.set(1000, 1000, 1000);
+	//cam.begin();
 	//cam.roll(1);
 
 	ofDisableArbTex();
 	ofLoadImage(mTex, "Img/galaxy.jpg");
-	//mTex.setTextureWrap(GL_REPEAT, GL_REPEAT);
-	mTex.bind();
-	skybox.draw();
+	ofLoadImage(imageTexture, "Img/sun.png");
+	//x,y,z,w,h
+	
+	imageTexture.draw(0, 0, 0, 1000, 1000);
+	//imageTexture.draw(-500, -500, -500, 1000, 1000);
+	//imageTexture.draw(-500, -500, 500, 1000, 1000);
+	//imageTexture.draw(500, 0, 500, 1000, 1000);
+	//imageTexture.draw(0, 0, -500, 1000, 1000);
+	
+	//imageTexture.draw(0, 0, 1000, 1000, 1000);
+
+
+	//skybox.setSideColor(0, ofColor::red);
+	//vector<ofMeshFace> triangles = skybox.getMesh().getFace;
+	//mTex.bind();
+	//skybox.draw();
 	//sphere.draw();
 	mTex.unbind();
+	//cam.end();
 
 
 	// désactiver la lumière
