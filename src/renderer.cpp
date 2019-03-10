@@ -24,6 +24,17 @@ void Renderer::setup()
 	//caracter.loadModel("basicman.obj"); old
 	_character->loadModel("Lumberjack/Lumberjack2.fbx");
 
+	// Chargement textures
+	ofLoadImage(Galaxy, "Img/galaxy.jpg");
+	ofLoadImage(Sun, "Img/sun.png");
+
+	ofLoadImage(SBbk,	"Img/SkyBox/siege_bk.tga");
+	ofLoadImage(SBfrnt,	"Img/SkyBox/siege_ft.tga");
+	ofLoadImage(SBtop,	"Img/SkyBox/siege_up.tga");
+	ofLoadImage(SBbtm,	"Img/SkyBox/siege_dn.tga");
+	ofLoadImage(SBleft, "Img/SkyBox/siege_lf.tga");
+	ofLoadImage(SBright,"Img/SkyBox/siege_rt.tga");
+
 
 	// désactiver le matériau par défaut du modèle
 	_character->disableMaterials();
@@ -42,6 +53,7 @@ void Renderer::setup()
 	
 
 	// Caméra
+	EasyCam.setFarClip(5000.f);
 	//EasyCam.setDistance(300.f);
 	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
 	//EasyCam.rollDeg(180.f);
@@ -186,17 +198,18 @@ void Renderer::draw()
 	// désactiver le shader
 	shader.end();
 
+	Sun.bind();
 	//sphere.setRadius(1000);
 	skybox.set(1000, 1000, 1000);
 	//cam.begin();
 	//cam.roll(1);
 
 	ofDisableArbTex();
-	ofLoadImage(mTex, "Img/galaxy.jpg");
-	ofLoadImage(imageTexture, "Img/sun.png");
-	//x,y,z,w,h
 	
-	imageTexture.draw(0, 0, 0, 1000, 1000);
+	//x,y,z,w,h
+	DrawSkyBox(SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright, 5000);
+	
+	//Sun.draw(0, 0, 0, 1000, 1000);
 	//imageTexture.draw(-500, -500, -500, 1000, 1000);
 	//imageTexture.draw(-500, -500, 500, 1000, 1000);
 	//imageTexture.draw(500, 0, 500, 1000, 1000);
@@ -210,7 +223,8 @@ void Renderer::draw()
 	//mTex.bind();
 	//skybox.draw();
 	//sphere.draw();
-	mTex.unbind();
+	
+	Sun.unbind();
 	//cam.end();
 
 
@@ -228,6 +242,53 @@ void Renderer::draw()
    previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
 
   EasyCam.end();
+	
+}
+
+void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height)
+{
+	int Half = height / 2;
+
+	// Back
+	ofPushMatrix();
+	ofScale(-1, 1, 1);
+	bk.draw(-Half, -Half, -Half, height, height);
+	ofPopMatrix();
+	
+
+	// Front
+	frnt.draw(-Half, -Half, Half, height, height);
+
+	// Top
+	ofPushMatrix();
+	//ofScale(1, 1, -1);
+	//ofScale(-1, 1, 1);
+	ofRotate(-90.f, 1.f, 0.f, 0.f);
+	ofRotate(-90.f, 0.f, 0.f, 1.f);
+	top.draw(-Half, -Half, Half, height, height);
+	//top.draw(0, 0, 0, height, height);
+	ofPopMatrix();
+
+	// Bottom
+	ofPushMatrix();
+	ofScale(-1, 1, 1);
+	ofRotate(-90.f, 1.0f, 0.f, 0.f);
+	ofRotate(-90.f, 0.f, 0.f, 1.f);
+	btm.draw(-Half, -Half, -Half, height, height); 
+	ofPopMatrix();
+
+	// Left
+	ofPushMatrix();
+	ofRotate(90.f, 0.f, 1.f, 0.f);
+	left.draw(-Half, -Half, Half, height, height);
+	ofPopMatrix();
+
+	// Right
+	ofPushMatrix();
+	ofRotate(90.f, 0.f, 1.f, 0.f);
+	ofScale(-1, 1, 1);
+	right.draw(-Half, -Half, -Half, height, height);
+	ofPopMatrix();
 	
 }
 

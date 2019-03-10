@@ -31,7 +31,11 @@ public:
 	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox;
 	ofSpherePrimitive sphere;
 
+
+	// textures
+	ofTexture Sun, Galaxy;
 	ofTexture mTex ,imageTexture;
+	ofTexture SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright;
 	ofPoint points[4];
 
 	float center_x;
@@ -52,6 +56,7 @@ public:
 	int lastSize = 0;
 	void updateModelShader(float h, float s, float b);
 	ofColor HSVtoRGB(int H, double S, double V);
+	void DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height);
 
 private:
 	Character* _character;
