@@ -37,14 +37,14 @@ public:
 	//Equip to slot methods, return true if the item is equiped false if it couldn't be
 	bool equip(shared_ptr<GameObject> go, float x, float y);
 
-	bool equipLeftHand(std::shared_ptr<GameObject> holdable);
-	bool equipRightHand(std::shared_ptr<GameObject> holdable);
+	bool equipLeftHand(std::shared_ptr<Holdable> holdable);
+	bool equipRightHand(std::shared_ptr <Holdable> holdable);
 
-	bool equipHelmet(std::shared_ptr<GameObject> helmet);
-	bool equipCape(std::shared_ptr<GameObject> cape);
-	bool equipArmor(std::shared_ptr<GameObject> armor);
-	bool equipLegging(std::shared_ptr<GameObject> legging);
-	bool equipBoots(std::shared_ptr<GameObject> boots);
+	bool equipHelmet(std::shared_ptr<Helmet> helmet);
+	bool equipCape(std::shared_ptr<Cape> cape);
+	bool equipArmor(std::shared_ptr<Armor> armor);
+	bool equipLegging(std::shared_ptr<Legging> legging);
+	bool equipBoots(std::shared_ptr<Boots> boots);
 
 	//Unequip slot methods, return the equiped item that has been removed, and a nullptr if there where none
 	std::shared_ptr<GameObject> unequip(float x, float y);
@@ -61,14 +61,14 @@ public:
 	//Swap slot methods, return the equiped item if any and equip the given item
 	std::shared_ptr<GameObject> swap(shared_ptr<GameObject> go, float x, float y);
 
-	std::shared_ptr<GameObject> swapLeftHand(std::shared_ptr<GameObject> holdable);
-	std::shared_ptr<GameObject> swapRightHand(std::shared_ptr<GameObject> holdable);
+	std::shared_ptr<GameObject> swapLeftHand(std::shared_ptr<Holdable> holdable);
+	std::shared_ptr<GameObject> swapRightHand(std::shared_ptr<Holdable> holdable);
 
-	std::shared_ptr<GameObject> swapHelmet(std::shared_ptr<GameObject> helmet);
-	std::shared_ptr<GameObject> swapCape(std::shared_ptr<GameObject> cape);
-	std::shared_ptr<GameObject> swapArmor(std::shared_ptr<GameObject> armor);
-	std::shared_ptr<GameObject> swapLegging(std::shared_ptr<GameObject> legging);
-	std::shared_ptr<GameObject> swapBoots(std::shared_ptr<GameObject> boots);
+	std::shared_ptr<GameObject> swapHelmet(std::shared_ptr<Helmet> helmet);
+	std::shared_ptr<GameObject> swapCape(std::shared_ptr<Cape> cape);
+	std::shared_ptr<GameObject> swapArmor(std::shared_ptr<Armor> armor);
+	std::shared_ptr<GameObject> swapLegging(std::shared_ptr<Legging> legging);
+	std::shared_ptr<GameObject> swapBoots(std::shared_ptr<Boots> boots);
 
 private:
 	std::shared_ptr<Holdable> _leftHand;

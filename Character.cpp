@@ -29,6 +29,7 @@ Character::~Character()
 void Character::setup()
 {
 	GameObject::setup();
+
 }
 
 void Character::update()
@@ -43,6 +44,8 @@ void Character::draw()
 
 bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 {
+	if (obj == nullptr)
+		return false;
 	ChildInstance current = ChildInstance::null;
 	float best = 43;
 	float dist = 0;
@@ -189,17 +192,17 @@ bool Character::equip(shared_ptr<GameObject> go, float x, float y)
 	switch (current)
 	{
 	case 0:
-		equipLeftHand(go);
+		equipLeftHand(static_cast<shared_ptr<Holdable>>(go.get()));
 	case 1:
-		equipRightHand(go);
+		equipRightHand(static_cast<shared_ptr<Holdable>>(go.get()));
 	case 2:
-		equipHelmet(go);
+		equipHelmet(static_cast<shared_ptr<Helmet>>(go.get()));
 	case 3:
-		equipCape(go);
+		equipCape(static_cast<shared_ptr<Cape>>(go.get()));
 	case 4:
-		equipArmor(go);
+		equipArmor(static_cast<shared_ptr<Armor>>(go.get()));
 	case 5:
-		equipBoots(go);
+		equipBoots(static_cast<shared_ptr<Boots>>(go.get()));
 	default:
 		return false;
 	}
@@ -208,9 +211,9 @@ bool Character::equip(shared_ptr<GameObject> go, float x, float y)
 }
 
 //-----Equip to slot methods return true if the item is equiped false if it couldn't be-----
-bool Character::equipLeftHand(std::shared_ptr<GameObject> holdable)
+bool Character::equipLeftHand(std::shared_ptr<Holdable> holdable)
 {
-	if (!emptyLeftHand())
+	if (!emptyLeftHand() && holdable != nullptr)
 		return false;
 
 	_leftHand = holdable;
@@ -219,9 +222,9 @@ bool Character::equipLeftHand(std::shared_ptr<GameObject> holdable)
 	return true;
 }
 
-bool Character::equipRightHand(std::shared_ptr<GameObject> holdable)
+bool Character::equipRightHand(std::shared_ptr<Holdable> holdable)
 {
-	if (!emptyRightHand())
+	if (!emptyRightHand() && holdable != nullptr)
 		return false;
 
 	_rightHand = holdable;
@@ -230,9 +233,9 @@ bool Character::equipRightHand(std::shared_ptr<GameObject> holdable)
 	return true;
 }
 
-bool Character::equipHelmet(std::shared_ptr<GameObject> helmet)
+bool Character::equipHelmet(std::shared_ptr<Helmet> helmet)
 {
-	if (!emptyHelmet())
+	if (!emptyHelmet() && helmet != nullptr)
 		return false;
 
 	_helmet = helmet;
@@ -241,9 +244,9 @@ bool Character::equipHelmet(std::shared_ptr<GameObject> helmet)
 	return true;
 }
 
-bool Character::equipCape(std::shared_ptr<GameObject> cape)
+bool Character::equipCape(std::shared_ptr<Cape> cape)
 {
-	if (!emptyCape())
+	if (!emptyCape() && cape != nullptr)
 		return false;
 
 	_cape = cape;
@@ -252,9 +255,9 @@ bool Character::equipCape(std::shared_ptr<GameObject> cape)
 	return true;
 }
 
-bool Character::equipArmor(std::shared_ptr<GameObject> armor)
+bool Character::equipArmor(std::shared_ptr<Armor> armor)
 {
-	if (!emptyArmor())
+	if (!emptyArmor() && armor != nullptr)
 		return false;
 
 	_armor = armor;
@@ -263,9 +266,9 @@ bool Character::equipArmor(std::shared_ptr<GameObject> armor)
 	return true;
 }
 
-bool Character::equipLegging(std::shared_ptr<GameObject> legging)
+bool Character::equipLegging(std::shared_ptr<Legging> legging)
 {
-	if (!emptyLegging())
+	if (!emptyLegging() && legging != nullptr)
 		return false;
 
 	_legging = legging;
@@ -274,9 +277,9 @@ bool Character::equipLegging(std::shared_ptr<GameObject> legging)
 	return true;
 }
 
-bool Character::equipBoots(std::shared_ptr<GameObject> boots)
+bool Character::equipBoots(std::shared_ptr<Boots> boots)
 {
-	if (!emptyBoots())
+	if (!emptyBoots() && boots != nullptr)
 		return false;
 
 	_boots = boots;
@@ -446,49 +449,49 @@ std::shared_ptr<GameObject> Character::swap(shared_ptr<GameObject> go, float x, 
 }
 
 //-----Swap slot methods, return the equiped item if any and equip the given item-----
-std::shared_ptr<GameObject> Character::swapLeftHand(std::shared_ptr<GameObject> holdable)
+std::shared_ptr<GameObject> Character::swapLeftHand(std::shared_ptr<Holdable> holdable)
 {
 	std::shared_ptr<GameObject> item = unequipLeftHand();
 	equipLeftHand(holdable);
 	return item;
 }
 
-std::shared_ptr<GameObject> Character::swapRightHand(std::shared_ptr<GameObject> holdable)
+std::shared_ptr<GameObject> Character::swapRightHand(std::shared_ptr<Holdable> holdable)
 {
 	std::shared_ptr<GameObject> item = unequipRightHand();
 	equipRightHand(holdable);
 	return item;
 }
 
-std::shared_ptr<GameObject> Character::swapHelmet(std::shared_ptr<GameObject> helmet)
+std::shared_ptr<GameObject> Character::swapHelmet(std::shared_ptr<Helmet> helmet)
 {
 	std::shared_ptr<GameObject> item = unequipHelmet();
 	equipHelmet(helmet);
 	return item;
 }
 
-std::shared_ptr<GameObject> Character::swapCape(std::shared_ptr<GameObject> cape)
+std::shared_ptr<GameObject> Character::swapCape(std::shared_ptr<Cape> cape)
 {
 	std::shared_ptr<GameObject> item = unequipCape();
 	equipCape(cape);
 	return item;
 }
 
-std::shared_ptr<GameObject> Character::swapArmor(std::shared_ptr<GameObject> armor)
+std::shared_ptr<GameObject> Character::swapArmor(std::shared_ptr<Armor> armor)
 {
 	std::shared_ptr<GameObject> item = unequipArmor();
 	equipArmor(armor);
 	return item;
 }
 
-std::shared_ptr<GameObject> Character::swapLegging(std::shared_ptr<GameObject> legging)
+std::shared_ptr<GameObject> Character::swapLegging(std::shared_ptr<Legging> legging)
 {
 	std::shared_ptr<GameObject> item = unequipLegging();
 	equipLegging(legging);
 	return item;
 }
 
-std::shared_ptr<GameObject> Character::swapBoots(std::shared_ptr<GameObject> boots)
+std::shared_ptr<GameObject> Character::swapBoots(std::shared_ptr<Boots> boots)
 {
 	std::shared_ptr<GameObject> item = unequipBoots();
 	equipBoots(boots);
