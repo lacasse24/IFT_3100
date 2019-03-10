@@ -29,7 +29,19 @@ Character::~Character()
 void Character::setup()
 {
 	GameObject::setup();
+	_lhTransform.parentTo(_transform.get());
+	_rhTransform.parentTo(_transform.get());
+	_hTransform.parentTo(_transform.get());
+	_cTransform.parentTo(_transform.get());
+	_aTransform.parentTo(_transform.get());
+	_bTransform.parentTo(_transform.get());
 
+	_lhTransform.setPosition(10, 10, 0);
+	_rhTransform.setPosition(-10, 10, 0);
+	_hTransform.setPosition(0, 20, 0);
+	_cTransform.setPosition(0, 10, 0);
+	_aTransform.setPosition(0, 5, 0);
+	_bTransform.setPosition(0, -10, 0);
 }
 
 void Character::update()

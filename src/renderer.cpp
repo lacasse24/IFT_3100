@@ -13,6 +13,7 @@ void Renderer::drawCursor(Cursor* pCursor)
 void Renderer::setup()
 {
 	_character = new Character();
+	_character->setup();
 	//sphere.setPosition(ofGetWidth()*2, ofGetHeight()*.75, 10000);
 	//cam.setTarget(skybox);
 	sphere.move(100, 100, 200);
@@ -70,7 +71,11 @@ void Renderer::setup()
 	//EasyCam.rollDeg(180.f);
 	//EasyCam.lookAt(_character->getMesh().getPosition());
 
-
+	_sword = std::make_shared<Sword>(Sword());
+	_sword->loadModel("Lumberjack/dhsword.obj");
+	_character->equipLeftHand(_sword);
+	_sword->getTransform().setScale(100, 100, 100);
+	_sword->getTransform().setPosition(0, 0, 0);
 }
 
 
@@ -181,6 +186,7 @@ void Renderer::draw()
 	// activer la lumière
 	light.enable();
 	_character->draw();
+	_sword->draw();
 
 	// activer le shader
 	shader.begin();

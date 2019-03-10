@@ -66,7 +66,7 @@ public:
 private:
 	Character* _character;
 	vector<GameObject*> equipments;
-	GameObject* _sword;
+	std::shared_ptr<Sword> _sword;
 
 
 };
