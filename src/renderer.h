@@ -30,9 +30,9 @@ public:
 
 
 	ofEasyCam EasyCam;
-	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox, BBox;
-	ofSpherePrimitive sphere;
 
+	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox, BBox;
+	ofSpherePrimitive sphere,pedSphere1,pedSphere2;
 
 	// textures
 	ofTexture Sun, Galaxy;
