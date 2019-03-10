@@ -4,6 +4,21 @@
 #include <string>
 #include "Transform.h"
 
+enum ChildInstance
+{
+	null,
+	gameObject,
+	character,
+	holdable,
+	wearable,
+	sword,
+	shield,
+	helmet,
+	cape,
+	armor,
+	boots
+};
+
 class GameObject
 {
 public:
@@ -16,7 +31,10 @@ public:
 
 	virtual ~GameObject();
 
-	void draw();
+	virtual void setup();
+	virtual void update();
+	virtual void draw();
+
 	void draw(ofPolyRenderMode mode);
 	void setRenderMode(ofPolyRenderMode mode);
 
@@ -24,6 +42,8 @@ public:
 
 	bool parentTo(GameObject* go);
 	void removeParent();
+
+	ChildInstance getInstance();
 
 	//return a reference of the transforms to make its manipulation easier
 	Transform& getTransform();
@@ -36,5 +56,5 @@ protected:
 	ofxAssimpModelLoader _mesh;
 
 	ofPolyRenderMode _renderMode;
-	
+	ChildInstance _instance;
 };

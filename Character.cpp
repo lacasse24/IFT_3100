@@ -8,6 +8,7 @@ Character::Character() :
 	_hTransform(Transform()), _cTransform(Transform()), _aTransform(Transform()), _bTransform(Transform())
 {
 	GameObject::GameObject();
+	_instance = ChildInstance::character;
 }
 
 Character::Character(const std::string &meshpath) :
@@ -16,12 +17,86 @@ Character::Character(const std::string &meshpath) :
 	_hTransform(Transform()), _cTransform(Transform()), _aTransform(Transform()), _bTransform(Transform())
 {
 	GameObject::GameObject(meshpath);
+	_instance = ChildInstance::character;
 }
 
 
 Character::~Character()
 {
 	
+}
+
+void Character::setup()
+{
+	GameObject::setup();
+}
+
+void Character::update()
+{
+	GameObject::update();
+}
+
+void Character::draw()
+{
+	GameObject::draw();
+}
+
+bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
+{
+	ChildInstance current = ChildInstance::null;
+	float best = 1000000;
+	float dist = 0;
+	bool empty = true;
+
+	dist = _lhTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = ChildInstance::holdable;
+		empty = emptyLeftHand();
+	}
+
+	dist = _rhTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = ChildInstance::holdable;
+		empty = emptyRightHand();
+	}
+
+	dist = _hTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = ChildInstance::helmet;
+		empty = emptyHelmet();
+	}
+
+	dist = _cTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = ChildInstance::cape;
+		empty = emptyCape();
+	}
+
+	dist = _aTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = ChildInstance::armor;
+		empty = emptyArmor();
+	}
+
+	dist = _bTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = ChildInstance::boots;
+		empty = emptyBoots();
+	}
+
+	return (obj->getInstance() == current) && empty;
 }
 
 //-----Empty slot verification methods return true if empty false else-----
@@ -58,6 +133,13 @@ bool Character::emptyLegging()
 bool Character::emptyBoots()
 {
 	return _boots == nullptr;
+}
+
+bool Character::equip(shared_ptr<GameObject> go, float x, float y)
+{
+	if (!canEquip(go, x, y))
+		return false;
+	return true;
 }
 
 //-----Equip to slot methods return true if the item is equiped false if it couldn't be-----
@@ -136,6 +218,74 @@ bool Character::equipBoots(std::shared_ptr<Boots> boots)
 	_boots.get()->getTransform().parentTo(_bTransform.get());
 
 	return true;
+}
+
+std::shared_ptr<GameObject> Character::unequip(float x, float y)
+{
+	shared_ptr<GameObject> unequiped = nullptr;
+	int current = -1;
+	float best = 1000000;
+	float dist = 0;
+
+	dist = _lhTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = 0;
+	}
+
+	dist = _rhTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = 1;
+	}
+
+	dist = _hTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = 2;
+	}
+
+	dist = _cTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = 3;
+	}
+
+	dist = _aTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = 4;
+	}
+
+	dist = _bTransform.getDistFrom(x, y, 0);
+	if (dist < best)
+	{
+		best = dist;
+		current = 5;
+	}
+
+	switch (current)
+	{
+	case 0:
+		return unequipLeftHand();
+	case 1:
+		return unequipRightHand();
+	case 2:
+		return unequipHelmet();
+	case 3:
+		return unequipCape();
+	case 4:
+		return unequipArmor();
+	case 5:
+		return unequipBoots();
+	default:
+		return unequiped;
+	}
 }
 
 //-----Unequip slot methods return the equiped item that has been removed, and a nullptr if there where none-----
@@ -223,6 +373,13 @@ std::shared_ptr<Boots> Character::unequipBoots()
 	return tmp;
 }
 
+std::shared_ptr<GameObject> Character::swap(shared_ptr<GameObject> go, float x, float y)
+{
+	std::shared_ptr<GameObject> item = unequip(x, y);
+	equip(go, x, y);
+	return item;
+}
+
 //-----Swap slot methods, return the equiped item if any and equip the given item-----
 std::shared_ptr<Holdable> Character::swapLeftHand(std::shared_ptr<Holdable> holdable)
 {
@@ -272,3 +429,4 @@ std::shared_ptr<Boots> Character::swapBoots(std::shared_ptr<Boots> boots)
 	equipBoots(boots);
 	return item;
 }
+

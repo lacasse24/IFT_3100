@@ -3,21 +3,21 @@
 
 
 GameObject::GameObject() :
-	_transform(Transform()), _mesh(ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+	_transform(Transform()), _mesh(ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL), _instance(ChildInstance::gameObject)
 {}
 
 GameObject::GameObject(Transform t) :
-	_transform(t), _mesh(ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+	_transform(t), _mesh(ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL), _instance(ChildInstance::gameObject)
 {}
 
 GameObject::GameObject(const std::string & meshpath) :
-	_transform(Transform()), _mesh(ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+	_transform(Transform()), _mesh(ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL), _instance(ChildInstance::gameObject)
 {
 	loadModel(meshpath);
 }
 
 GameObject::GameObject(Transform t, const std::string & meshpath) :
-	_transform(t), _mesh(ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL)
+	_transform(t), _mesh(ofxAssimpModelLoader()), _renderMode(ofPolyRenderMode::OF_MESH_FILL), _instance(ChildInstance::gameObject)
 {
 	loadModel(meshpath);
 }
@@ -25,6 +25,15 @@ GameObject::GameObject(Transform t, const std::string & meshpath) :
 
 GameObject::~GameObject()
 {}
+
+void GameObject::setup()
+{
+
+}
+
+void GameObject::update()
+{
+}
 
 
 void GameObject::draw()
@@ -68,6 +77,11 @@ bool GameObject::parentTo(GameObject * go)
 void GameObject::removeParent()
 {
 	_transform.removeParent();
+}
+
+ChildInstance GameObject::getInstance()
+{
+	return _instance;
 }
 
 //-----get Transform-----

@@ -18,6 +18,12 @@ public:
 	Character(const std::string &meshpath);
 	virtual ~Character();
 
+	virtual void setup();
+	virtual void update();
+	virtual void draw();
+
+	bool canEquip(shared_ptr<GameObject> obj, float x, float y);
+
 	//Empty slot verification methods, return true if empty false else
 	bool emptyLeftHand();
 	bool emptyRightHand();
@@ -29,6 +35,8 @@ public:
 	bool emptyBoots();
 
 	//Equip to slot methods, return true if the item is equiped false if it couldn't be
+	bool equip(shared_ptr<GameObject> go, float x, float y);
+
 	bool equipLeftHand(std::shared_ptr<Holdable> holdable);
 	bool equipRightHand(std::shared_ptr<Holdable> holdable);
 
@@ -39,6 +47,8 @@ public:
 	bool equipBoots(std::shared_ptr<Boots> boots);
 
 	//Unequip slot methods, return the equiped item that has been removed, and a nullptr if there where none
+	std::shared_ptr<GameObject> unequip(float x, float y);
+
 	std::shared_ptr<Holdable> unequipLeftHand();
 	std::shared_ptr<Holdable> unequipRightHand();
 
@@ -49,6 +59,8 @@ public:
 	std::shared_ptr<Boots> unequipBoots();
 
 	//Swap slot methods, return the equiped item if any and equip the given item
+	std::shared_ptr<GameObject> swap(shared_ptr<GameObject> go, float x, float y);
+
 	std::shared_ptr<Holdable> swapLeftHand(std::shared_ptr<Holdable> holdable);
 	std::shared_ptr<Holdable> swapRightHand(std::shared_ptr<Holdable> holdable);
 

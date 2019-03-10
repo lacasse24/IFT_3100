@@ -23,6 +23,16 @@ Transform::~Transform()
 	}
 }
 
+float Transform::getDistFrom(aiVector3D pos)
+{
+	return aiVector3D(pos.x - _position.x, pos.y - _position.y, pos.z - _position.z).Length();
+}
+
+float Transform::getDistFrom(float x, float y, float z)
+{
+	return getDistFrom(aiVector3D(x, y, z));
+}
+
 //-----Rotation augmentation related methods-----
 void Transform::addRotation(std::pair<float, aiVector3D> rotation)
 {
