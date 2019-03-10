@@ -1,5 +1,18 @@
 #include "renderer.h"
 
+Renderer::Renderer()
+{
+	
+}
+
+void Renderer::drawCursor(Cursor* pCursor)
+{
+	pCursor->positionx = mousePosX;
+	pCursor->positiony = mousePosY;
+	pCursor->drawCursor();
+}
+
+
 void Renderer::setup()
 {
 	_character = new Character();
@@ -8,7 +21,7 @@ void Renderer::setup()
 	ofSetWindowShape(512, 512);
 	ofSetBackgroundColor(220);
 	ofSetLogLevel(OF_LOG_VERBOSE);
-
+	ofEnableAlphaBlending();
 	font.load("font/quicksand.otf", 18);
 
 	// paramètres
@@ -29,7 +42,11 @@ void Renderer::setup()
 
 	// chargement du shader
 	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
-
+	
+	
+	//Création du curseur
+	mousePosX = 0;
+	mousePosY = 0;
 }
 
 
@@ -61,7 +78,6 @@ void Renderer::update()
 			Sword* item = new Sword(std::get<0>(lastElem));
 			equipments.push_back(item);
 			item->loadModel(std::get<0>(lastElem));
-
 			//_character->equipLeftHand(make_shared<Sword>(item));
 		}
 		else if (std::get<1>(lastElem) == "Armor")
@@ -69,6 +85,7 @@ void Renderer::update()
 			Armor* item = new Armor(std::get<0>(lastElem));
 			equipments.push_back(item);
 			item->loadModel(std::get<0>(lastElem));
+
 		}
 		else if (std::get<1>(lastElem) == "Legging")
 		{
@@ -124,6 +141,7 @@ void Renderer::update()
 
 void Renderer::draw()
 {
+	
 	// couleur d'arrière-plan
 	ofClear(backgroundColor);
 

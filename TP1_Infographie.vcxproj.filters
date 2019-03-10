@@ -61,6 +61,15 @@
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Boots.cpp" />
     <ClCompile Include="Legging.cpp" />
+    <ClCompile Include="src\cursors\Cursor.cpp" />
+    <ClCompile Include="src\cursors\SwordCursor.cpp" />
+    <ClCompile Include="src\cursors\ShieldCursor.cpp" />
+    <ClCompile Include="src\cursors\BootsCursor.cpp" />
+    <ClCompile Include="src\cursors\LeggingsCursor.cpp" />
+    <ClCompile Include="src\cursors\ChestPlateCursor.cpp" />
+    <ClCompile Include="src\cursors\CapeCursor.cpp" />
+    <ClCompile Include="src\cursors\HelmetCursor.cpp" />
+    <ClCompile Include="src\cursors\NormalCursor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -290,11 +299,22 @@
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Boots.h" />
     <ClInclude Include="Legging.h" />
+    <ClInclude Include="src\cursors\Cursor.h" />
+    <ClInclude Include="src\cursors\ShieldCursor.h" />
+    <ClInclude Include="src\cursors\SwordCursor.h" />
+    <ClInclude Include="src\cursors\BootsCursor.h" />
+    <ClInclude Include="src\cursors\LeggingsCursor.h" />
+    <ClInclude Include="src\cursors\ChestPlateCursor.h" />
+    <ClInclude Include="src\cursors\CapeCursor.h" />
+    <ClInclude Include="src\cursors\AllCursorsHeader.h" />
+    <ClInclude Include="src\cursors\HelmetCursor.h" />
+    <ClInclude Include="src\cursors\NormalCursor.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="addons.make" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

@@ -2,11 +2,25 @@
 #include "renderer.h"
 #include "ofxGui.h"
 #include "ofMain.h"
+#include "./cursors/AllCursorsHeader.h"
+
 
 class menugauche
 {
 public:
 
+	menugauche();
+	menugauche(Renderer* renderer);
+	Cursor* _cursor;
+	SwordCursor swordCursor;
+	ChestPlateCursor chestPlate;
+	LeggingsCursor leggingsCursor;
+	BootsCursor bootsCursor;
+	ShieldCursor shieldCursor;
+	HelmetCursor helmetCursor;
+	NormalCursor normalCursor;
+
+	Renderer* _renderer;
 	ofColor color;
 	ofxPanel gui;
 	ofxGuiGroup group_draw;
@@ -39,7 +53,7 @@ public:
 
 	void setup();
 
-	void draw();
+	void draw(int positionx,int positiony);
 	void update();
 	vector<string> acceptedCategory;
 	int importedModelCategoryIndex;
