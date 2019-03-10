@@ -13,6 +13,9 @@ public:
 	Transform(aiVector3D pos, const std::vector< std::pair<float, aiVector3D> > &rot, aiVector3D sca);
 	~Transform();
 
+	float getDistFrom(aiVector3D pos);
+	float getDistFrom(float x, float y, float z);
+
 	//Rotation augmentation related methods
 	void addRotation(std::pair<float, aiVector3D> rotation);
 	void addRotation(float angle, aiVector3D rot);
