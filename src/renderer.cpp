@@ -70,6 +70,8 @@ void Renderer::setup()
 	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
 	//EasyCam.rollDeg(180.f);
 	//EasyCam.lookAt(_character->getMesh().getPosition());
+
+	/* For debug purposes
 	_sword = std::make_shared<Sword>(Sword());
 	_helmet = std::make_shared<Helmet>(Helmet());
 	_cape = std::make_shared<Cape>(Cape());
@@ -97,7 +99,7 @@ void Renderer::setup()
 	_armor->getTransform().setScale(.2, .2, .2);
 	_legging->getTransform().setScale(.2, .2, .2);
 	_boots->getTransform().setScale(.2, .2, .2);
-
+	*/
 }
 
 
@@ -203,12 +205,14 @@ void Renderer::draw()
 	light.enable();
 	_character->draw();
 
+	/* For debug purposes
 	_sword.get()->draw();
 	_helmet.get()->draw();
 	_cape.get()->draw();
 	_armor.get()->draw();
 	_legging.get()->draw();
 	_boots.get()->draw();
+	*/
 
 	// activer le shader
 	shader.begin();

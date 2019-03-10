@@ -66,11 +66,12 @@ public:
 private:
 	Character* _character;
 	vector<GameObject*> equipments;
+	/* For debug purposes
 	std::shared_ptr<Sword> _sword;
 	std::shared_ptr<Helmet> _helmet;
 	std::shared_ptr<Cape> _cape;
 	std::shared_ptr<Armor> _armor;
 	std::shared_ptr<Legging> _legging;
 	std::shared_ptr<Boots> _boots;
-
+	*/
 };
