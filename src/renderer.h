@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxAssimpModelLoader.h"
+#include "Skybox_Loader.h"
+#include "Shader_Loader.h"
 #include "../Character.h"
 #include "../Shield.h"
 #include "../Sword.h"
@@ -55,6 +57,16 @@ public:
 
 	GameObject* _Bird3;
 	int _Bird3X, _Bird3Y, _Bird3Z;
+  GLuint skyboxProgram;
+  Skybox_Loader Skybox;
+  ofShader ofSkybox;
+
+  glm::vec3 g_Position = glm::vec3(0.0f, 0.0f, -30.0f);
+  glm::vec3 g_Direction = glm::vec3(0.0f, 0.0f, 1.0f);
+  glm::vec3 g_Orientation = glm::vec3(0.0f, 1.0f, 0.0f);
+  GLfloat g_Yaw = 90.0f;
+  GLfloat g_Pitch = 0.0f;
+
 
 	float center_x;
 	float center_y;

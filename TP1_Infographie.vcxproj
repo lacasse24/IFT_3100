@@ -108,8 +108,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies);assimp32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>soil.lib;%(AdditionalDependencies);assimp32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Dependencies\soil;%(AdditionalLibraryDirectories);..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -220,6 +220,8 @@
     <ClCompile Include="src\cursors\SwordCursor.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Wearable.cpp" />
+    <ClCompile Include="src\Shader_Loader.cpp" />
+    <ClCompile Include="src\Skybox_Loader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armor.h" />
@@ -305,6 +307,8 @@
     <ClInclude Include="Sword.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Wearable.h" />
+    <ClInclude Include="src\Shader_Loader.h" />
+    <ClInclude Include="src\Skybox_Loader.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

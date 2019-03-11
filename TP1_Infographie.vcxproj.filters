@@ -71,6 +71,8 @@
     <ClCompile Include="src\cursors\HelmetCursor.cpp" />
     <ClCompile Include="src\cursors\NormalCursor.cpp" />
     <ClCompile Include="BoundingBox.cpp" />
+    <ClCompile Include="src\Skybox_Loader.cpp" />
+    <ClCompile Include="src\Shader_Loader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -311,6 +313,8 @@
     <ClInclude Include="src\cursors\HelmetCursor.h" />
     <ClInclude Include="src\cursors\NormalCursor.h" />
     <ClInclude Include="BoundingBox.h" />
+    <ClInclude Include="src\Skybox_Loader.h" />
+    <ClInclude Include="src\Shader_Loader.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
