@@ -46,6 +46,16 @@ public:
 
 	BoundingBox _BoundBox;
 
+	GameObject* _Bird;
+	int _Bird1X, _Bird1Y, _Bird1Z;
+	BoundingBox _BirdBoundBox;
+
+	GameObject* _Bird2;
+	int _Bird2X, _Bird2Y, _Bird2Z;
+
+	GameObject* _Bird3;
+	int _Bird3X, _Bird3Y, _Bird3Z;
+
 	float center_x;
 	float center_y;
   
