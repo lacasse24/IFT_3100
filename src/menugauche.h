@@ -38,7 +38,7 @@ public:
 	ofxGuiGroup menuSword;
 
 	ofxGuiGroup menuImport;
-	ofxButton btnDHSword, btnGladiatorHelm, btnImportImg, btnImportModel, btnModelCategory;
+	ofxButton btnDHSword, btnGladiatorHelm, btnImportImg, btnImportModel, btnModelCategory, btnShield, btnArmor;
 
 	bool importImgOk, importModelOk, modelCategoryOk;
 

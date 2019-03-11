@@ -49,7 +49,13 @@ void menugauche::setup()
 
 	
 	menuShield.setup("Shield");
+	menuShield.add(btnShield.setup(""));
+	setButton(btnShield, "Spiked Shield");
+
 	menuPlatebody.setup("Armor");
+	menuPlatebody.add(btnArmor.setup(""));
+	setButton(btnArmor, "Heavy ChestPlate");
+
 	menuPlatelegs.setup("Legging");
 	menuBoots.setup("Boots");
 
@@ -164,9 +170,18 @@ void menugauche::btn_Pressed(const void * sender)
 			ofSystemAlertDialog("This category doesn't exist . Please retry.");
 		}
 	}
-	else
+	else if (name == "Spiked Shield")
+	{
+		_cursor = shieldCursor;
+		currentImgPath = "shield.jpg";
+		
+	}
+	else if (name == "Heavy ChestPlate")
+	{
+		_cursor = chestPlateCursor;
+		currentImgPath = "chestplate.jpg";
+	}else
 		currentImgPath = "";
-
 }
 
 
