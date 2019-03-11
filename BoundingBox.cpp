@@ -6,7 +6,7 @@ BoundingBox::BoundingBox()
 	MinX = MaxX = MinY = MaxY = MinZ = MaxZ = 0;
 }
 
-void BoundingBox::CalculateDelimitations(ofxAssimpModelLoader Mesh)
+ofBoxPrimitive BoundingBox::CalculateDelimitations(ofxAssimpModelLoader Mesh, ofBoxPrimitive BoundBox)
 {
 	std::vector<glm::vec3> MeshVertices = Mesh.getMesh(0).getVertices();
 
@@ -33,18 +33,20 @@ void BoundingBox::CalculateDelimitations(ofxAssimpModelLoader Mesh)
 	float SizeY = std::abs(MaxY - MinY);
 	float SizeZ = std::abs(MaxZ - MinZ);
 
-	_BoundBox.setWidth(sizeX);
-	_BoundBox.setHeight(SizeY);
-	_BoundBox.setDepth(SizeZ);
+	BoundBox.setWidth(sizeX);
+	BoundBox.setHeight(SizeY);
+	BoundBox.setDepth(SizeZ);
 
-	_BoundBox.setPosition(MinX, MinY, MinZ);
+	BoundBox.setPosition(MinX, MinY, MinZ);
 
-	ofPoint point = Mesh.getPosition();
-	//_BoundBox.set
+	return BoundBox;
 }
 
-void BoundingBox::draw(GameObject obj)
+ofBoxPrimitive BoundingBox::draw(GameObject obj)
 {
+	ofBoxPrimitive BoundBox;
+	BoundBox = CalculateDelimitations(obj.getMesh(), BoundBox);
+
 	GameObject::draw();
 	_BoundBox.resetTransform();
 
@@ -52,18 +54,22 @@ void BoundingBox::draw(GameObject obj)
 	std::vector< std::pair<float, aiVector3D> > Rot = obj.getTransform().getRotations();
 	for (int i = 1; i < Rot.size(); i++)
 	{
-		_BoundBox.rotateDeg(Rot[i].first, Rot[i].second.x, Rot[i].second.y, Rot[i].second.z);
+		BoundBox.rotateDeg(Rot[i].first, Rot[i].second.x, Rot[i].second.y, Rot[i].second.z);
 		//_BoundBox.rotate(glm::quat(Rot[i].first, Rot[i].second.x, Rot[i].second.y, Rot[i].second.z));
 	}
 
 	// Translate
 	aiVector3D Trans = obj.getTransform().getPosition();
-	_BoundBox.setGlobalPosition(glm::vec3(Trans.x, Trans.y, Trans.z));
+	BoundBox.setGlobalPosition(glm::vec3(Trans.x, Trans.y, Trans.z));
+
+	aiVector3D Scale = obj.getTransform().getScale();
+	BoundBox.setScale(glm::vec3(Scale.x, Scale.y, Scale.z));
 
 
 
-	_BoundBox.setScale(205.f);
-	_BoundBox.drawWireframe();
+	BoundBox.setScale(205.f);
+	//BoundBox.setScale(2.f);
+	//_BoundBox.drawWireframe();
 
-	ofxAssimpModelLoader mesh;
+	return BoundBox;
 }

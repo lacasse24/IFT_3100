@@ -13,6 +13,10 @@ void Renderer::drawCursor(Cursor* pCursor)
 void Renderer::setup()
 {
 	_character = new Character();
+	_Bird = new GameObject();
+	_Bird2 = new GameObject();
+	_Bird3 = new GameObject();
+
 	sphere.move(1400, 800, -2000);
 	sphere.setRadius(120);
 	
@@ -32,6 +36,19 @@ void Renderer::setup()
 	// chargement du modèle
 	//caracter.loadModel("basicman.obj"); old
 	_character->loadModel("Lumberjack/Lumberjack2.fbx");
+	//_owl->loadModel("Owl/Superb_Owl.fbx");
+
+	_Bird->loadModel("Bird/Birdo.fbx");
+	_Bird->disableMaterials();
+
+	_Bird2->loadModel("Bird/Birdo.fbx");
+	_Bird2->disableMaterials();
+
+	_Bird3->loadModel("Bird/Birdo.fbx");
+	_Bird3->disableMaterials();
+
+
+
 	ofTexture t = _character->getMesh().getTextureForMesh(0);
 
 	// Chargement textures
@@ -59,10 +76,40 @@ void Renderer::setup()
 	use_rotation = false;
 
 	// Important de faire cette etape avant de faire un setRotation
-	//_character->getTransform().addRotation(180.f, 1.0f, 0.0f, 0.0f);
+	//_character->getTransform().addRotation(180.f, 1.0f, 0.0f, 0.0f);è
+
+	// Oiseau 1
 	_character->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
 	_character->getTransform().addRotation(0.f, 0.0f, 1.0f, 0.0f);
+
+	_Bird->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
+	_Bird->getTransform().addRotation(90.f, 0.f, 1.f, 0.f);
+
+	_Bird1X = -2000;
+	_Bird1Y = 500;
+	_Bird1Z = -700;
+
+	_Bird->getTransform().setPosition(_Bird2X, _Bird2Y, _Bird2Z);
+
+	// Oiseau 2
+	_Bird2->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
+	_Bird2->getTransform().addRotation(-90.f, 0.f, 1.f, 0.f);
+
+	_Bird2X = 1000;
+	_Bird2Y = 900;
+	_Bird2Z = -1200;
+
+	_Bird2->getTransform().setPosition(_Bird2X, _Bird2Y, _Bird2Z);
 	
+	// Oiseau 2
+	_Bird3->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
+	_Bird3->getTransform().addRotation(-90.f, 0.f, 1.f, 0.f);
+
+	_Bird3X = -1000;
+	_Bird3Y = 750;
+	_Bird3Z = -1500;
+
+	_Bird3->getTransform().setPosition(_Bird3X, _Bird3Y, _Bird3Z);
 	
 
 	// chargement du shader
@@ -74,7 +121,7 @@ void Renderer::setup()
 	
 
 	// Caméra
-	EasyCam.setFarClip(5000.f);
+	EasyCam.setFarClip(10000.f);
 
 
 
@@ -156,13 +203,27 @@ void Renderer::update()
 	//caracter.setPosition(center_x, center_y + 90, 0); old
 	_character->getTransform().setPosition(50, 0, 0);
 
-	_BoundBox.CalculateDelimitations(_character->getMesh());
-
 
 	if (use_rotation)
 	{
 		_character->getTransform().setRotation(1, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
 	}
+
+	
+	// Mouvement de l'oiseau 1
+	_Bird->getTransform().setPosition(_Bird1X, _Bird1Y, _Bird1Z);
+	if (_Bird1X > 2000) { _Bird1X = -2000; }
+	else { _Bird1X += 10; }
+
+	// Mouvement de l'oiseau 2
+	_Bird2->getTransform().setPosition(_Bird2X, _Bird2Y, _Bird2Z);
+	if (_Bird2X < -2000) { _Bird2X = 2000; }
+	else { _Bird2X -= 7; }
+
+	// Mouvement de l'oiseau 2
+	_Bird3->getTransform().setPosition(_Bird3X, _Bird3Y, _Bird3Z);
+	if (_Bird3X < -2000) { _Bird3X = 2000; }
+	else { _Bird3X -= 11; }
 
 	// configuration de la lumière
 	light.setPointLight();
@@ -188,7 +249,13 @@ void Renderer::draw()
 
 	_character->draw();
 
-	
+	//_owl->draw();
+
+	_Bird->draw();
+	_Bird2->draw();
+	_Bird3->draw();
+
+
 	ofPushStyle(); // push the current style for use later
 	ofSetColor(backgroundColor);
 	pedSphere1.draw();
@@ -199,27 +266,18 @@ void Renderer::draw()
 	shader.begin();
 
 
-	std::vector<glm::vec3> MeshVertices = _character->getMesh().getMesh(0).getVertices();
-	ofPoint p = _character->getMesh().getScale();
-	ofMatrix4x4 m =  _character->getMesh().getModelMatrix();
-
-	_BoundBox.draw(*_character);
-
-	BBox.setScale(205.f);
-	BBox.drawWireframe();
-	
-
-	// dessiner le caracter
+	//_BoundBox.CalculateDelimitations(_character->getMesh());
+	_BoundBox.draw(*_character).drawWireframe();
 
 
-	
+
 	for (int i = 0; i < equipments.size(); i++)
 	{
 		equipments[i]->draw();
 	}
-	
+
 	aiVector3D pos = _character->getTransform().getPosition();
-	
+
 
 	box.setPosition(pos.x, pos.y - 240, pos.z);
 	boxSecond.setPosition(pos.x - 110, pos.y - 240, pos.z);
@@ -231,17 +289,17 @@ void Renderer::draw()
 	box.draw();
 	boxSecond.draw();
 	boxThird.draw();
-	
+
 
 	// désactiver le shader
 	shader.end();
 
-	
+
 	Sun.bind();
 	sphere.draw();
 	Sun.unbind();
 	sphere.roll(1);
-	
+
 	//x,y,z,w,h
 	DrawSkyBox(SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright, 5000);
 
@@ -255,8 +313,10 @@ void Renderer::draw()
 
 	// désactiver l'occlusion en profondeur
 	ofDisableDepthTest();
-	
-    font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+
+	font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
+
+	if (EasyCam.getDistance() > 1000) { EasyCam.setDistance(1000); }
 
 	EasyCam.end();
 
