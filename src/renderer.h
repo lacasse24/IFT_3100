@@ -16,7 +16,7 @@
 class Renderer
 {
 public:
-
+	ofImage imageFiltre;
 	ofShader shader;
 	ofImage previewImg;
 	ofTrueTypeFont font;
@@ -40,6 +40,8 @@ public:
 	ofTexture SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright;
 	ofPoint points[4];
 
+	void filterinvert();
+	void filterbackwhite();
 	void drawCursor(Cursor* cursor);
 
 	BoundingBox _BoundBox;
@@ -62,8 +64,10 @@ public:
 	int mouse_current_y;
 	int lastSize = 0;
 	void updateModelShader(float h, float s, float b);
+	void filterColourBlind();
 	ofColor HSVtoRGB(int H, double S, double V);
 	void DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height);
+
 	void DrawBoundingBox(ofxAssimpModelLoader model);
 
 private:

@@ -87,6 +87,18 @@ void Application::keyReleased(int key)
 		startednumberframe = ofGetFrameNum();
 		frameCounter = 0;
 	}
+	if (key == 'q')
+	{
+		renderer.filterinvert();
+	}
+	if (key == 'w')
+	{
+		renderer.filterbackwhite();
+	}
+	if (key == 'e')
+	{
+		renderer.filterColourBlind();
+	}
 }
 
 void Application::exit()
