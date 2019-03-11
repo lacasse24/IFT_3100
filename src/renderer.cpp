@@ -128,42 +128,48 @@ void Renderer::setup()
 	// Camera
 	EasyCam.setFarClip(10000.f);
 
-	/* For debug purposes
+	//* For debug purposes
 	_sword = std::make_shared<Sword>(Sword());
+	_shield = std::make_shared<Shield>(Shield());
 	_helmet = std::make_shared<Helmet>(Helmet());
 	_cape = std::make_shared<Cape>(Cape());
 	_armor = std::make_shared<Armor>(Armor());
 	_legging = std::make_shared<Legging>(Legging());
 	_boots = std::make_shared<Boots>(Boots());
 
-	_sword->loadModel("testBox.obj");
-	_helmet->loadModel("testBox.obj");
-	_cape->loadModel("testBox.obj");
-	_armor->loadModel("testBox.obj");
-	_legging->loadModel("testBox.obj");
-	_boots->loadModel("testBox.obj");
+	_sword->loadModel("sword.obj");
+	_shield->loadModel("shield2.obj");
+	_helmet->loadModel("helmet.obj");
+	_cape->loadModel("cape.obj");
+	_armor->loadModel("armor2.obj");
+	_legging->loadModel("legging.obj");
+	_boots->loadModel("boots.obj");
 
 	_character->equipLeftHand(_sword);
+	_character->equipRightHand(_shield);
 	_character->equipHelmet(_helmet);
 	_character->equipCape(_cape);
 	_character->equipArmor(_armor);
 	_character->equipLegging(_legging);
 	_character->equipBoots(_boots);
 
-	_sword->getTransform().setScale(.2, .2, .2);
-	_helmet->getTransform().setScale(.2, .2, .2);
-	_cape->getTransform().setScale(.2, .2, .2);
-	_armor->getTransform().setScale(.2, .2, .2);
-	_legging->getTransform().setScale(.2, .2, .2);
-	_boots->getTransform().setScale(.2, .2, .2);
-	*/
-
 	//EasyCam.setDistance(300.f);
 	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
 	//EasyCam.rollDeg(180.f);
 	//EasyCam.lookAt(_character->getMesh().getPosition());
 	imageFiltre.load("./Img/saloon.jpg");
+	
+	//_sword->getTransform().setScale(.2, .2, .2);
+	_shield->getTransform().setScale(.7, .7, .7);
+	//_helmet->getTransform().setScale(.2, .2, .2);
+	_cape->getTransform().setScale(5, 5, 5);
+	_armor->getTransform().setScale(.7, .7, .7);
+	_legging->getTransform().setScale(.75, .85, .9);
+	_boots->getTransform().setScale(.3, .4, .4);
 
+	_sword->getTransform().addRotation(270, 0, 1, 0);
+	_shield->getTransform().setPosition(0, -20, 0);
+	/**/
 }
 
 
@@ -287,17 +293,6 @@ void Renderer::draw()
 	_Bird->draw();
 	_Bird2->draw();
 	_Bird3->draw();
-
-
-
-	/* For debug purposes
-	_sword.get()->draw();
-	_helmet.get()->draw();
-	_cape.get()->draw();
-	_armor.get()->draw();
-	_legging.get()->draw();
-	_boots.get()->draw();
-	*/
 	
 	ofPushStyle(); // push the current style for use later
 	ofSetColor(backgroundColor);
@@ -308,6 +303,16 @@ void Renderer::draw()
 	int dimensionx = 850;
 	int dimensiony = 400;
 	imageFiltre.draw(dimensionx / -2, dimensiony / -2, -90, dimensionx, dimensiony);
+
+	//* For debug purposes
+	_sword.get()->draw();
+	_shield.get()->draw();
+	_helmet.get()->draw();
+	_cape.get()->draw();
+	_armor.get()->draw();
+	_legging.get()->draw();
+	_boots.get()->draw();
+	/**/
 
 
 	// activer le shader
