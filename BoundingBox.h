@@ -9,8 +9,8 @@ public:
 	BoundingBox();
 	//~BoundingBox();
 
-	void CalculateDelimitations(ofxAssimpModelLoader Mesh);
-	void draw(GameObject obj);
+	ofBoxPrimitive CalculateDelimitations(ofxAssimpModelLoader Mesh, ofBoxPrimitive BoundBox);
+	ofBoxPrimitive draw(GameObject obj);
 
 private:
 	float MinX, MaxX, MinY, MaxY, MinZ, MaxZ;
