@@ -234,7 +234,7 @@ void Renderer::update()
 
 	_character->getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
 	//caracter.setPosition(center_x, center_y + 90, 0); old
-	_character->getTransform().setPosition(50, 0, 0);
+	_character->getTransform().setPosition(0, 0, 0);
 
 
 	if (use_rotation)
