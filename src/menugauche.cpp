@@ -78,8 +78,6 @@ void menugauche::setup()
 	gui.add(&group_draw);
 	gui.add(&menuEquipments);
 
-	
-
 }
 
 void menugauche::draw(int positionx,int positiony)

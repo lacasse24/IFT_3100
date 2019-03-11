@@ -16,6 +16,7 @@
 class Renderer
 {
 public:
+	ofVec3f  vect3d;
 	ofImage imageFiltre;
 	ofShader shader;
 	ofImage previewImg;

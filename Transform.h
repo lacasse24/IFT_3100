@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include <utility>
+#include "ofmain.h"
 
 class Transform
 {

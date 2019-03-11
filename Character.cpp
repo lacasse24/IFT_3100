@@ -56,7 +56,7 @@ void Character::draw()
 	GameObject::draw();
 }
 
-bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
+bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y, float z)
 {
 	if (obj == nullptr)
 		return false;
@@ -65,7 +65,7 @@ bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 	float dist = 0;
 	bool empty = true;
 
-	dist = _lhTransform.getDistFrom(x, y, 0);
+	dist = _lhTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
@@ -73,7 +73,7 @@ bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 		empty = emptyLeftHand();
 	}
 
-	dist = _rhTransform.getDistFrom(x, y, 0);
+	dist = _rhTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
@@ -81,7 +81,7 @@ bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 		empty = emptyRightHand();
 	}
 
-	dist = _hTransform.getDistFrom(x, y, 0);
+	dist = _hTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
@@ -89,7 +89,7 @@ bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 		empty = emptyHelmet();
 	}
 
-	dist = _cTransform.getDistFrom(x, y, 0);
+	dist = _cTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
@@ -97,7 +97,7 @@ bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 		empty = emptyCape();
 	}
 
-	dist = _aTransform.getDistFrom(x, y, 0);
+	dist = _aTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
@@ -105,7 +105,7 @@ bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 		empty = emptyArmor();
 	}
 
-	dist = _lTransform.getDistFrom(x, y, 0);
+	dist = _lTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
@@ -113,7 +113,7 @@ bool Character::canEquip(shared_ptr<GameObject> obj, float x, float y)
 		empty = emptyLegging();
 	}
 
-	dist = _bTransform.getDistFrom(x, y, 0);
+	dist = _bTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
@@ -160,58 +160,58 @@ bool Character::emptyBoots()
 	return _boots == nullptr;
 }
 
-bool Character::equip(shared_ptr<GameObject> go, float x, float y)
+bool Character::equip(shared_ptr<GameObject> go, float x, float y, float z)
 {
-	if (!canEquip(go, x, y))
+	if (!canEquip(go, x, y,z))
 		return false;
 
 	int current = -1;
 	float best = 43;
 	float dist = 0;
 
-	dist = _lhTransform.getDistFrom(x, y, 0);
+	dist = _lhTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 0;
 	}
 
-	dist = _rhTransform.getDistFrom(x, y, 0);
+	dist = _rhTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 1;
 	}
 
-	dist = _hTransform.getDistFrom(x, y, 0);
+	dist = _hTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 2;
 	}
 
-	dist = _cTransform.getDistFrom(x, y, 0);
+	dist = _cTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 3;
 	}
 
-	dist = _aTransform.getDistFrom(x, y, 0);
+	dist = _aTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 4;
 	}
 
-	dist = _lTransform.getDistFrom(x, y, 0);
+	dist = _lTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 5;
 	}
 
-	dist = _bTransform.getDistFrom(x, y, 0);
+	dist = _bTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
@@ -319,56 +319,56 @@ bool Character::equipBoots(std::shared_ptr<Boots> boots)
 	return true;
 }
 
-std::shared_ptr<GameObject> Character::unequip(float x, float y)
+std::shared_ptr<GameObject> Character::unequip(float x, float y, float z)
 {
 	shared_ptr<GameObject> unequiped = nullptr;
 	int current = -1;
 	float best = 43;
 	float dist = 0;
 
-	dist = _lhTransform.getDistFrom(x, y, 0);
+	dist = _lhTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 0;
 	}
 
-	dist = _rhTransform.getDistFrom(x, y, 0);
+	dist = _rhTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 1;
 	}
 
-	dist = _hTransform.getDistFrom(x, y, 0);
+	dist = _hTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 2;
 	}
 
-	dist = _cTransform.getDistFrom(x, y, 0);
+	dist = _cTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 3;
 	}
 
-	dist = _aTransform.getDistFrom(x, y, 0);
+	dist = _aTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 4;
 	}
 
-	dist = _lTransform.getDistFrom(x, y, 0);
+	dist = _lTransform.getDistFrom(x, y, z);
 	if (dist < best)
 	{
 		best = dist;
 		current = 5;
 	}
 
-	dist = _bTransform.getDistFrom(x, y, 0);
+	dist = _bTransform.getDistFrom(x, y, );
 	if (dist < best)
 	{
 		best = dist;

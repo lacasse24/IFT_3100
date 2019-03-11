@@ -39,6 +39,9 @@ public:
 
 	ofxGuiGroup menuImport;
 	ofxButton btnDHSword, btnGladiatorHelm, btnImportImg, btnImportModel, btnModelCategory;
+	ofxGuiGroup menuDessinVectoriel;
+	ofxPanel dessinvectoriel;
+
 
 	bool importImgOk, importModelOk, modelCategoryOk;
 

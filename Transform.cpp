@@ -25,8 +25,10 @@ Transform::~Transform()
 
 float Transform::getDistFrom(aiVector3D pos)
 {
-	int x = pos.x - _position.x, y = pos.y - _position.y, z = pos.z - _position.z;
-	return sqrt(x*x + y*y + z*z);
+	int x = pos.x, y = pos.y, z = pos.z;
+	ofVec3f vector = ofVec3f(x, y, z);
+	ofVec3f point = ofVec3f(_position.x, _position.y, _position.z);
+	float resultat = (point - vector.scale(point.dot(vector))).length();
 }
 
 float Transform::getDistFrom(float x, float y, float z)

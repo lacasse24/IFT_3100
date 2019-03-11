@@ -147,7 +147,7 @@ void Renderer::update()
 		{
 			Sword* item = new Sword(std::get<0>(lastElem));
 			equipments.push_back(item);
-			//_character->equipLeftHand(make_shared<Sword>(*item));
+			_character->equip(item, vect3d.x, vect3d.y, vect3d.z);
 		}
 		else if (std::get<1>(lastElem) == "Armor")
 		{
@@ -201,13 +201,19 @@ void Renderer::update()
 	light.setPointLight();
 	light.setDiffuseColor(255);
 	light.setGlobalPosition(center_x, center_y, 255.0f);
+
 }
 
 void Renderer::draw()
 {
 
 	EasyCam.begin();
-
+	ofVec3f vectorscreen;
+	vectorscreen.x = mousePosX;
+	vectorscreen.y = mousePosY;
+	vectorscreen.z = 0;
+	vect3d = EasyCam.cameraToWorld(vectorscreen);
+	
 	//ofClear(backgroundColor);
 
 	// activer l'occlusion en profondeur
@@ -314,11 +320,8 @@ void Renderer::draw()
 
 void Renderer::DrawBoundingBox(ofxAssimpModelLoader model)
 {
-
    previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
    EasyCam.end();
-	
-
 }
 
 void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height)
