@@ -37,13 +37,13 @@ void Character::setup()
 	_lTransform.parentTo(_transform.get());
 	_bTransform.parentTo(_transform.get());
 
-	_lhTransform.setPosition(170, 100, -10);
-	_rhTransform.setPosition(-170, 100, -10);
+	_lhTransform.setPosition(170, 130, 0);
+	_rhTransform.setPosition(-170, 130, 0);
 	_hTransform.setPosition(0, 160, -10);
 	_cTransform.setPosition(0, 120, -10);
-	_aTransform.setPosition(0, 80, -10);
-	_lTransform.setPosition(0, -20, -10);
-	_bTransform.setPosition(0, -170, 0);
+	_aTransform.setPosition(0, 100, -10);
+	_lTransform.setPosition(0, -20, 0);
+	_bTransform.setPosition(0, -170, 10);
 }
 
 void Character::update()
