@@ -1,7 +1,7 @@
 #pragma once
 #include <ofMain.h>
-#include "GameObject.h"
-#include "Character.h"
+#include "GameObjects/GameObject.h"
+#include "GameObjects/Character.h"
 
 class BoundingBox : public GameObject
 {

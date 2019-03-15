@@ -14,19 +14,10 @@ void Renderer::drawCursor(Cursor* pCursor)
 
 void Renderer::setup()
 {
-	_character = new Character();
-	_character->setup();
-
-	_Bird = new GameObject();
-	_Bird2 = new GameObject();
-	_Bird3 = new GameObject();
-
 	sphere.move(1400, 800, -2000);
 	sphere.setRadius(120);
-	//sphere.setPosition(ofGetWidth()*2, ofGetHeight()*.75, 10000);
-	//cam.setTarget(skybox);
-	//cam.setTarget(sphere);
 	
+	// Window setup
 	ofSetFrameRate(60);
 	ofSetWindowShape(512, 512);
 	backgroundColor.set(255);
@@ -38,10 +29,25 @@ void Renderer::setup()
 	scale_caracter = 1.5f;
 	use_rotation = true;
 
-	// chargement du modèle
-	//caracter.loadModel("basicman.obj"); old
+	//*****************************************************************************
+	//------------------------ chargement des modèles 3d ------------------------//
+	// ------------ Personnage
+	_character = new Character();
+	_character->setup();
 	_character->loadModel("Lumberjack/Lumberjack2.fbx");
-	//_owl->loadModel("Owl/Superb_Owl.fbx");
+
+	_character->disableMaterials();
+	use_rotation = false;
+
+	// Important de faire cette etape avant de faire un setRotation
+	_character->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
+	_character->getTransform().addRotation(0.f, 0.0f, 1.0f, 0.0f);
+
+	//----------------------------------------------------------------------------
+	// ----- Oiseaux
+	_Bird = new GameObject();
+	_Bird2 = new GameObject();
+	_Bird3 = new GameObject();
 
 	_Bird->loadModel("Bird/Birdo.fbx");
 	_Bird->disableMaterials();
@@ -52,41 +58,7 @@ void Renderer::setup()
 	_Bird3->loadModel("Bird/Birdo.fbx");
 	_Bird3->disableMaterials();
 
-
-
-	ofTexture t = _character->getMesh().getTextureForMesh(0);
-
-	// Chargement textures
-	ofLoadImage(SBbk,	"Img/SkyBox/siege_bk.tga");
-	ofLoadImage(SBfrnt,	"Img/SkyBox/siege_ft.tga");
-	ofLoadImage(SBtop,	"Img/SkyBox/siege_up.tga");
-	ofLoadImage(SBbtm,	"Img/SkyBox/siege_dn.tga");
-	ofLoadImage(SBleft, "Img/SkyBox/siege_lf.tga");
-	ofLoadImage(SBright,"Img/SkyBox/siege_rt.tga");
-
-	ofDisableArbTex();
-	ofLoadImage(Sun, "Img/sun.png");
-
-	box.setWidth(110);
-	box.setHeight(110);
-	boxSecond.setWidth(110);
-	boxSecond.setHeight(70);
-	boxThird.setWidth(110);
-	boxThird.setHeight(50);
-	pedSphere1.setRadius(50);
-	pedSphere2.setRadius(50);
-
-	// désactiver le matériau par défaut du modèle
-	_character->disableMaterials();
-	use_rotation = false;
-
-	// Important de faire cette etape avant de faire un setRotation
-	//_character->getTransform().addRotation(180.f, 1.0f, 0.0f, 0.0f);è
-
 	// Oiseau 1
-	_character->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
-	_character->getTransform().addRotation(0.f, 0.0f, 1.0f, 0.0f);
-
 	_Bird->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
 	_Bird->getTransform().addRotation(90.f, 0.f, 1.f, 0.f);
 
@@ -105,8 +77,8 @@ void Renderer::setup()
 	_Bird2Z = -1200;
 
 	_Bird2->getTransform().setPosition(_Bird2X, _Bird2Y, _Bird2Z);
-	
-	// Oiseau 2
+
+	// Oiseau 3
 	_Bird3->getTransform().addRotation(180.f, 0.0f, 0.0f, 1.0f);
 	_Bird3->getTransform().addRotation(-90.f, 0.f, 1.f, 0.f);
 
@@ -115,20 +87,18 @@ void Renderer::setup()
 	_Bird3Z = -1500;
 
 	_Bird3->getTransform().setPosition(_Bird3X, _Bird3Y, _Bird3Z);
-	
 
-	// chargement du shader
-	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
+	//*****************************************************************************
+	//---------------------- Chargement textures du skybox ----------------------//
+	ofLoadImage(SBbk,	"Img/SkyBox/siege_bk.tga");
+	ofLoadImage(SBfrnt,	"Img/SkyBox/siege_ft.tga");
+	ofLoadImage(SBtop,	"Img/SkyBox/siege_up.tga");
+	ofLoadImage(SBbtm,	"Img/SkyBox/siege_dn.tga");
+	ofLoadImage(SBleft, "Img/SkyBox/siege_lf.tga");
+	ofLoadImage(SBright,"Img/SkyBox/siege_rt.tga");
 
-
-	ofDisableAlphaBlending();
-	ofEnableDepthTest();
-	
-
-	// Camera
-	EasyCam.setFarClip(10000.f);
-
-	//* For debug purposes
+	//*****************************************************************************
+	//------------------------ Configuration de l'armure ------------------------//
 	_sword = std::make_shared<Sword>(Sword());
 	_shield = std::make_shared<Shield>(Shield());
 	_helmet = std::make_shared<Helmet>(Helmet());
@@ -153,12 +123,6 @@ void Renderer::setup()
 	_character->equipLegging(_legging);
 	_character->equipBoots(_boots);
 
-	//EasyCam.setDistance(300.f);
-	//EasyCam.setGlobalPosition(glm::vec3(0.f, 0.f, 0.f));
-	//EasyCam.rollDeg(180.f);
-	//EasyCam.lookAt(_character->getMesh().getPosition());
-	imageFiltre.load("./Img/saloon.jpg");
-	
 	//_sword->getTransform().setScale(.2, .2, .2);
 	_shield->getTransform().setScale(.7, .7, .7);
 	//_helmet->getTransform().setScale(.2, .2, .2);
@@ -169,7 +133,41 @@ void Renderer::setup()
 
 	_sword->getTransform().addRotation(270, 0, 1, 0);
 	_shield->getTransform().setPosition(0, -20, 0);
-	/**/
+
+
+	//*****************************************************************************
+	//-------------------------- Autres configurations --------------------------//
+	//----------------------------------------------------------------------------
+	//----------- Soleil
+	ofLoadImage(Sun, "Img/sun.png");
+
+	//----------- Boxes
+	box.setWidth(110);
+	box.setHeight(110);
+	boxSecond.setWidth(110);
+	boxSecond.setHeight(70);
+	boxThird.setWidth(110);
+	boxThird.setHeight(50);
+	pedSphere1.setRadius(50);
+	pedSphere2.setRadius(50);
+
+	//----------------------------------------------------------------------------
+	//----------- Image à filtrer
+	imageFiltre.load("./Img/saloon.jpg");
+
+	//----------------------------------------------------------------------------
+	//----------- Chargement du shader
+	shader.load("lambert_330_vs.glsl", "lambert_330_fs.glsl");
+
+	//----------------------------------------------------------------------------
+	//----------- Config des textures
+	ofDisableArbTex();
+	ofDisableAlphaBlending();
+	ofEnableDepthTest();
+
+	//----------------------------------------------------------------------------
+	//----------- Caméra
+	EasyCam.setFarClip(10000.f);
 }
 
 
@@ -191,6 +189,8 @@ void Renderer::update()
 		
 	}
 
+	//*****************************************************************************
+	//-------------------------- Update des équipements -------------------------//
 	if (strEquipments.size() != lastSize)
 	{
 		tuple<string, string> lastElem = strEquipments[strEquipments.size() - 1];
@@ -232,22 +232,22 @@ void Renderer::update()
 		lastSize = strEquipments.size();
 	}
 
-	// position au centre de la fenêtre d'affichage
+	//----------------------------------------------------------------------------
+	//----------- position au centre de la fenêtre d'affichage
 	center_x = ofGetWidth() / 2.0f;
 	center_y = ofGetHeight() / 2.0f;
 
-	// transformation du caracter
-
+	//*****************************************************************************
+	//----------------------- Transformations du character -----------------------//
 	_character->getTransform().setScale(scale_caracter, scale_caracter, scale_caracter);
-	//caracter.setPosition(center_x, center_y + 90, 0); old
 	_character->getTransform().setPosition(0, 0, 0);
-
 
 	if (use_rotation)
 	{
 		_character->getTransform().setRotation(1, ofGetFrameNum() * 0.3f, 0.0f, 1.0f, 0.0f);
 	}
 
+	
 	
 	// Mouvement de l'oiseau 1
 	_Bird->getTransform().setPosition(_Bird1X, _Bird1Y, _Bird1Z);
@@ -264,7 +264,8 @@ void Renderer::update()
 	if (_Bird3X < -2000) { _Bird3X = 2000; }
 	else { _Bird3X -= 11; }
 
-	// configuration de la lumière
+	//----------------------------------------------------------------------------
+	//----------- configuration de la lumière
 	light.setPointLight();
 	light.setDiffuseColor(255);
 	light.setGlobalPosition(center_x, center_y, 255.0f);
@@ -272,39 +273,41 @@ void Renderer::update()
 
 void Renderer::draw()
 {
-
+	//*****************************************************************************
+	//----------------------- Activation des éléments d'OF ----------------------//
+	//----------- Activation de la lumière
 	EasyCam.begin();
-
-	//ofClear(backgroundColor);
-
-	// activer l'occlusion en profondeur
+	//----------- activer l'occlusion en profondeur
 	ofEnableDepthTest();
-
-	// activer l'éclairage dynamique
+	//----------- activer l'éclairage dynamique
 	ofEnableLighting();
-
-	// activer la lumière
+	//----------- activer la lumière
 	light.enable();
 
+
+	//*****************************************************************************
+	//---------------------------- Dessin des éléments --------------------------//
+	//----------- Personnage
 	_character->draw();
 
-	//_owl->draw();
-
+	//----------- Oiseuax
 	_Bird->draw();
 	_Bird2->draw();
 	_Bird3->draw();
 	
+	//----------- Sphères
 	ofPushStyle(); // push the current style for use later
 	ofSetColor(backgroundColor);
 	pedSphere1.draw();
 	pedSphere2.draw();
 	ofPopStyle();   // recall the pushed style
 
+	//----------- Image filtrée
 	int dimensionx = 850;
 	int dimensiony = 400;
 	imageFiltre.draw(dimensionx / -2, dimensiony / -2, -90, dimensionx, dimensiony);
 
-	//* For debug purposes
+	//----------- Armure
 	_sword.get()->draw();
 	_shield.get()->draw();
 	_helmet.get()->draw();
@@ -312,25 +315,19 @@ void Renderer::draw()
 	_armor.get()->draw();
 	_legging.get()->draw();
 	_boots.get()->draw();
-	/**/
-
-
-	// activer le shader
-	shader.begin();
-
-
-	//_BoundBox.CalculateDelimitations(_character->getMesh());
-	_BoundBox.draw(*_character).drawWireframe();
-
-
 
 	for (int i = 0; i < equipments.size(); i++)
 	{
 		equipments[i]->draw();
 	}
 
-	aiVector3D pos = _character->getTransform().getPosition();
 
+	//----------- Activer shader
+	shader.begin();
+
+
+	//----------- Podium
+	aiVector3D pos = _character->getTransform().getPosition();
 
 	box.setPosition(pos.x, pos.y - 240, pos.z);
 	boxSecond.setPosition(pos.x - 110, pos.y - 240, pos.z);
@@ -344,20 +341,23 @@ void Renderer::draw()
 	boxThird.draw();
 
 
-	// désactiver le shader
+	//----------- désactiver le shader
 	shader.end();
 
 
+	//----------- Soleil
 	Sun.bind();
 	sphere.draw();
 	Sun.unbind();
 	sphere.roll(1);
-
-	//x,y,z,w,h
-	DrawSkyBox(SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright, 5000);
-
 	sphere.draw();
 
+	//----------- Skybox
+	DrawSkyBox(SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright, 5000);
+
+
+	//*****************************************************************************
+	//---------------------- Désactivation des éléments d'OF --------------------//
 	// désactiver la lumière
 	light.disable();
 
@@ -368,10 +368,13 @@ void Renderer::draw()
 	ofDisableDepthTest();
 
 
+	//----------------------------------------------------------------------------
+	//----------- Bloquer la caméra à 1000
 	if (EasyCam.getDistance() > 1000) { EasyCam.setDistance(1000); }
 
 	EasyCam.end();
 
+	//----------- Text
 	font.drawString('(' + ofToString(mousePosX) + ';' + ofToString(mousePosY) + ')', winWidth - 130, 35);
 	previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
 }
@@ -381,8 +384,6 @@ void Renderer::DrawBoundingBox(ofxAssimpModelLoader model)
 
    previewImg.draw(guiPosition.x, guiPosition.y + guiHeight + 10, 200, 200);
    EasyCam.end();
-	
-
 }
 
 void Renderer::DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height)
@@ -489,10 +490,11 @@ ofColor Renderer::HSVtoRGB(int H, double S, double V) {
 	color.b = (Bs + m) * 255;
 	return color;
 }
+
+//*****************************************************************************
+	//-------------------------------- Filtres ------------------------------//
 void Renderer::filterinvert()
 {
-	
-	
 	imageFiltre.load("./Img/saloon.jpg");
 	int x, y;
 	int index;
