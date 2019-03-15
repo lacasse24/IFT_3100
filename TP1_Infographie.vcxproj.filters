@@ -70,7 +70,6 @@
     <ClCompile Include="src\GameObjects\Shield.cpp" />
     <ClCompile Include="src\GameObjects\Sword.cpp" />
     <ClCompile Include="src\GameObjects\Transform.cpp" />
-    <ClCompile Include="src\BoundingBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -310,7 +309,6 @@
     <ClInclude Include="src\GameObjects\Shield.h" />
     <ClInclude Include="src\GameObjects\Sword.h" />
     <ClInclude Include="src\GameObjects\Transform.h" />
-    <ClInclude Include="src\BoundingBox.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

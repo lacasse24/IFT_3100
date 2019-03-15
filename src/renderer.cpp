@@ -175,6 +175,8 @@ void Renderer::update()
 {
 	// ofSetBackgroundColor(backgroundColor);
 
+	//*****************************************************************************
+	//------------------------------- Preview Image -----------------------------//
 	if (previewImgName != currentImgName)
 	{
 		currentImgName = previewImgName;

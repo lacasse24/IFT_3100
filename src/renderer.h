@@ -9,46 +9,43 @@
 #include "GameObjects/Cape.h"
 #include "GameObjects/Armor.h"
 #include "GameObjects/Boots.h"
-#include "BoundingBox.h"
 #include "GameObjects/GameObject.h"
 #include "./cursors/Cursor.h"
 
 class Renderer
 {
 public:
-	ofImage imageFiltre;
+	//----------------------------------------------------------------------------
+	// ------------ Variables
+	
+
+	// ------------ objets OF
 	ofShader shader;
-	ofImage previewImg;
-	ofTrueTypeFont font;
 	ofLight light;
-	ofEasyCam cam;
-	ofxAssimpModelLoader caracter;
-	ofColor backgroundColor;
-	ofPoint guiPosition;
-	std::string previewImgName = "", currentImgName = "", lastImportedModelPath,importedModelCategory;
-	vector<tuple<string, string>> strEquipments;
-
-
 	ofEasyCam EasyCam;
+	ofTrueTypeFont font;
+	ofColor backgroundColor;
 
+	// ------------ objets GUI
+	ofPoint guiPosition;
+	float center_x;
+	float center_y;
+
+	int guiHeight;
+	int mousePosX, mousePosY;
+	int winWidth, winHeight;
+
+	// ------------ Images
+	ofImage imageFiltre;
+	ofImage previewImg;
+	
+	// ------------ Géométrie	
 	ofBoxPrimitive box, boxSecond, boxThird, plancher,skybox, BBox;
 	ofSpherePrimitive sphere,pedSphere1,pedSphere2;
-
-	// textures
-	ofTexture Sun, Galaxy;
-	ofTexture mTex ,imageTexture;
-	ofTexture SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright;
-	ofPoint points[4];
-
-	void filterinvert();
-	void filterbackwhite();
-	void drawCursor(Cursor* cursor);
-
-	BoundingBox _BoundBox;
+	float scale_caracter;
 
 	GameObject* _Bird;
 	int _Bird1X, _Bird1Y, _Bird1Z;
-	BoundingBox _BirdBoundBox;
 
 	GameObject* _Bird2;
 	int _Bird2X, _Bird2Y, _Bird2Z;
@@ -56,17 +53,27 @@ public:
 	GameObject* _Bird3;
 	int _Bird3X, _Bird3Y, _Bird3Z;
 
-	float center_x;
-	float center_y;
-  
-	int guiHeight;
-	int mousePosX, mousePosY;
-	int winWidth, winHeight;
+	// ------------ textures
+	ofTexture Sun, Galaxy;
+	ofTexture mTex ,imageTexture;
+	ofTexture SBbk, SBfrnt, SBtop, SBbtm, SBleft, SBright;
 
-	float scale_caracter;
+	// ------------ Autre
+	std::string previewImgName = "", 
+				currentImgName = "", 
+				lastImportedModelPath, 
+				importedModelCategory;
+
+	ofPoint points[4];
+
+	vector<tuple<string, string>> strEquipments;
+
+	
 
 	bool use_rotation;
 
+	//----------------------------------------------------------------------------
+	// ------------ Fonctions
 	void setup();
 	void update();
 	void draw();
@@ -77,6 +84,9 @@ public:
 	void filterColourBlind();
 	ofColor HSVtoRGB(int H, double S, double V);
 	void DrawSkyBox(ofTexture bk, ofTexture frnt, ofTexture top, ofTexture btm, ofTexture left, ofTexture right, int height);
+	void filterinvert();
+	void filterbackwhite();
+	void drawCursor(Cursor* cursor);
 
 	void DrawBoundingBox(ofxAssimpModelLoader model);
 

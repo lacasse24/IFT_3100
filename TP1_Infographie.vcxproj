@@ -188,7 +188,6 @@
     <ClCompile Include="src\cursors\ChestPlateCursor.cpp" />
     <ClCompile Include="src\cursors\LeggingsCursor.cpp" />
     <ClCompile Include="src\cursors\BootsCursor.cpp" />
-    <ClCompile Include="src\BoundingBox.cpp" />
     <ClCompile Include="src\GameObjects\Cape.cpp" />
     <ClCompile Include="src\GameObjects\Character.cpp" />
     <ClCompile Include="src\cursors\ShieldCursor.cpp" />
@@ -231,7 +230,6 @@
     <ClInclude Include="src\cursors\ChestPlateCursor.h" />
     <ClInclude Include="src\cursors\LeggingsCursor.h" />
     <ClInclude Include="src\cursors\BootsCursor.h" />
-    <ClInclude Include="src\BoundingBox.h" />
     <ClInclude Include="src\GameObjects\Cape.h" />
     <ClInclude Include="src\GameObjects\Character.h" />
     <ClInclude Include="src\cursors\SwordCursor.h" />
